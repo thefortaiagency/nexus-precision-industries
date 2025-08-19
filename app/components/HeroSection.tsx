@@ -23,6 +23,22 @@ export default function HeroSection({
     medium: 'h-48 sm:h-56 md:h-72',
     large: 'h-56 sm:h-64 md:h-96'
   }
+  
+  // Handle undefined image gracefully
+  if (!image) {
+    console.error(`Hero image not found for page: ${page}`)
+    return (
+      <div className={`relative ${heightClasses[height]} w-full overflow-hidden bg-gradient-to-r from-cyan-600 to-blue-600`}>
+        <div className="absolute inset-0 flex items-center justify-center text-white">
+          <div className="text-center">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">{title}</h1>
+            {subtitle && <p className="text-lg sm:text-xl text-cyan-100">{subtitle}</p>}
+            {children}
+          </div>
+        </div>
+      </div>
+    )
+  }
 
   return (
     <div className={`relative ${heightClasses[height]} w-full overflow-hidden`}>

@@ -1,10 +1,17 @@
 'use client'
 
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Clock, TrendingDown, AlertCircle, Coffee, Calendar, FileText, Calculator, Search } from 'lucide-react'
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 
 export default function TimeScrapReport() {
+  const [dataLoaded, setDataLoaded] = useState(false)
+  
+  useEffect(() => {
+    // Ensure data is loaded on client side
+    setDataLoaded(true)
+  }, [])
+  
   // Data showing management time wasted by traditional ERPs
   const timeWasteData = [
     { 
@@ -126,55 +133,67 @@ export default function TimeScrapReport() {
           <div className="mb-4">
             <p className="text-sm text-gray-600">Monthly hours wasted on manual tasks per role</p>
           </div>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={monthlyScrapHours} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis 
-                dataKey="name" 
-                angle={-45}
-                textAnchor="end"
-                height={60}
-                fontSize={12}
-              />
-              <YAxis 
-                label={{ value: 'Hours/Month', angle: -90, position: 'insideLeft' }}
-              />
-              <Tooltip 
-                formatter={(value, name) => [`${value} hours/month`, name]}
-                labelFormatter={(name) => `Role: ${name}`}
-              />
-              <Legend />
-              <Bar dataKey="traditional" fill="#ef4444" name="Traditional ERP" />
-              <Bar dataKey="nexus" fill="#10b981" name="Nexus" />
-            </BarChart>
-          </ResponsiveContainer>
+          {!dataLoaded ? (
+            <div className="h-[300px] flex items-center justify-center">
+              <div className="text-gray-500">Loading chart data...</div>
+            </div>
+          ) : (
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={monthlyScrapHours} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis 
+                  dataKey="name" 
+                  angle={-45}
+                  textAnchor="end"
+                  height={60}
+                  fontSize={12}
+                />
+                <YAxis 
+                  label={{ value: 'Hours/Month', angle: -90, position: 'insideLeft' }}
+                />
+                <Tooltip 
+                  formatter={(value, name) => [`${value} hours/month`, name]}
+                  labelFormatter={(name) => `Role: ${name}`}
+                />
+                <Legend />
+                <Bar dataKey="traditional" fill="#ef4444" name="Traditional ERP" />
+                <Bar dataKey="nexus" fill="#10b981" name="Nexus" />
+              </BarChart>
+            </ResponsiveContainer>
+          )}
         </div>
 
         <div className="bg-white rounded-xl shadow-lg p-6">
           <h3 className="text-xl font-bold text-gray-900 mb-2">How Managers Spend Their Time</h3>
           <p className="text-sm text-gray-600 mb-4">Traditional ERP vs Nexus - % of time on activities</p>
-          <ResponsiveContainer width="100%" height={300}>
-            <PieChart>
-              <Pie
-                data={pieData}
-                cx="50%"
-                cy="50%"
-                labelLine={false}
-                label={(entry) => `${entry.name}: ${entry.value}%`}
-                outerRadius={80}
-                fill="#8884d8"
-                dataKey="value"
-              >
-                {pieData.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={entry.color} />
-                ))}
-              </Pie>
-              <Tooltip 
-                formatter={(value) => [`${value}%`, 'Time Spent']}
-                labelFormatter={(name) => `Activity: ${name}`}
-              />
-            </PieChart>
-          </ResponsiveContainer>
+          {!dataLoaded ? (
+            <div className="h-[300px] flex items-center justify-center">
+              <div className="text-gray-500">Loading chart data...</div>
+            </div>
+          ) : (
+            <ResponsiveContainer width="100%" height={300}>
+              <PieChart>
+                <Pie
+                  data={pieData}
+                  cx="50%"
+                  cy="50%"
+                  labelLine={false}
+                  label={(entry) => `${entry.name}: ${entry.value}%`}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  dataKey="value"
+                >
+                  {pieData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <Tooltip 
+                  formatter={(value) => [`${value}%`, 'Time Spent']}
+                  labelFormatter={(name) => `Activity: ${name}`}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+          )}
           <div className="mt-4 text-xs text-gray-500">
             <p><strong>Traditional ERP:</strong> 95% time on reports, data hunting, and waiting</p>
             <p><strong>With Nexus:</strong> Flip this - 80% decision making, 20% administration</p>
