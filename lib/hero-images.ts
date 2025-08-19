@@ -46,6 +46,11 @@ export const heroImages = {
     prompt: "Industrial control room with multiple data input terminals, holographic keyboards and displays, real-time data streams flowing into central database visualization, teal and cyan lighting, futuristic interface design, cinematic depth of field",
     unsplashUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", // Data visualization
     overlay: "linear-gradient(to bottom, rgba(13, 148, 136, 0.8), rgba(6, 182, 212, 0.9))"
+  },
+  reports: {
+    prompt: "Advanced manufacturing analytics command center with multiple holographic displays showing real-time production metrics, KPI dashboards floating in space, industrial data visualization with charts and graphs, purple and gold lighting accents, futuristic monitoring station, cinematic wide angle",
+    unsplashUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop", // Data analytics dashboard
+    overlay: "linear-gradient(to bottom, rgba(124, 58, 237, 0.8), rgba(168, 85, 247, 0.9))"
   }
 }
 
