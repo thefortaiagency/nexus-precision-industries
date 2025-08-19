@@ -139,25 +139,50 @@ export default function ERPComparison() {
         subtitle="See how Nexus fills the critical gaps in SAP, Oracle, Microsoft, and NetSuite with AI-powered capabilities"
         height="large"
       >
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-6 sm:mt-8 px-4 sm:px-0">
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-2 text-center">
-            <div className="text-lg sm:text-2xl font-bold">50%</div>
-            <div className="text-xs sm:text-sm">faster reporting</div>
+        {/* Hide stats cards on mobile, show on desktop */}
+        <div className="hidden md:grid md:grid-cols-4 gap-4 mt-8">
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-3 text-center">
+            <div className="text-2xl font-bold">70%</div>
+            <div className="text-sm">faster reporting</div>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-2 text-center">
-            <div className="text-lg sm:text-2xl font-bold">30 days</div>
-            <div className="text-xs sm:text-sm">to value</div>
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-3 text-center">
+            <div className="text-2xl font-bold">30 days</div>
+            <div className="text-sm">to value</div>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-2 text-center">
-            <div className="text-lg sm:text-2xl font-bold">100%</div>
-            <div className="text-xs sm:text-sm">ERP compatible</div>
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-3 text-center">
+            <div className="text-2xl font-bold">100%</div>
+            <div className="text-sm">ERP compatible</div>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-2 text-center">
-            <div className="text-lg sm:text-2xl font-bold">24/7</div>
-            <div className="text-xs sm:text-sm">AI support</div>
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-3 text-center">
+            <div className="text-2xl font-bold">24/7</div>
+            <div className="text-sm">AI support</div>
           </div>
         </div>
       </HeroSection>
+
+      {/* Mobile Stats Section - Show only on mobile */}
+      <div className="md:hidden bg-gradient-to-b from-gray-50 to-white py-8">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-2 gap-4">
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
+              <div className="text-cyan-600 text-2xl font-bold">70%</div>
+              <div className="text-gray-600 text-xs mt-1">Faster Reporting</div>
+            </div>
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
+              <div className="text-cyan-600 text-2xl font-bold">30 Days</div>
+              <div className="text-gray-600 text-xs mt-1">Implementation</div>
+            </div>
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
+              <div className="text-cyan-600 text-2xl font-bold">100%</div>
+              <div className="text-gray-600 text-xs mt-1">ERP Compatible</div>
+            </div>
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 text-center">
+              <div className="text-cyan-600 text-2xl font-bold">24/7</div>
+              <div className="text-gray-600 text-xs mt-1">AI Support</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       {/* Feature Comparison Table */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

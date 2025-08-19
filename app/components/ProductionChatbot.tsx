@@ -208,33 +208,33 @@ Ask me about:
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed inset-4 md:top-20 md:right-4 md:left-auto md:bottom-auto md:w-[480px] md:h-[700px] bg-white rounded-xl shadow-2xl z-50 flex flex-col">
+        <div className="fixed inset-0 md:inset-auto md:top-20 md:right-4 md:w-[480px] md:h-[700px] bg-white md:rounded-xl shadow-2xl z-50 flex flex-col">
           {/* Header */}
-          <div className="bg-gradient-to-r from-cyan-600 to-teal-700 text-white p-3 md:p-4 rounded-t-xl flex items-center justify-between">
-            <div className="flex items-center space-x-2 md:space-x-3">
-              <Factory className="w-5 h-5 md:w-6 md:h-6" />
+          <div className="bg-gradient-to-r from-cyan-600 to-teal-700 text-white p-4 md:rounded-t-xl flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <Factory className="w-5 h-5" />
               <div>
-                <h3 className="font-bold text-sm md:text-base">AI Manufacturing Intelligence</h3>
-                <p className="text-xs text-cyan-100 hidden md:block">Nexus Precision Industries</p>
+                <h3 className="font-bold text-base">AI Assistant</h3>
+                <p className="text-xs text-cyan-100">Nexus Precision</p>
               </div>
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="hover:bg-cyan-700/50 rounded-lg p-1 transition-colors"
+              className="hover:bg-cyan-700/50 rounded-lg p-1.5 transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-3 md:space-y-4">
+          <div className="flex-1 overflow-y-auto p-4 space-y-3 min-h-0">
             {messages.map((msg, idx) => (
               <div
                 key={idx}
                 className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-[90%] md:max-w-[85%] rounded-lg p-2 md:p-3 text-sm md:text-base ${
+                  className={`max-w-[85%] rounded-lg p-3 text-sm ${
                     msg.role === 'user'
                       ? 'bg-cyan-600 text-white'
                       : 'bg-gray-100 text-gray-800'
@@ -242,15 +242,15 @@ Ask me about:
                 >
                   {msg.role === 'assistant' && (
                     <div className="flex items-center space-x-2 mb-1">
-                      <Factory className="w-4 h-4 text-cyan-600" />
+                      <Factory className="w-3 h-3 text-cyan-600" />
                       <span className="text-xs font-semibold text-cyan-600">AI Assistant</span>
                     </div>
                   )}
                   <div 
-                    className="whitespace-pre-wrap"
+                    className="whitespace-pre-wrap break-words"
                     dangerouslySetInnerHTML={{ __html: renderContent(msg.content) }}
                   />
-                  <div className={`text-xs mt-1 ${msg.role === 'user' ? 'text-orange-100' : 'text-gray-700'}`}>
+                  <div className={`text-xs mt-1 opacity-70`}>
                     {msg.timestamp.toLocaleTimeString()}
                   </div>
                 </div>
@@ -259,8 +259,8 @@ Ask me about:
             {loading && (
               <div className="flex justify-start">
                 <div className="bg-gray-100 rounded-lg p-3 flex items-center space-x-2">
-                  <Loader2 className="w-4 h-4 animate-spin text-orange-600" />
-                  <span className="text-gray-600">Analyzing production data...</span>
+                  <Loader2 className="w-4 h-4 animate-spin text-cyan-600" />
+                  <span className="text-sm text-gray-600">Thinking...</span>
                 </div>
               </div>
             )}
@@ -269,20 +269,20 @@ Ask me about:
 
           {/* Suggestion Cards - Show when conversation is just starting */}
           {messages.length <= 2 && !loading && (
-            <div className="px-3 md:px-4 pb-3">
+            <div className="px-4 pb-3 max-h-[40vh] overflow-y-auto">
               <p className="text-xs text-gray-700 mb-2 font-semibold">Popular Queries:</p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2 mb-3">
-                {suggestionCards.map((card, idx) => (
+              <div className="grid grid-cols-2 gap-2 mb-3">
+                {suggestionCards.slice(0, 4).map((card, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSend(card.query)}
-                    className={`${card.color} text-white rounded-lg p-3 text-left hover:opacity-90 transition-opacity`}
+                    className={`${card.color} text-white rounded-lg p-2.5 text-left hover:opacity-90 transition-opacity`}
                   >
-                    <div className="flex items-start space-x-2">
-                      <div className="mt-0.5">{card.icon}</div>
-                      <div className="flex-1">
-                        <div className="font-semibold text-sm">{card.title}</div>
-                        <div className="text-xs opacity-90">{card.subtitle}</div>
+                    <div className="flex items-start space-x-1.5">
+                      <div className="mt-0.5 flex-shrink-0">{card.icon}</div>
+                      <div className="flex-1 min-w-0">
+                        <div className="font-semibold text-xs truncate">{card.title}</div>
+                        <div className="text-[10px] opacity-90 truncate">{card.subtitle}</div>
                       </div>
                     </div>
                   </button>
@@ -291,12 +291,12 @@ Ask me about:
               
               {/* Quick Questions */}
               <p className="text-xs text-gray-700 mb-2">Quick questions:</p>
-              <div className="flex flex-wrap gap-2">
-                {quickQuestions.map((question, idx) => (
+              <div className="flex flex-wrap gap-1.5">
+                {quickQuestions.slice(0, 3).map((question, idx) => (
                   <button
                     key={idx}
                     onClick={() => handleSend(question)}
-                    className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 py-1.5 rounded-lg transition-colors"
+                    className="text-[11px] bg-gray-100 hover:bg-gray-200 text-gray-700 px-2.5 py-1 rounded-lg transition-colors"
                   >
                     {question}
                   </button>
@@ -306,35 +306,28 @@ Ask me about:
           )}
 
           {/* Input */}
-          <div className="border-t p-3 md:p-4">
+          <div className="border-t p-4 bg-white">
             <div className="flex space-x-2">
               <input
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyPress={handleKeyPress}
-                placeholder="Ask about ERP enhancement, ROI, implementation..."
-                className="flex-1 px-3 py-2 text-sm md:text-base text-gray-900 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
+                placeholder="Ask about Nexus..."
+                className="flex-1 px-3 py-2.5 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
                 disabled={loading}
               />
               <button
                 onClick={() => handleSend()}
                 disabled={loading || !input.trim()}
-                className="bg-cyan-600 text-white p-2 rounded-lg hover:bg-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                className="bg-cyan-600 text-white px-4 py-2.5 rounded-lg hover:bg-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors flex-shrink-0"
               >
-                <Send className="w-4 h-4 md:w-5 md:h-5" />
+                <Send className="w-4 h-4" />
               </button>
             </div>
-            <div className="flex items-center justify-between mt-2">
-              <p className="text-xs text-gray-700 hidden md:block">
-                Press Enter to send • Shift+Enter for new line
-              </p>
-              <div className="flex items-center space-x-2 text-xs text-gray-700">
-                <Factory className="w-3 h-3" />
-                <span className="hidden md:inline">Nexus Manufacturing Intelligence</span>
-                <span className="md:hidden">Nexus AI</span>
-              </div>
-            </div>
+            <p className="text-[10px] text-gray-500 mt-2 text-center">
+              Powered by Nexus AI • Type your question above
+            </p>
           </div>
         </div>
       )}
