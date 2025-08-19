@@ -22,6 +22,7 @@ import {
   ChevronRight
 } from 'lucide-react'
 import Navigation from '../components/Navigation'
+import HeroSection from '../components/HeroSection'
 
 export default function Dashboard() {
   const [selectedComparison, setSelectedComparison] = useState('time')
@@ -146,20 +147,18 @@ export default function Dashboard() {
     <div className="min-h-screen bg-white">
       <Navigation />
       
-      {/* Header */}
-      <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4 flex items-center justify-center">
-              <AlertCircle className="h-10 w-10 mr-3" />
-              The Hidden Cost of Traditional ERP Reporting
-            </h1>
-            <p className="text-xl text-red-100">
-              Your managers are drowning in Excel instead of leading their teams
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* Hero Section with Background Image */}
+      <HeroSection
+        page="dashboard"
+        title={
+          <span className="flex items-center justify-center">
+            <AlertCircle className="h-10 w-10 mr-3" />
+            The Hidden Cost of Traditional ERP Reporting
+          </span>
+        }
+        subtitle="Your managers are drowning in Excel instead of leading their teams"
+        height="medium"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         

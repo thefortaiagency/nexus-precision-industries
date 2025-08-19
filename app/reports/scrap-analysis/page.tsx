@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import Navigation from '../../components/Navigation'
+import HeroSection from '../../components/HeroSection'
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts'
 import { 
   Clock, 
@@ -164,20 +165,18 @@ export default function ScrapAnalysisPage() {
     <div className="min-h-screen bg-white">
       <Navigation />
       
-      {/* Header */}
-      <div className="bg-gradient-to-r from-red-600 to-orange-600 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4 flex items-center justify-center">
-              <Clock className="h-10 w-10 mr-3" />
-              Management Time "Scrap" Analysis
-            </h1>
-            <p className="text-xl text-red-100">
-              Every hour building reports is an hour NOT managing your team
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* Hero Section with Background Image */}
+      <HeroSection
+        page="scrapAnalysis"
+        title={
+          <span className="flex items-center justify-center">
+            <Clock className="h-10 w-10 mr-3" />
+            Management Time "Scrap" Analysis
+          </span>
+        }
+        subtitle="Every hour building reports is an hour NOT managing your team"
+        height="medium"
+      />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         

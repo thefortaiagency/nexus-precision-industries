@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Navigation from '../../components/Navigation'
+import HeroSection from '../../components/HeroSection'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Users, UserCheck, UserX, Clock, TrendingUp, Calendar, AlertCircle, CheckCircle, Timer, ChevronRight } from 'lucide-react'
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
@@ -67,20 +68,18 @@ export default function ManningReport() {
     <div className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Header */}
-      <div className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold flex items-center justify-center">
-              <Users className="h-8 w-8 mr-3" />
-              Manning & Attendance Report
-            </h1>
-            <p className="text-blue-100 mt-2">
-              Real-time workforce analytics and optimization
-            </p>
-          </div>
-        </div>
-      </div>
+      {/* Hero Section with Background Image */}
+      <HeroSection
+        page="manning"
+        title={
+          <span className="flex items-center justify-center">
+            <Users className="h-10 w-10 mr-3" />
+            Manning & Attendance Report
+          </span>
+        }
+        subtitle="Real-time workforce analytics and optimization"
+        height="medium"
+      />
 
       {/* Key Metrics */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -302,7 +301,7 @@ export default function ManningReport() {
                     cx="50%"
                     cy="50%"
                     labelLine={false}
-                    label={({ name, value }) => `${name}: $${(value/1000).toFixed(0)}K`}
+                    label={({ category, amount }: any) => `${category}: $${(amount/1000).toFixed(0)}K`}
                     outerRadius={80}
                     fill="#8884d8"
                     dataKey="amount"

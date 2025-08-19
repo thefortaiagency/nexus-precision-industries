@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Navigation from '../components/Navigation'
+import HeroSection from '../components/HeroSection'
 import Link from 'next/link'
 import { 
   Brain, 
@@ -135,29 +136,26 @@ export default function AIReportsPage() {
     <div className="min-h-screen bg-white">
       <Navigation />
 
-      {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 to-indigo-700 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-bold flex items-center">
-                <Brain className="h-8 w-8 mr-3" />
-                AI-Powered Intelligence Hub
-              </h1>
-              <p className="text-purple-100 mt-2">
-                Predictive analytics and actionable insights from your manufacturing data
-              </p>
-            </div>
-            <button 
-              onClick={() => setLoading(true)}
-              className="px-6 py-3 bg-white text-purple-700 rounded-lg font-semibold hover:bg-purple-50 transition-colors flex items-center"
-            >
-              <RefreshCw className="h-5 w-5 mr-2" />
-              Refresh Analysis
-            </button>
-          </div>
-        </div>
-      </div>
+      {/* Hero Section with Background Image */}
+      <HeroSection
+        page="aiReports"
+        title={
+          <span className="flex items-center justify-center">
+            <Brain className="h-10 w-10 mr-3" />
+            AI-Powered Intelligence Hub
+          </span>
+        }
+        subtitle="Predictive analytics and actionable insights from your manufacturing data"
+        height="medium"
+      >
+        <button 
+          onClick={() => setLoading(true)}
+          className="mt-6 px-6 py-3 bg-white/90 backdrop-blur text-purple-700 rounded-lg font-semibold hover:bg-white transition-all flex items-center mx-auto"
+        >
+          <RefreshCw className="h-5 w-5 mr-2" />
+          Refresh Analysis
+        </button>
+      </HeroSection>
 
       {/* Demo Notice */}
       <div className="bg-yellow-50 border-b border-yellow-200">
