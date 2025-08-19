@@ -108,11 +108,23 @@ export default function ERPComparison() {
 
   const renderCheckmark = (value: boolean | string) => {
     if (value === true) {
-      return <Check className="h-5 w-5 text-green-600" />
+      return (
+        <div className="flex justify-center items-center">
+          <Check className="h-5 w-5 text-green-600" />
+        </div>
+      )
     } else if (value === 'partial') {
-      return <AlertCircle className="h-5 w-5 text-yellow-600" />
+      return (
+        <div className="flex justify-center items-center">
+          <AlertCircle className="h-5 w-5 text-yellow-600" />
+        </div>
+      )
     } else {
-      return <X className="h-5 w-5 text-red-600" />
+      return (
+        <div className="flex justify-center items-center">
+          <X className="h-5 w-5 text-red-600" />
+        </div>
+      )
     }
   }
 
@@ -127,18 +139,22 @@ export default function ERPComparison() {
         subtitle="See how Nexus fills the critical gaps in SAP, Oracle, Microsoft, and NetSuite with AI-powered capabilities"
         height="large"
       >
-        <div className="flex flex-wrap justify-center gap-4 mt-8">
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-            <span className="text-2xl font-bold">50%</span> faster reporting
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mt-6 sm:mt-8 px-4 sm:px-0">
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-2 text-center">
+            <div className="text-lg sm:text-2xl font-bold">50%</div>
+            <div className="text-xs sm:text-sm">faster reporting</div>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-            <span className="text-2xl font-bold">30 days</span> to value
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-2 text-center">
+            <div className="text-lg sm:text-2xl font-bold">30 days</div>
+            <div className="text-xs sm:text-sm">to value</div>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-            <span className="text-2xl font-bold">100%</span> ERP compatible
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-2 text-center">
+            <div className="text-lg sm:text-2xl font-bold">100%</div>
+            <div className="text-xs sm:text-sm">ERP compatible</div>
           </div>
-          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-            <span className="text-2xl font-bold">24/7</span> AI support
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 sm:px-4 py-2 text-center">
+            <div className="text-lg sm:text-2xl font-bold">24/7</div>
+            <div className="text-xs sm:text-sm">AI support</div>
           </div>
         </div>
       </HeroSection>

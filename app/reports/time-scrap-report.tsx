@@ -121,11 +121,14 @@ export default function TimeScrapReport() {
         <div className="bg-white rounded-xl shadow-lg p-6">
           <h3 className="text-xl font-bold text-gray-900 mb-4">Hours Scrapped by Role</h3>
           <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={monthlyScrapHours} layout="horizontal">
+            <BarChart data={monthlyScrapHours} layout="horizontal" margin={{ top: 5, right: 30, left: 5, bottom: 5 }}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" />
-              <YAxis dataKey="name" type="category" width={120} />
-              <Tooltip />
+              <XAxis type="number" domain={[0, 'dataMax + 10']} />
+              <YAxis dataKey="name" type="category" width={130} />
+              <Tooltip 
+                formatter={(value, name) => [`${value} hours/month`, name]}
+                labelFormatter={(name) => `Role: ${name}`}
+              />
               <Legend />
               <Bar dataKey="traditional" fill="#ef4444" name="Traditional ERP" />
               <Bar dataKey="nexus" fill="#10b981" name="Nexus" />
@@ -134,7 +137,8 @@ export default function TimeScrapReport() {
         </div>
 
         <div className="bg-white rounded-xl shadow-lg p-6">
-          <h3 className="text-xl font-bold text-gray-900 mb-4">Where Manager Time Actually Goes</h3>
+          <h3 className="text-xl font-bold text-gray-900 mb-2">How Managers Spend Their Time</h3>
+          <p className="text-sm text-gray-600 mb-4">Traditional ERP vs Nexus - % of time on activities</p>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie
@@ -151,9 +155,16 @@ export default function TimeScrapReport() {
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-              <Tooltip />
+              <Tooltip 
+                formatter={(value) => [`${value}%`, 'Time Spent']}
+                labelFormatter={(name) => `Activity: ${name}`}
+              />
             </PieChart>
           </ResponsiveContainer>
+          <div className="mt-4 text-xs text-gray-500">
+            <p><strong>Traditional ERP:</strong> 95% time on reports, data hunting, and waiting</p>
+            <p><strong>With Nexus:</strong> Flip this - 80% decision making, 20% administration</p>
+          </div>
         </div>
       </div>
 
