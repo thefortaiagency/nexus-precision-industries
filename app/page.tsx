@@ -10,9 +10,11 @@ import {
   TrendingUp, 
   Users, 
   AlertTriangle,
-  Settings,
-  Clock,
-  CheckCircle
+  Bot,
+  Brain,
+  LineChart,
+  PieChart,
+  Zap
 } from 'lucide-react'
 
 // Mock data for demo
@@ -26,8 +28,8 @@ const stats = {
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b border-gray-200">
+      {/* Nexus Navigation */}
+      <nav className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-3">
@@ -39,12 +41,18 @@ export default function Home() {
               />
               <div>
                 <h1 className="text-xl font-bold text-gray-900">Nexus Precision Industries</h1>
-                <p className="text-xs text-cyan-600">Manufacturing Intelligence Platform</p>
+                <p className="text-xs text-cyan-600">Beyond ERP - Manufacturing Intelligence</p>
               </div>
             </div>
             <div className="hidden md:flex items-center space-x-6">
+              <Link href="/" className="text-gray-600 hover:text-cyan-600 transition-colors">Home</Link>
               <Link href="/dashboard" className="text-gray-600 hover:text-cyan-600 transition-colors">Dashboard</Link>
               <Link href="/reports" className="text-gray-600 hover:text-cyan-600 transition-colors">Reports</Link>
+              <Link href="/ai-reports" className="px-3 py-1 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-lg font-medium hover:from-cyan-600 hover:to-teal-600 transition-all flex items-center">
+                <Brain className="h-4 w-4 mr-1" />
+                AI Insights
+              </Link>
+              <Link href="/entry" className="text-gray-600 hover:text-cyan-600 transition-colors">Data Entry</Link>
               <Link href="/settings" className="text-gray-600 hover:text-cyan-600 transition-colors">Settings</Link>
               <button className="px-4 py-2 bg-cyan-600 text-white rounded-lg font-medium hover:bg-cyan-700 transition-colors">
                 Sign In
@@ -54,17 +62,56 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
+      {/* Hero Section with Platform Factory Background */}
       <div className="relative bg-gradient-to-br from-cyan-600 to-teal-700 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black/20"></div>
+        {/* Background Image */}
+        <div className="absolute inset-0 opacity-20">
+          <Image 
+            src="/images/hero-transformation.png" 
+            alt="Platform Factory" 
+            fill
+            className="object-cover"
+            priority
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/80 via-cyan-800/70 to-teal-900/80"></div>
+        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-              Production Metrics Platform
+              Manufacturing Intelligence Platform
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-cyan-100">
-              Advanced manufacturing intelligence with real-time tracking and AI-powered insights
+              Go beyond traditional ERP with AI-powered insights and real-time analytics
             </p>
+            
+            {/* ERP Comparison Banner */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-4xl mx-auto">
+              <h2 className="text-2xl font-bold mb-4">Outperforming Traditional ERP Systems</h2>
+              <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
+                <div className="bg-white/10 rounded-lg p-3">
+                  <div className="font-semibold">vs HubSpot</div>
+                  <div className="text-sm text-cyan-200">3x faster insights</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <div className="font-semibold">vs Plex</div>
+                  <div className="text-sm text-cyan-200">Real AI, not rules</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <div className="font-semibold">vs SAP</div>
+                  <div className="text-sm text-cyan-200">90% less cost</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <div className="font-semibold">vs Oracle</div>
+                  <div className="text-sm text-cyan-200">Zero-config setup</div>
+                </div>
+                <div className="bg-white/10 rounded-lg p-3">
+                  <div className="font-semibold">vs NetSuite</div>
+                  <div className="text-sm text-cyan-200">Instant deployment</div>
+                </div>
+              </div>
+            </div>
+
             <div className="flex flex-wrap justify-center gap-8 text-white">
               <div className="text-center">
                 <div className="text-3xl font-bold">{stats.productionRecords.toLocaleString()}+</div>
@@ -87,7 +134,54 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Quick Actions */}
+      {/* Intelligence Beyond ERP Section */}
+      <div className="bg-white py-16 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Intelligence Your ERP Can't Provide
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              While traditional ERP systems manage data, we transform it into actionable intelligence
+              with AI-powered insights that predict, prevent, and optimize.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-cyan-500 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Brain className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Predictive Analytics</h3>
+              <p className="text-gray-600">
+                AI predicts equipment failures 72 hours before they occur, preventing costly downtime
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <LineChart className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Pattern Recognition</h3>
+              <p className="text-gray-600">
+                Identifies hidden inefficiencies and quality issues that human analysis misses
+              </p>
+            </div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Zap className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Real-Time Optimization</h3>
+              <p className="text-gray-600">
+                Automatically adjusts production schedules based on live data and AI predictions
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Manufacturing Intelligence Suite */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <h2 className="text-2xl font-bold text-gray-900 mb-8">Manufacturing Intelligence Suite</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
@@ -111,10 +205,10 @@ export default function Home() {
           <Link href="/reports/hit-tracker-accurate" className="block">
             <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 hover:border-cyan-400">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">Hit Tracker</h3>
+                <h3 className="text-lg font-semibold text-gray-900">Production Tracker</h3>
                 <Activity className="h-6 w-6 text-green-600" />
               </div>
-              <p className="text-gray-600">Track production hits, parts produced, and quality metrics</p>
+              <p className="text-gray-600">Track production cycles, parts produced, and quality metrics</p>
               <div className="mt-4 flex items-center text-cyan-600">
                 <span className="text-sm font-medium">View Tracker</span>
                 <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -127,12 +221,28 @@ export default function Home() {
           <Link href="/reports/scrap-analysis" className="block">
             <div className="bg-gradient-to-br from-orange-50 to-red-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border-2 border-orange-300">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">Scrap Analysis</h3>
+                <h3 className="text-lg font-semibold text-gray-900">Waste Analysis</h3>
                 <AlertTriangle className="h-6 w-6 text-orange-600 animate-pulse" />
               </div>
-              <p className="text-gray-700 font-medium">2025 YTD: $482K scrap with $284K savings identified</p>
+              <p className="text-gray-700 font-medium">AI identifies $284K+ in potential savings</p>
               <div className="mt-4 flex items-center text-orange-600">
                 <span className="text-sm font-medium">View Analysis</span>
+                <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          </Link>
+
+          <Link href="/ai-reports" className="block">
+            <div className="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border-2 border-purple-300">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-lg font-semibold text-gray-900">AI Insights</h3>
+                <Brain className="h-6 w-6 text-purple-600 animate-pulse" />
+              </div>
+              <p className="text-gray-700 font-medium">Predictive analytics & recommendations</p>
+              <div className="mt-4 flex items-center text-purple-600">
+                <span className="text-sm font-medium">View AI Reports</span>
                 <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -143,10 +253,10 @@ export default function Home() {
           <Link href="/inventory-true-impact" className="block">
             <div className="bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border-2 border-emerald-300">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">Inventory Impact</h3>
+                <h3 className="text-lg font-semibold text-gray-900">Inventory Intelligence</h3>
                 <TrendingUp className="h-6 w-6 text-emerald-600 animate-pulse" />
               </div>
-              <p className="text-gray-700 font-medium">TRUE impact: $34.4M (93.8% were transfers)</p>
+              <p className="text-gray-700 font-medium">True impact analysis with AI optimization</p>
               <div className="mt-4 flex items-center text-emerald-600">
                 <span className="text-sm font-medium">View Impact</span>
                 <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -162,7 +272,7 @@ export default function Home() {
                 <h3 className="text-lg font-semibold text-gray-900">Quality Reports</h3>
                 <BarChart3 className="h-6 w-6 text-purple-600" />
               </div>
-              <p className="text-gray-600">Pioneer scrap, quality metrics, and trend analysis</p>
+              <p className="text-gray-600">Comprehensive quality metrics and trend analysis</p>
               <div className="mt-4 flex items-center text-cyan-600">
                 <span className="text-sm font-medium">View Reports</span>
                 <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -175,12 +285,12 @@ export default function Home() {
           <Link href="/reports/manning" className="block">
             <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 hover:border-cyan-400">
               <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">Manning Status</h3>
+                <h3 className="text-lg font-semibold text-gray-900">Workforce Analytics</h3>
                 <Users className="h-6 w-6 text-indigo-600" />
               </div>
-              <p className="text-gray-600">Shift coverage, overtime tracking, and workforce analytics</p>
+              <p className="text-gray-600">Shift optimization and labor efficiency analysis</p>
               <div className="mt-4 flex items-center text-cyan-600">
-                <span className="text-sm font-medium">View Manning</span>
+                <span className="text-sm font-medium">View Analytics</span>
                 <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -194,25 +304,9 @@ export default function Home() {
                 <h3 className="text-lg font-semibold text-gray-900">Data Entry</h3>
                 <FileText className="h-6 w-6 text-blue-600" />
               </div>
-              <p className="text-gray-600">Submit shift reports, production data, and quality issues</p>
+              <p className="text-gray-600">Streamlined data entry with validation</p>
               <div className="mt-4 flex items-center text-cyan-600">
                 <span className="text-sm font-medium">Enter Data</span>
-                <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </div>
-            </div>
-          </Link>
-
-          <Link href="/reports/import" className="block">
-            <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-200 hover:border-cyan-400">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-semibold text-gray-900">Import Data</h3>
-                <Package className="h-6 w-6 text-slate-600" />
-              </div>
-              <p className="text-gray-600">Import Excel files for batch processing and analysis</p>
-              <div className="mt-4 flex items-center text-cyan-600">
-                <span className="text-sm font-medium">Import Files</span>
                 <svg className="ml-2 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -222,7 +316,30 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Key Features */}
+      {/* AI Chatbot Callout */}
+      <div className="bg-gradient-to-r from-cyan-50 to-teal-50 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl shadow-lg p-8 flex items-center justify-between">
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold text-gray-900 mb-2 flex items-center">
+                <Bot className="h-8 w-8 text-cyan-600 mr-3" />
+                AI Production Assistant Available 24/7
+              </h3>
+              <p className="text-gray-600">
+                Get instant answers about production metrics, quality issues, and optimization opportunities.
+                Our AI assistant understands your manufacturing context and provides actionable insights.
+              </p>
+            </div>
+            <div className="ml-8">
+              <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-lg font-semibold hover:from-cyan-600 hover:to-teal-600 transition-all transform hover:scale-105">
+                Try AI Assistant →
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Platform Capabilities */}
       <div className="bg-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-gray-900 mb-8">Platform Capabilities</h2>
@@ -255,12 +372,12 @@ export default function Home() {
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
-                  <BarChart3 className="h-6 w-6 text-purple-600" />
+                  <Brain className="h-6 w-6 text-purple-600" />
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Advanced Analytics</h3>
-                <p className="text-gray-600">Comprehensive reporting with trend analysis, predictions, and AI insights</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">AI-Powered Insights</h3>
+                <p className="text-gray-600">Machine learning algorithms that predict issues before they impact production</p>
               </div>
             </div>
 
@@ -271,8 +388,8 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Machine Intelligence</h3>
-                <p className="text-gray-600">AI-powered insights for predictive maintenance and downtime prevention</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Predictive Maintenance</h3>
+                <p className="text-gray-600">AI predicts equipment failures 72 hours in advance</p>
               </div>
             </div>
 
@@ -283,20 +400,20 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Shift Management</h3>
-                <p className="text-gray-600">Monitor shift performance, manning status, and labor efficiency</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Workforce Optimization</h3>
+                <p className="text-gray-600">Smart scheduling based on skills, availability, and production demands</p>
               </div>
             </div>
 
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
                 <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
-                  <AlertTriangle className="h-6 w-6 text-red-600" />
+                  <PieChart className="h-6 w-6 text-red-600" />
                 </div>
               </div>
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">Quality Control</h3>
-                <p className="text-gray-600">Track scrap rates, defects, and quality metrics with root cause analysis</p>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">Advanced Analytics</h3>
+                <p className="text-gray-600">Deep dive into data with custom reports and visualizations</p>
               </div>
             </div>
 
@@ -324,7 +441,7 @@ export default function Home() {
               </div>
               <div className="text-center">
                 <div className="text-4xl font-bold text-orange-600 mb-2">98.5%</div>
-                <div className="text-gray-600">Data Accuracy</div>
+                <div className="text-gray-600">Prediction Accuracy</div>
               </div>
             </div>
           </div>
@@ -335,17 +452,17 @@ export default function Home() {
       <div className="bg-gradient-to-br from-cyan-600 to-teal-700 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
-            Ready to Transform Your Manufacturing Operations?
+            Ready to Go Beyond Traditional ERP?
           </h2>
           <p className="text-xl mb-8 text-cyan-100">
-            See how Nexus Precision Industries can optimize your production efficiency
+            See how Nexus Manufacturing Intelligence delivers insights your current system can't
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="px-8 py-3 bg-white text-cyan-700 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
               Schedule Demo
             </button>
             <button className="px-8 py-3 bg-cyan-700 text-white rounded-lg font-semibold hover:bg-cyan-800 transition-colors border border-cyan-500">
-              View Sample Reports
+              Compare vs Your ERP
             </button>
           </div>
         </div>
