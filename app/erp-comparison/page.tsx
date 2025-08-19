@@ -499,12 +499,20 @@ export default function ERPComparison() {
             Add AI-powered intelligence that transforms your ERP data into actionable insights
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button className="px-8 py-3 bg-white text-cyan-700 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
+            <a 
+              href="https://aimpactnexus.ai/contact" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-3 bg-white text-cyan-700 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block text-center"
+            >
               Get ERP Enhancement Assessment
-            </button>
-            <button className="px-8 py-3 bg-cyan-700 text-white rounded-lg font-semibold hover:bg-cyan-800 transition-colors border border-cyan-500">
+            </a>
+            <Link 
+              href="/entry"
+              className="px-8 py-3 bg-cyan-700 text-white rounded-lg font-semibold hover:bg-cyan-800 transition-colors border border-cyan-500 inline-block text-center"
+            >
               See Integration Options
-            </button>
+            </Link>
           </div>
         </div>
       </div>

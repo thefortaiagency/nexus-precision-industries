@@ -25,13 +25,74 @@ const ManningReport = dynamic(() => import('./manning/page'), { ssr: false })
 
 export default function ReportsPage() {
   const [selectedReport, setSelectedReport] = useState('time-scrap')
-  const [aiInsights, setAiInsights] = useState<any>(null)
+  const [aiInsights, setAiInsights] = useState<any>({
+    summary: "AI analysis shows 15% time reduction opportunity in die configuration processes. Pattern recognition identified recurring issues during shift changes that could save 45 hours per month.",
+    keyFindings: [
+      {
+        icon: AlertCircle,
+        color: 'text-red-600',
+        title: 'Critical Pattern Detected',
+        description: 'Die configuration issues spike during shift changes (2-3 PM). This pattern costs 12 hours weekly.'
+      },
+      {
+        icon: TrendingUp,
+        color: 'text-green-600',
+        title: 'Efficiency Opportunity',
+        description: 'Line 2 shows 18% better performance during morning shift. Training opportunity identified.'
+      },
+      {
+        icon: Package,
+        color: 'text-blue-600',
+        title: 'Material Insight',
+        description: 'Part P-4478 quality improves 23% when operators manually adjust material feed sensors.'
+      }
+    ]
+  })
   const [loading, setLoading] = useState(false)
-  const [visibilityData, setVisibilityData] = useState<any[]>([])
-  const [efficiencyStats, setEfficiencyStats] = useState<any>(null)
-  const [blindSpots, setBlindSpots] = useState<any[]>([])
-  const [wastedHours, setWastedHours] = useState<any[]>([])
-  const [totalWaste, setTotalWaste] = useState(0)
+  // Initialize with demo data immediately
+  const [visibilityData, setVisibilityData] = useState<any[]>([
+    { date: 'Mon', shift1: 94, shift2: 91, shift3: 88, target: 90 },
+    { date: 'Tue', shift1: 92, shift2: 93, shift3: 90, target: 90 },
+    { date: 'Wed', shift1: 95, shift2: 89, shift3: 91, target: 90 },
+    { date: 'Thu', shift1: 93, shift2: 92, shift3: 87, target: 90 },
+    { date: 'Fri', shift1: 96, shift2: 94, shift3: 89, target: 90 },
+    { date: 'Sat', shift1: 91, shift2: 90, shift3: 92, target: 90 },
+    { date: 'Sun', shift1: 94, shift2: 88, shift3: 90, target: 90 }
+  ])
+  const [efficiencyStats, setEfficiencyStats] = useState<any>({
+    weeklyAverage: 91.2,
+    bestShift: { name: 'Shift 1', avg: 93.5 },
+    totalHits: 145782,
+    targetAchievement: 88
+  })
+  const [blindSpots, setBlindSpots] = useState<any[]>([
+    { category: 'Die Configuration', count: 156, percentage: 25, trend: 'up' },
+    { category: 'Material Feed Issues', count: 134, percentage: 22, trend: 'stable' },
+    { category: 'Operator Training', count: 145, percentage: 23, trend: 'up' },
+    { category: 'Machine Setup', count: 124, percentage: 20, trend: 'down' },
+    { category: 'Quality Concerns', count: 100, percentage: 17, trend: 'down' }
+  ])
+  const [wastedHours, setWastedHours] = useState<any[]>([
+    {
+      operator: "Mike Chen",
+      line: 3,
+      partNumber: "P-4478",
+      date: "2024-12-15",
+      comment: "Die keeps jamming every 15-20 parts. Takes 3-4 minutes to clear each time.",
+      efficiency: 76,
+      urgency: "border-red-500"
+    },
+    {
+      operator: "Sarah Johnson",
+      line: 1,
+      partNumber: "P-4521",
+      date: "2024-12-15",
+      comment: "Material feeding inconsistently. Operator has to manually adjust every few cycles.",
+      efficiency: 82,
+      urgency: "border-yellow-500"
+    }
+  ])
+  const [totalWaste, setTotalWaste] = useState(614)
 
   // Fetch Hit Tracker Data
   const fetchHitTrackerData = async () => {

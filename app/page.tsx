@@ -482,27 +482,6 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="bg-white border-t border-gray-200 py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center justify-between">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <Image 
-                src="/nexus-logo.png" 
-                alt="Nexus Precision Industries" 
-                width={30} 
-                height={30}
-              />
-              <span className="text-gray-600 text-sm">
-                © 2025 Nexus Precision Industries. All rights reserved.
-              </span>
-            </div>
-            <div className="text-sm text-gray-700">
-              Powered by Nexus Platform Technology
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }
