@@ -41,6 +41,11 @@ export const heroImages = {
     prompt: "Expansive industrial complex at golden hour with holographic dashboards floating above facilities, interconnected data streams between buildings, futuristic manufacturing campus, dramatic sky with data visualization clouds, cinematic wide shot, photorealistic rendering",
     unsplashUrl: "https://images.unsplash.com/photo-1513828583688-c52646db42da?q=80&w=2070&auto=format&fit=crop", // Industrial complex
     overlay: "linear-gradient(135deg, rgba(6, 182, 212, 0.7), rgba(59, 130, 246, 0.8))"
+  },
+  dataEntry: {
+    prompt: "Industrial control room with multiple data input terminals, holographic keyboards and displays, real-time data streams flowing into central database visualization, teal and cyan lighting, futuristic interface design, cinematic depth of field",
+    unsplashUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", // Data visualization
+    overlay: "linear-gradient(to bottom, rgba(13, 148, 136, 0.8), rgba(6, 182, 212, 0.9))"
   }
 }
 

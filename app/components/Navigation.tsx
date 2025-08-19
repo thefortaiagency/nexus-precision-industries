@@ -1,8 +1,13 @@
+'use client'
+
+import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { Brain } from 'lucide-react'
+import { Brain, Menu, X } from 'lucide-react'
 
 export default function Navigation() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
     <nav className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,11 +38,77 @@ export default function Navigation() {
               AI Insights
             </Link>
             <Link href="/entry" className="text-gray-600 hover:text-cyan-600 transition-colors">Data Entry</Link>
-            <a href="https://aimpactnexus.ai/contact" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors">
+            <Link href="/contact" className="px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors">
               Get Demo
-            </a>
+            </Link>
           </div>
+          
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="md:hidden p-2 rounded-lg text-gray-600 hover:bg-gray-100 transition-colors"
+          >
+            {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
+        
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden py-4 border-t border-gray-200">
+            <div className="flex flex-col space-y-3">
+              <Link 
+                href="/" 
+                className="text-gray-600 hover:text-cyan-600 transition-colors px-3 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Home
+              </Link>
+              <Link 
+                href="/erp-comparison" 
+                className="text-gray-600 hover:text-cyan-600 transition-colors px-3 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                ERP Enhancements
+              </Link>
+              <Link 
+                href="/dashboard" 
+                className="text-gray-600 hover:text-cyan-600 transition-colors px-3 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Dashboard
+              </Link>
+              <Link 
+                href="/reports" 
+                className="text-gray-600 hover:text-cyan-600 transition-colors px-3 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Reports
+              </Link>
+              <Link 
+                href="/ai-reports" 
+                className="text-gray-600 hover:text-cyan-600 transition-colors px-3 py-2 flex items-center"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Brain className="h-4 w-4 mr-2" />
+                AI Insights
+              </Link>
+              <Link 
+                href="/entry" 
+                className="text-gray-600 hover:text-cyan-600 transition-colors px-3 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Data Entry
+              </Link>
+              <Link 
+                href="/contact" 
+                className="bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors px-3 py-2 text-center mx-3"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Get Demo
+              </Link>
+            </div>
+          </div>
+        )}
       </div>
     </nav>
   )

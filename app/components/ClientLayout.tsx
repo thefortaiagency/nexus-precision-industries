@@ -77,26 +77,43 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <main 
         className="flex-1 bg-white transition-all duration-300"
         style={{ 
-          marginRight: isChatCollapsed ? 0 : chatWidth,
-          width: isChatCollapsed ? '100%' : `calc(100% - ${chatWidth}px)`
+          marginRight: isMobile ? 0 : (isChatCollapsed ? 0 : chatWidth),
+          width: isMobile ? '100%' : (isChatCollapsed ? '100%' : `calc(100% - ${chatWidth}px)`)
         }}
       >
         {children}
       </main>
 
-      {/* AI Assistant Sidebar */}
-      <div 
-        className={`fixed right-0 top-0 h-screen z-50 transition-all duration-300`}
-        style={{ width: isChatCollapsed ? 0 : chatWidth }}
-      >
-        <ResizableChatSidebar 
-          isCollapsed={isChatCollapsed}
-          onCollapsedChange={setIsChatCollapsed}
-          width={chatWidth}
-          onWidthChange={setChatWidth}
-          isMobile={isMobile}
-        />
-      </div>
+      {/* AI Assistant Sidebar - mobile responsive */}
+      {!isMobile && (
+        <div 
+          className={`fixed right-0 top-0 h-screen z-50 transition-all duration-300`}
+          style={{ width: isChatCollapsed ? 0 : chatWidth }}
+        >
+          <ResizableChatSidebar 
+            isCollapsed={isChatCollapsed}
+            onCollapsedChange={setIsChatCollapsed}
+            width={chatWidth}
+            onWidthChange={setChatWidth}
+            isMobile={isMobile}
+          />
+        </div>
+      )}
+      
+      {/* Mobile Chat Modal */}
+      {isMobile && !isChatCollapsed && (
+        <div className="fixed inset-0 z-50 bg-black/50">
+          <div className="fixed bottom-0 left-0 right-0 h-[80vh] bg-white rounded-t-xl shadow-2xl">
+            <ResizableChatSidebar 
+              isCollapsed={false}
+              onCollapsedChange={setIsChatCollapsed}
+              width={window.innerWidth}
+              onWidthChange={() => {}}
+              isMobile={true}
+            />
+          </div>
+        </div>
+      )}
 
       {/* Floating Chat Button when collapsed */}
       {isChatCollapsed && (
