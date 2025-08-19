@@ -218,15 +218,15 @@ export default function ERPComparison() {
           <div className="flex items-center space-x-6 text-sm">
             <div className="flex items-center">
               <Check className="h-5 w-5 text-green-600 mr-2" />
-              <span>Full support</span>
+              <span className="text-gray-900 font-medium">Full support</span>
             </div>
             <div className="flex items-center">
               <AlertCircle className="h-5 w-5 text-yellow-600 mr-2" />
-              <span>Partial/Limited</span>
+              <span className="text-gray-900 font-medium">Partial/Limited</span>
             </div>
             <div className="flex items-center">
               <X className="h-5 w-5 text-red-600 mr-2" />
-              <span>Not available</span>
+              <span className="text-gray-900 font-medium">Not available</span>
             </div>
           </div>
         </div>
