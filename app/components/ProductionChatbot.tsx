@@ -49,11 +49,16 @@ export default function ProductionChatbot({ isNavbar = false }: ProductionChatbo
   const [messages, setMessages] = useState<Message[]>([
     {
       role: 'assistant',
-      content: `👋 Hi! I'm your Nexus Manufacturing Intelligence assistant.
+      content: `👋 Welcome to Nexus Precision Industries!
 
-I can help you understand how our platform enhances your ERP with AI-powered insights, predictive analytics, and intelligent reporting.
+I'm here to help you discover how Nexus transforms your existing ERP into an intelligent system without replacing it.
 
-Ask me anything about ERP enhancement, time savings, implementation, or schedule a demo!`,
+Ask me about:
+• How we enhance SAP, Oracle, or Microsoft Dynamics
+• 70% time savings on reporting
+• 30-day implementation (vs 18 months for new ERP)
+• ROI calculator and pricing
+• Schedule your personalized demo`,
       timestamp: new Date()
     }
   ])
@@ -128,56 +133,56 @@ Ask me anything about ERP enhancement, time savings, implementation, or schedule
   // Enhanced suggestion cards with new features
   const suggestionCards = [
     {
-      icon: <TrendingUp className="w-4 h-4 md:w-5 md:h-5" />,
-      title: "Production Efficiency",
-      subtitle: "Real-time OEE metrics",
-      query: "Show me current production efficiency and OEE metrics",
+      icon: <BarChart3 className="w-4 h-4 md:w-5 md:h-5" />,
+      title: "ERP Enhancement",
+      subtitle: "Works with your system",
+      query: "How does Nexus enhance my existing ERP without replacing it?",
       color: "bg-gradient-to-br from-cyan-500 to-cyan-600"
     },
     {
-      icon: <BarChart3 className="w-4 h-4 md:w-5 md:h-5" />,
-      title: "ERP Enhancement",
-      subtitle: "How Nexus adds intelligence",
-      query: "How does Nexus enhance my existing ERP system?",
+      icon: <TrendingUp className="w-4 h-4 md:w-5 md:h-5" />,
+      title: "70% Time Savings",
+      subtitle: "Automated reporting",
+      query: "How does Nexus achieve 70% time savings on reports?",
       color: "bg-gradient-to-br from-teal-500 to-teal-600"
     },
     {
-      icon: <AlertTriangle className="w-4 h-4 md:w-5 md:h-5" />,
-      title: "Predictive Maintenance",
-      subtitle: "AI-powered predictions",
-      query: "Show me predictive maintenance insights and upcoming needs",
-      color: "bg-gradient-to-br from-orange-500 to-orange-600"
-    },
-    {
       icon: <Factory className="w-4 h-4 md:w-5 md:h-5" />,
-      title: "Time Savings",
-      subtitle: "Calculate ROI potential",
-      query: "How much time and money can Nexus save my operation?",
+      title: "ROI Calculator",
+      subtitle: "See your savings",
+      query: "Calculate my ROI with the time savings calculator",
       color: "bg-gradient-to-br from-green-500 to-green-600"
     },
     {
+      icon: <AlertTriangle className="w-4 h-4 md:w-5 md:h-5" />,
+      title: "AI Capabilities",
+      subtitle: "Predictive analytics",
+      query: "What AI features does Nexus add to my ERP?",
+      color: "bg-gradient-to-br from-orange-500 to-orange-600"
+    },
+    {
       icon: <Settings className="w-4 h-4 md:w-5 md:h-5" />,
-      title: "Implementation",
-      subtitle: "Setup and integration",
-      query: "What's the implementation process and timeline for Nexus?",
+      title: "30-Day Setup",
+      subtitle: "Fast implementation",
+      query: "How can Nexus be implemented in just 30 days?",
       color: "bg-gradient-to-br from-purple-500 to-purple-600"
     },
     {
       icon: <HelpCircle className="w-4 h-4 md:w-5 md:h-5" />,
-      title: "Get Demo",
-      subtitle: "Schedule consultation",
-      query: "I'd like to schedule a personalized demo of Nexus",
+      title: "Get Pricing",
+      subtitle: "Transparent costs",
+      query: "What's the pricing for Nexus platform?",
       color: "bg-gradient-to-br from-indigo-500 to-indigo-600"
     }
   ]
 
   // Quick questions for first-time users
   const quickQuestions = [
-    "What's the ROI calculation?",
-    "How does Nexus work with SAP?",
-    "Show me pricing options",
-    "30-day implementation plan?",
-    "Schedule a demo"
+    "Compare Nexus vs new ERP",
+    "Works with SAP/Oracle?",
+    "See pricing tiers",
+    "Why 30 days vs 18 months?",
+    "View demo reports"
   ]
 
   return (
