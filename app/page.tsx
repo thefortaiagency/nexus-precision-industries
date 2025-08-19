@@ -438,7 +438,7 @@ export default function Home() {
             <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Platform Performance</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center">
-                <div className="text-4xl font-bold text-cyan-600 mb-2">{stats.uptime}</div>
+                <div className="text-4xl font-bold text-cyan-600 mb-2">99.9%</div>
                 <div className="text-gray-600">System Uptime</div>
               </div>
               <div className="text-center">
