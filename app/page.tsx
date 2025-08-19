@@ -64,17 +64,17 @@ export default function Home() {
 
       {/* Hero Section with Platform Factory Background */}
       <div className="relative bg-gradient-to-br from-cyan-600 to-teal-700 text-white overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 opacity-20">
+        {/* Background Image - Brightened */}
+        <div className="absolute inset-0 opacity-40">
           <Image 
             src="/images/hero-transformation.png" 
             alt="Platform Factory" 
             fill
-            className="object-cover"
+            className="object-cover brightness-110"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/80 via-cyan-800/70 to-teal-900/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/60 via-cyan-800/50 to-teal-900/60"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
@@ -82,32 +82,32 @@ export default function Home() {
               Manufacturing Intelligence Platform
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-cyan-100">
-              Go beyond traditional ERP with AI-powered insights and real-time analytics
+              Transform your ERP data into AI-powered insights and actionable intelligence
             </p>
             
-            {/* ERP Comparison Banner */}
+            {/* ERP Integration Banner */}
             <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-4xl mx-auto">
-              <h2 className="text-2xl font-bold mb-4">Outperforming Traditional ERP Systems</h2>
+              <h2 className="text-2xl font-bold mb-4">Enhancing Your Existing ERP System</h2>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
                 <div className="bg-white/10 rounded-lg p-3">
-                  <div className="font-semibold">vs HubSpot</div>
-                  <div className="text-sm text-cyan-200">3x faster insights</div>
+                  <div className="font-semibold">HubSpot</div>
+                  <div className="text-sm text-cyan-200">Advanced analytics</div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-3">
-                  <div className="font-semibold">vs Plex</div>
-                  <div className="text-sm text-cyan-200">Real AI, not rules</div>
+                  <div className="font-semibold">Plex</div>
+                  <div className="text-sm text-cyan-200">AI predictions</div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-3">
-                  <div className="font-semibold">vs SAP</div>
-                  <div className="text-sm text-cyan-200">90% less cost</div>
+                  <div className="font-semibold">SAP</div>
+                  <div className="text-sm text-cyan-200">Custom reports</div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-3">
-                  <div className="font-semibold">vs Oracle</div>
-                  <div className="text-sm text-cyan-200">Zero-config setup</div>
+                  <div className="font-semibold">Oracle</div>
+                  <div className="text-sm text-cyan-200">Real-time insights</div>
                 </div>
                 <div className="bg-white/10 rounded-lg p-3">
-                  <div className="font-semibold">vs NetSuite</div>
-                  <div className="text-sm text-cyan-200">Instant deployment</div>
+                  <div className="font-semibold">NetSuite</div>
+                  <div className="text-sm text-cyan-200">Pattern detection</div>
                 </div>
               </div>
             </div>
@@ -134,16 +134,16 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Intelligence Beyond ERP Section */}
+      {/* Intelligence From Your ERP Section */}
       <div className="bg-white py-16 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Intelligence Your ERP Can't Provide
+              Unlock Hidden Intelligence From Your ERP Data
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              While traditional ERP systems manage data, we transform it into actionable intelligence
-              with AI-powered insights that predict, prevent, and optimize.
+              Your ERP system collects valuable data every day. We transform that data into 
+              AI-powered reports and insights that help you make better decisions, faster.
             </p>
           </div>
 
@@ -154,7 +154,7 @@ export default function Home() {
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-2">Predictive Analytics</h3>
               <p className="text-gray-600">
-                AI predicts equipment failures 72 hours before they occur, preventing costly downtime
+                Analyze historical ERP data to predict equipment failures and maintenance needs before they impact production
               </p>
             </div>
 
@@ -162,9 +162,9 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <LineChart className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Pattern Recognition</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Custom Reports</h3>
               <p className="text-gray-600">
-                Identifies hidden inefficiencies and quality issues that human analysis misses
+                Generate comprehensive reports from your ERP data that surface insights your standard reports miss
               </p>
             </div>
 
@@ -172,9 +172,9 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Zap className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">Real-Time Optimization</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-2">Data Integration</h3>
               <p className="text-gray-600">
-                Automatically adjusts production schedules based on live data and AI predictions
+                Seamlessly connect with your existing ERP to create a unified view of all manufacturing operations
               </p>
             </div>
           </div>
@@ -326,14 +326,52 @@ export default function Home() {
                 AI Production Assistant Available 24/7
               </h3>
               <p className="text-gray-600">
-                Get instant answers about production metrics, quality issues, and optimization opportunities.
-                Our AI assistant understands your manufacturing context and provides actionable insights.
+                Ask questions about your ERP data and get instant insights. Our AI assistant analyzes your 
+                existing data to uncover patterns, trends, and opportunities you might be missing.
               </p>
             </div>
             <div className="ml-8">
               <button className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-lg font-semibold hover:from-cyan-600 hover:to-teal-600 transition-all transform hover:scale-105">
                 Try AI Assistant →
               </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ERP Compatibility Section */}
+      <div className="bg-gray-50 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Works With Your Existing ERP</h2>
+            <p className="text-lg text-gray-600">
+              Nexus integrates seamlessly with all major ERP systems to enhance, not replace, your current investment
+            </p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 mb-8">
+            <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200">
+              <span className="font-semibold text-gray-700">SAP</span>
+            </div>
+            <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200">
+              <span className="font-semibold text-gray-700">Oracle</span>
+            </div>
+            <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200">
+              <span className="font-semibold text-gray-700">Microsoft Dynamics</span>
+            </div>
+            <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200">
+              <span className="font-semibold text-gray-700">NetSuite</span>
+            </div>
+            <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200">
+              <span className="font-semibold text-gray-700">Infor</span>
+            </div>
+            <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200">
+              <span className="font-semibold text-gray-700">Epicor</span>
+            </div>
+            <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200">
+              <span className="font-semibold text-gray-700">Plex</span>
+            </div>
+            <div className="bg-white px-6 py-3 rounded-lg shadow-sm border border-gray-200">
+              <span className="font-semibold text-gray-700">HubSpot</span>
             </div>
           </div>
         </div>
@@ -452,17 +490,17 @@ export default function Home() {
       <div className="bg-gradient-to-br from-cyan-600 to-teal-700 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
-            Ready to Go Beyond Traditional ERP?
+            Enhance Your ERP With AI-Powered Intelligence
           </h2>
           <p className="text-xl mb-8 text-cyan-100">
-            See how Nexus Manufacturing Intelligence delivers insights your current system can't
+            Turn your existing ERP data into actionable insights and custom reports
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="px-8 py-3 bg-white text-cyan-700 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
               Schedule Demo
             </button>
             <button className="px-8 py-3 bg-cyan-700 text-white rounded-lg font-semibold hover:bg-cyan-800 transition-colors border border-cyan-500">
-              Compare vs Your ERP
+              See Sample Reports
             </button>
           </div>
         </div>

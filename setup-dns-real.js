@@ -3,8 +3,8 @@
 const https = require('https');
 
 // REAL PRODUCTION API KEYS - WE HAVE THEM!
-const GODADDY_API_KEY = 'dLV6x6C1hSXL_JKn1GQEHF3F4V3MeZ5Kzzg';
-const GODADDY_API_SECRET = '3CmB1GiHbpRo9iMNKLSgJU';
+const GODADDY_API_KEY = '9jHwmx1uNpS_KYhM4NMXJez63FjXEcjKhu';
+const GODADDY_API_SECRET = 'QYDxHfEyfpLCeJsS8r3CzU';
 const DOMAIN = 'aimpactnexus.ai';
 const SUBDOMAIN = 'npi';
 
