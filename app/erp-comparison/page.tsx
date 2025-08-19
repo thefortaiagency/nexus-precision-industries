@@ -70,37 +70,37 @@ export default function ERPComparison() {
       issue: 'Excessive Implementation Time',
       description: 'Traditional ERPs take 6-18 months to implement',
       impact: 'Birmingham City Council: 4+ years, £129 million over budget',
-      nexusSolution: 'Deploy in 30 days or less with AI-guided setup'
+      nexusSolution: 'Add Nexus intelligence layer in 30 days without disrupting your ERP'
     },
     {
       issue: 'Hidden Costs & Budget Overruns',
       description: 'Projects regularly exceed budget by 200-300%',
       impact: 'Average cost overrun: $3.8 million + consultant fees',
-      nexusSolution: 'Transparent, all-inclusive pricing with no hidden fees'
+      nexusSolution: 'Affordable add-on pricing that enhances your ERP investment'
     },
     {
       issue: 'Manual Report Generation',
       description: 'Teams spend days creating reports in Excel',
       impact: '40% of staff time wasted on manual reporting',
-      nexusSolution: 'Natural language queries generate reports in seconds'
+      nexusSolution: 'AI layer extracts insights from your ERP data in seconds'
     },
     {
       issue: 'Poor Customer Support',
       description: 'Vendors provide minimal support after purchase',
       impact: 'Average support ticket resolution: 5-7 days',
-      nexusSolution: '24/7 AI support with instant issue resolution'
+      nexusSolution: '24/7 AI support for reporting and analytics questions'
     },
     {
       issue: 'Rigid, Inflexible Systems',
       description: 'Cannot adapt to unique business processes',
       impact: 'Forces businesses to change processes to fit software',
-      nexusSolution: 'AI learns and adapts to your specific workflows'
+      nexusSolution: 'AI adapts to your workflows while keeping ERP as system of record'
     },
     {
       issue: 'Integration Nightmares',
       description: 'Systems don\'t communicate with each other',
       impact: 'Data silos prevent comprehensive business view',
-      nexusSolution: 'Universal integration hub connects all systems seamlessly'
+      nexusSolution: 'Integration layer connects your ERP to other systems seamlessly'
     }
   ]
 
@@ -150,23 +150,23 @@ export default function ERPComparison() {
       <div className="bg-gradient-to-br from-cyan-600 to-teal-700 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Why Nexus Succeeds Where Traditional ERPs Fail
+            Enhance Your ERP with Intelligence It's Missing
           </h1>
           <p className="text-xl mb-8 text-cyan-100">
-            See how our AI-powered platform solves the problems that plague SAP, Oracle, Microsoft, and NetSuite
+            See how Nexus fills the critical gaps in SAP, Oracle, Microsoft, and NetSuite with AI-powered capabilities
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <span className="text-2xl font-bold">90%</span> lower cost
+              <span className="text-2xl font-bold">50%</span> faster reporting
             </div>
             <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <span className="text-2xl font-bold">30 days</span> to deploy
+              <span className="text-2xl font-bold">30 days</span> to value
             </div>
             <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <span className="text-2xl font-bold">50%</span> time savings
+              <span className="text-2xl font-bold">100%</span> ERP compatible
             </div>
             <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <span className="text-2xl font-bold">100%</span> customizable
+              <span className="text-2xl font-bold">24/7</span> AI support
             </div>
           </div>
         </div>
@@ -176,11 +176,11 @@ export default function ERPComparison() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Feature-by-Feature Comparison
+            What Your ERP Has vs. What You Need
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Based on extensive research of ERP failures and user complaints, here's how Nexus addresses 
-            the critical gaps in traditional ERP systems.
+            Traditional ERPs handle core business processes well, but they consistently miss critical 
+            intelligence capabilities. Here's what Nexus adds to your existing ERP investment.
           </p>
         </div>
 
@@ -189,11 +189,11 @@ export default function ERPComparison() {
             <table className="w-full">
               <thead className="bg-gray-50 border-b border-gray-200">
                 <tr>
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Features</th>
+                  <th className="px-6 py-4 text-left text-sm font-semibold text-gray-900">Capabilities</th>
                   <th className="px-6 py-4 text-center text-sm font-semibold text-cyan-600">
                     <div className="flex flex-col items-center">
                       <Brain className="h-6 w-6 mb-1" />
-                      Nexus AI
+                      Nexus Adds
                     </div>
                   </th>
                   <th className="px-6 py-4 text-center text-sm font-semibold text-gray-600">SAP</th>
@@ -250,11 +250,11 @@ export default function ERPComparison() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Real ERP Problems, Real Solutions
+              Common ERP Challenges We Help Solve
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              These aren't theoretical issues - they're documented failures from Birmingham City Council, 
-              Mission Produce, and thousands of other organizations that lost millions on ERP implementations.
+              Based on documented case studies and user research, these are the most common ERP limitations 
+              that organizations face - and how Nexus helps address them without replacing your ERP.
             </p>
           </div>
 
@@ -292,10 +292,10 @@ export default function ERPComparison() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            The Vendor Reality Check
+            How Nexus Complements Your ERP
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            What traditional ERP vendors don't want you to know about their systems
+            Adding capabilities that are typically expensive or complex to get from traditional vendors
           </p>
         </div>
 
@@ -303,30 +303,30 @@ export default function ERPComparison() {
           {/* Cost Comparison */}
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-lg font-semibold text-gray-900">True Cost Comparison</h3>
-              <DollarSign className="h-6 w-6 text-red-600" />
+              <h3 className="text-lg font-semibold text-gray-900">Cost for Advanced Analytics</h3>
+              <DollarSign className="h-6 w-6 text-orange-600" />
             </div>
             <div className="space-y-3">
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">SAP S/4HANA</span>
-                <span className="font-semibold text-red-600">$500K-5M+</span>
+                <span className="text-gray-600">SAP Analytics</span>
+                <span className="font-semibold text-orange-600">$150K+/year</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">Oracle Cloud</span>
-                <span className="font-semibold text-red-600">$400K-3M+</span>
+                <span className="text-gray-600">Oracle Analytics</span>
+                <span className="font-semibold text-orange-600">$120K+/year</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">Microsoft D365</span>
-                <span className="font-semibold text-red-600">$200K-2M+</span>
+                <span className="text-gray-600">MS Power BI Pro</span>
+                <span className="font-semibold text-orange-600">$80K+/year</span>
               </div>
               <div className="flex justify-between items-center">
-                <span className="text-gray-600">NetSuite</span>
-                <span className="font-semibold text-red-600">$100K-1M+</span>
+                <span className="text-gray-600">NetSuite Analytics</span>
+                <span className="font-semibold text-orange-600">$60K+/year</span>
               </div>
               <div className="border-t pt-3 mt-3">
                 <div className="flex justify-between items-center">
-                  <span className="font-semibold text-cyan-600">Nexus AI Platform</span>
-                  <span className="font-bold text-green-600">$10K-50K</span>
+                  <span className="font-semibold text-cyan-600">Nexus Add-On</span>
+                  <span className="font-bold text-green-600">$10K-30K/year</span>
                 </div>
               </div>
             </div>
@@ -403,10 +403,10 @@ export default function ERPComparison() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Why Traditional ERP Vendors Won't Talk to You
+              Understanding ERP Vendor Limitations
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              The dirty secrets of the ERP industry they don't want you to know
+              Why getting advanced capabilities from traditional ERP vendors can be challenging
             </p>
           </div>
 
@@ -470,28 +470,28 @@ export default function ERPComparison() {
 
           <div className="mt-12 bg-cyan-600 text-white rounded-xl p-8 text-center">
             <h3 className="text-2xl font-bold mb-4">
-              Nexus: The Anti-ERP ERP
+              Nexus: Enhancing Your ERP Investment
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
               <div>
                 <Zap className="h-8 w-8 mx-auto mb-2" />
-                <p className="font-semibold">Direct Access</p>
-                <p className="text-sm text-cyan-100">Talk to us directly, no middlemen</p>
+                <p className="font-semibold">Quick Setup</p>
+                <p className="text-sm text-cyan-100">Add intelligence without disruption</p>
               </div>
               <div>
                 <DollarSign className="h-8 w-8 mx-auto mb-2" />
                 <p className="font-semibold">Transparent Pricing</p>
-                <p className="text-sm text-cyan-100">Same price for everyone</p>
+                <p className="text-sm text-cyan-100">Clear, predictable costs</p>
               </div>
               <div>
                 <Clock className="h-8 w-8 mx-auto mb-2" />
-                <p className="font-semibold">30-Day Deploy</p>
-                <p className="text-sm text-cyan-100">Start seeing value immediately</p>
+                <p className="font-semibold">Fast ROI</p>
+                <p className="text-sm text-cyan-100">See value in 30 days</p>
               </div>
               <div>
                 <Users className="h-8 w-8 mx-auto mb-2" />
-                <p className="font-semibold">All Sizes Welcome</p>
-                <p className="text-sm text-cyan-100">From 10 to 10,000 employees</p>
+                <p className="font-semibold">Works With Your ERP</p>
+                <p className="text-sm text-cyan-100">SAP, Oracle, Microsoft, any system</p>
               </div>
             </div>
             <Link href="/" className="inline-flex items-center px-6 py-3 bg-white text-cyan-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
@@ -506,17 +506,17 @@ export default function ERPComparison() {
       <div className="bg-gradient-to-br from-cyan-600 to-teal-700 text-white py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold mb-4">
-            Stop Wasting Money on ERP Failures
+            Get More From Your ERP Investment
           </h2>
           <p className="text-xl mb-8 text-cyan-100">
-            Join companies saving millions with AI-powered intelligence that actually works
+            Add AI-powered intelligence that transforms your ERP data into actionable insights
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <button className="px-8 py-3 bg-white text-cyan-700 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-              Get Your Free Assessment
+              Get ERP Enhancement Assessment
             </button>
             <button className="px-8 py-3 bg-cyan-700 text-white rounded-lg font-semibold hover:bg-cyan-800 transition-colors border border-cyan-500">
-              Calculate Your Savings
+              See Integration Options
             </button>
           </div>
         </div>
