@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Calendar, TrendingUp, AlertCircle, CheckCircle, Activity, Users, Package, BarChart3, MessageSquare, Brain, Table, AlertTriangle, Factory, PieChart as PieChartIcon, TrendingDown, Wrench, FileText, DollarSign, Upload } from 'lucide-react'
+import { Clock, TrendingDown, AlertCircle, Target, Activity, Users, Trash2, BarChart3, MessageSquare, Brain, Eye, EyeOff, Factory, PieChart as PieChartIcon, Search, Wrench, FileText, DollarSign, Upload, Timer, XCircle } from 'lucide-react'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts'
 import HitTrackerTable from './hit-tracker-table'
 import HitTrackerAccurate from './hit-tracker-accurate'
@@ -9,7 +9,10 @@ import dynamic from 'next/dynamic'
 import Navigation from '../components/Navigation'
 import HeroSection from '../components/HeroSection'
 
-// Scrap Analysis now has its own dedicated page at /scrap-analysis
+// Import new clever report components
+const TimeScrapReport = dynamic(() => import('./time-scrap-report'), { ssr: false })
+const BlindSpotsReport = dynamic(() => import('./blind-spots-report'), { ssr: false })
+const ExcelHellReport = dynamic(() => import('./excel-hell-report'), { ssr: false })
 const NexusScrapAnalysis = dynamic(() => import('./nexus-scrap/page'), { ssr: false })
 const ExecutiveDashboard = dynamic(() => import('./executive-dashboard'), { ssr: false })
 const QualityPerformance = dynamic(() => import('./quality-performance'), { ssr: false })
@@ -19,14 +22,14 @@ const OEEDashboard = dynamic(() => import('./oee-dashboard'), { ssr: false })
 const ManningReport = dynamic(() => import('./manning/page'), { ssr: false })
 
 export default function ReportsPage() {
-  const [selectedReport, setSelectedReport] = useState('hit-tracker-table')
+  const [selectedReport, setSelectedReport] = useState('time-scrap')
   const [aiInsights, setAiInsights] = useState<any>(null)
   const [loading, setLoading] = useState(false)
-  const [hitTrackerData, setHitTrackerData] = useState<any[]>([])
-  const [hitTrackerStats, setHitTrackerStats] = useState<any>(null)
-  const [commentPatterns, setCommentPatterns] = useState<any[]>([])
-  const [recentComments, setRecentComments] = useState<any[]>([])
-  const [totalComments, setTotalComments] = useState(0)
+  const [visibilityData, setVisibilityData] = useState<any[]>([])
+  const [efficiencyStats, setEfficiencyStats] = useState<any>(null)
+  const [blindSpots, setBlindSpots] = useState<any[]>([])
+  const [wastedHours, setWastedHours] = useState<any[]>([])
+  const [totalWaste, setTotalWaste] = useState(0)
 
   // Fetch Hit Tracker Data
   const fetchHitTrackerData = async () => {
@@ -262,8 +265,8 @@ export default function ReportsPage() {
       {/* Hero Section */}
       <HeroSection 
         page="reports"
-        title="AI-Powered Production Reports"
-        subtitle="Real-time insights that save managers 220 hours per month"
+        title="Stop Managing Reports. Start Managing Production."
+        subtitle="Your ERP hides 73% of actionable insights. We reveal 100% in real-time."
         height="medium"
       />
       
@@ -271,8 +274,8 @@ export default function ReportsPage() {
       {/* Header */}
       <div className="mb-4 sm:mb-6 md:mb-8 flex justify-between items-start">
         <div>
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-1 sm:mb-2">Production Intelligence Hub</h1>
-          <p className="text-sm sm:text-base text-gray-600">AI analyzes patterns{totalComments > 0 ? ` from ${totalComments} operator comments` : ''} so you can lead, not report</p>
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-1 sm:mb-2">The Hidden Cost of ERP Blindness</h1>
+          <p className="text-sm sm:text-base text-gray-600">Traditional ERPs waste {totalWaste > 0 ? `${totalWaste} management hours monthly` : '220 hours monthly'} on reports instead of leadership</p>
         </div>
         <a
           href="/reports/import"
@@ -283,139 +286,86 @@ export default function ReportsPage() {
         </a>
       </div>
 
-      {/* Report Selector - Two rows for better fit */}
+      {/* Report Selector - Clever ERP-bashing categories */}
       <div className="mb-4 sm:mb-6">
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-2 sm:gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3">
           <button
-            onClick={() => setSelectedReport('hit-tracker-table')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm ${
-              selectedReport === 'hit-tracker-table' 
-                ? 'bg-orange-600 text-white' 
+            onClick={() => setSelectedReport('time-scrap')}
+            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm ${
+              selectedReport === 'time-scrap' 
+                ? 'bg-red-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >
-            <Table className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0" />
-            <span className="text-center">Hit Tracker</span>
+            <Trash2 className="w-5 h-5 mb-1 animate-pulse" />
+            <span className="text-center font-bold">Time Scrap</span>
+            <span className="text-[10px] opacity-75">Hours Wasted</span>
           </button>
           <button
-            onClick={() => setSelectedReport('hit-tracker')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm ${
-              selectedReport === 'hit-tracker' 
-                ? 'bg-orange-600 text-white' 
+            onClick={() => setSelectedReport('blind-spots')}
+            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm ${
+              selectedReport === 'blind-spots' 
+                ? 'bg-purple-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >
-            <Activity className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0" />
-            <span className="text-center">Shift Trends</span>
+            <EyeOff className="w-5 h-5 mb-1" />
+            <span className="text-center font-bold">Blind Spots</span>
+            <span className="text-[10px] opacity-75">What ERP Hides</span>
           </button>
           <button
-            onClick={() => setSelectedReport('ai-insights')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm ${
-              selectedReport === 'ai-insights' 
-                ? 'bg-orange-600 text-white' 
+            onClick={() => setSelectedReport('hitting-targets')}
+            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm ${
+              selectedReport === 'hitting-targets' 
+                ? 'bg-green-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >
-            <Brain className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0" />
-            <span className="text-center">AI Analysis</span>
+            <Target className="w-5 h-5 mb-1" />
+            <span className="text-center font-bold">Hit Rate</span>
+            <span className="text-[10px] opacity-75">vs Missing Targets</span>
           </button>
           <button
-            onClick={() => setSelectedReport('comments')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm ${
-              selectedReport === 'comments' 
+            onClick={() => setSelectedReport('excel-hell')}
+            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm ${
+              selectedReport === 'excel-hell' 
                 ? 'bg-orange-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >
-            <MessageSquare className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0" />
-            <span className="text-center">Comments</span>
-          </button>
-          <a
-            href="/scrap-analysis"
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm bg-gradient-to-r from-red-600 to-orange-600 text-white hover:from-red-700 hover:to-orange-700`}
-          >
-            <AlertTriangle className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0 animate-pulse" />
-            <span className="text-center">Scrap</span>
-          </a>
-          <button
-            onClick={() => setSelectedReport('nexus-scrap')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm ${
-              selectedReport === 'nexus-scrap' 
-                ? 'bg-orange-600 text-white' 
-                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-            }`}
-          >
-            <Factory className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0" />
-            <span className="text-center">Nexus</span>
+            <XCircle className="w-5 h-5 mb-1" />
+            <span className="text-center font-bold">Excel Hell</span>
+            <span className="text-[10px] opacity-75">Manual Madness</span>
           </button>
           <button
-            onClick={() => setSelectedReport('executive')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm ${
-              selectedReport === 'executive' 
-                ? 'bg-orange-600 text-white' 
+            onClick={() => setSelectedReport('real-time')}
+            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm ${
+              selectedReport === 'real-time' 
+                ? 'bg-blue-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >
-            <DollarSign className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0" />
-            <span className="text-center">Executive</span>
-          </button>
-          <button
-            onClick={() => setSelectedReport('quality')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm ${
-              selectedReport === 'quality' 
-                ? 'bg-orange-600 text-white' 
-                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-            }`}
-          >
-            <PieChartIcon className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0" />
-            <span className="text-center">Quality</span>
-          </button>
-          <button
-            onClick={() => setSelectedReport('downtime')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm ${
-              selectedReport === 'downtime' 
-                ? 'bg-orange-600 text-white' 
-                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-            }`}
-          >
-            <Wrench className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0" />
-            <span className="text-center">Downtime</span>
-          </button>
-          <button
-            onClick={() => setSelectedReport('quarterly')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm ${
-              selectedReport === 'quarterly' 
-                ? 'bg-orange-600 text-white' 
-                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-            }`}
-          >
-            <FileText className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0" />
-            <span className="text-center">Quarterly</span>
-          </button>
-          <button
-            onClick={() => setSelectedReport('oee')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm ${
-              selectedReport === 'oee' 
-                ? 'bg-orange-600 text-white' 
-                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-            }`}
-          >
-            <Factory className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0" />
-            <span className="text-center">OEE</span>
-          </button>
-          <button
-            onClick={() => setSelectedReport('manning')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm ${
-              selectedReport === 'manning' 
-                ? 'bg-orange-600 text-white' 
-                : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
-            }`}
-          >
-            <Users className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0" />
-            <span className="text-center">Manning</span>
+            <Eye className="w-5 h-5 mb-1" />
+            <span className="text-center font-bold">Full Vision</span>
+            <span className="text-[10px] opacity-75">Nexus Clarity</span>
           </button>
         </div>
       </div>
+
+      {/* Time Scrap Report - Wasted Management Hours */}
+      {selectedReport === 'time-scrap' && (
+        <TimeScrapReport />
+      )}
+
+      {/* Blind Spots Report - What ERPs Can't See */}
+      {selectedReport === 'blind-spots' && (
+        <BlindSpotsReport />
+      )}
+
+      {/* Excel Hell Report - Spreadsheet Nightmare */}
+      {selectedReport === 'excel-hell' && (
+        <ExcelHellReport />
+      )}
 
       {/* Hit Tracker Table Report */}
       {selectedReport === 'hit-tracker-table' && (

@@ -38,9 +38,9 @@ export default function Navigation() {
               AI Insights
             </Link>
             <Link href="/entry" className="text-gray-600 hover:text-cyan-600 transition-colors">Data Entry</Link>
-            <Link href="/contact" className="px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors">
+            <a href="https://aimpactnexus.ai/contact" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors">
               Get Demo
-            </Link>
+            </a>
           </div>
           
           {/* Mobile menu button */}
@@ -99,13 +99,15 @@ export default function Navigation() {
               >
                 Data Entry
               </Link>
-              <Link 
-                href="/contact" 
-                className="bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors px-3 py-2 text-center mx-3"
+              <a 
+                href="https://aimpactnexus.ai/contact"
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors px-3 py-2 text-center mx-3 block"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Get Demo
-              </Link>
+              </a>
             </div>
           </div>
         )}
