@@ -10,13 +10,27 @@ const openai = process.env.OPENAI_API_KEY ? new OpenAI({
 // Demo chatbot responses for Nexus Precision Industries (fallback)
 const demoResponses: Record<string, string> = {
   // Greetings
-  'hello': `Hello! I'm your Nexus AI assistant. I can help you understand how our manufacturing intelligence platform can enhance your existing ERP system. 
+  'hello': `Hello! I'm your Nexus AI assistant. I help organizations save 220+ hours of management time monthly by adding intelligence to their existing ERP systems.
 
-This is a demo version showing example capabilities. For a personalized demo with your actual data, please visit our [Contact Page](https://aimpactnexus.ai/contact) to schedule a consultation.`,
+I can help you understand:
+• How Nexus enhances your current ERP (SAP, Oracle, Microsoft, etc.)
+• Our 30-day implementation process
+• ROI and time savings calculations
+• Pricing and deployment options
 
-  'hi': `Hi there! Welcome to Nexus Precision Industries. I'm here to show you how we can add AI-powered intelligence to your existing ERP system.
+What would you like to know about transforming your ERP with AI?`,
 
-This is a demo environment with sample data. For a real demonstration tailored to your manufacturing needs, please [contact us](https://aimpactnexus.ai/contact).`,
+  'hi': `Hi there! Welcome to Nexus Precision Industries. 
+
+We help companies save 70% on operational costs by adding AI intelligence to their existing ERP - without the 18-month replacement nightmare.
+
+Ask me about:
+• ERP enhancement capabilities
+• Management time savings (220+ hours/month)
+• 30-day implementation timeline
+• ROI calculator and pricing
+
+How can I help optimize your ERP investment today?`,
 
   // Production questions
   'efficiency': `Based on our demo data, here's a sample efficiency analysis:
@@ -132,22 +146,25 @@ Our team will:
 Looking forward to showing you the full power of Nexus!`,
 
   // Default response
-  'default': `I can help you explore our manufacturing intelligence capabilities. Try asking about:
+  'default': `I'm here to help you understand how Nexus transforms your existing ERP into an intelligent system that saves time and money.
 
-🏭 **Manufacturing Intelligence:**
-- "Show me efficiency metrics"
-- "What's our production status?"
-- "Analyze scrap patterns"
-- "Predict maintenance needs"
+🎯 **Key Benefits:**
+• Save 220+ hours of management time monthly
+• 98% faster report generation
+• 70% reduction in operational costs
+• 30-day implementation (not 18 months!)
 
-💡 **ERP Enhancement:**
-- "How does Nexus work with SAP?"
-- "What's the implementation time?"
-- "Show me pricing options"
+💡 **Popular Questions:**
+• "How does Nexus enhance my ERP?"
+• "Calculate my potential ROI"
+• "What's the pricing structure?"
+• "How fast is implementation?"
+• "Which ERPs are compatible?"
 
-📊 **This is a demo system with sample data.**
+📊 **Ready to Transform Your ERP?**
+Visit our [Time Savings Calculator](/time-savings-calculator) or [contact our team](https://aimpactnexus.ai/contact) for a personalized demonstration.
 
-For a personalized demonstration with your actual ERP data and specific use cases, please [contact our team](https://aimpactnexus.ai/contact) or call 1-800-NEXUS-AI.`
+What aspect of ERP enhancement would you like to explore?`
 }
 
 export async function POST(req: NextRequest) {
@@ -179,9 +196,25 @@ IMPORTANT GUIDELINES:
 7. If asked about specific technical details not in the knowledge base, acknowledge limitations and offer to connect with our technical team
 8. Always end responses with a relevant call-to-action
 
-TONE: Professional, knowledgeable, helpful, and enthusiastic about manufacturing intelligence solutions.
+SUGGESTED FOLLOW-UP QUESTIONS (when appropriate):
+When suggesting related questions, focus on these topics:
+- "How does Nexus integrate with my ERP?"
+- "What's the ROI timeline?"
+- "Can I see a pricing breakdown?"
+- "How fast is implementation?"
+- "What reports can Nexus generate?"
+- "How much time will managers save?"
+- "Schedule a personalized demo"
 
-Keep responses concise but informative. Use emojis sparingly for visual appeal.`
+NEVER suggest manufacturing-specific questions like:
+- Questions about specific machines or equipment
+- Production line efficiency for specific products
+- Shift performance comparisons
+- Die issues or maintenance schedules
+
+TONE: Professional, knowledgeable, helpful, and enthusiastic about ERP enhancement and intelligence solutions.
+
+Keep responses concise but informative. Use emojis sparingly for visual appeal. Focus on the business value and time savings, not factory floor details.`
 
     // Build conversation history for context
     const messages = [
