@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import ResizableChatSidebar from './ResizableChatSidebar'
 import { createClient } from '@/lib/supabase/browser-client'
+import Footer from './Footer'
+import CookieConsent from './CookieConsent'
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter()
@@ -72,17 +74,21 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
   }
 
   return (
-    <div className="min-h-screen flex relative">
-      {/* Main Content Area - adjusts margin based on chat state */}
-      <main 
-        className="flex-1 bg-white transition-all duration-300"
-        style={{ 
-          marginRight: isMobile ? 0 : (isChatCollapsed ? 0 : chatWidth),
-          width: isMobile ? '100%' : (isChatCollapsed ? '100%' : `calc(100% - ${chatWidth}px)`)
-        }}
-      >
-        {children}
-      </main>
+    <div className="min-h-screen flex flex-col relative">
+      <div className="flex flex-1 relative">
+        {/* Main Content Area - adjusts margin based on chat state */}
+        <main 
+          className="flex-1 bg-white transition-all duration-300 flex flex-col"
+          style={{ 
+            marginRight: isMobile ? 0 : (isChatCollapsed ? 0 : chatWidth),
+            width: isMobile ? '100%' : (isChatCollapsed ? '100%' : `calc(100% - ${chatWidth}px)`)
+          }}
+        >
+          <div className="flex-grow">
+            {children}
+          </div>
+          <Footer />
+        </main>
 
       {/* AI Assistant Sidebar - mobile responsive */}
       {!isMobile && (
@@ -127,6 +133,10 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
           </svg>
         </button>
       )}
+      </div>
+      
+      {/* Cookie Consent Banner */}
+      <CookieConsent />
     </div>
   )
 }
