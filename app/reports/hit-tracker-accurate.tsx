@@ -87,25 +87,74 @@ export default function HitTrackerAccurate() {
 
         // Generate 7 days of demo data
         for (let d = 0; d < 7; d++) {
-          const dayHits = Math.floor(Math.random() * 50) + 150 // 150-200 hits
-          const dayHours = 8 + Math.random() * 2 // 8-10 hours
+          const currentDate = new Date(weekStart.getTime() + d * 24 * 60 * 60 * 1000)
+          const dayNames = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+          
+          // Generate shift data
+          const shift1Hits = Math.floor(Math.random() * 50) + 50
+          const shift1Hours = 8
+          const shift2Hits = Math.floor(Math.random() * 50) + 50  
+          const shift2Hours = 8
+          const shift3Hits = Math.floor(Math.random() * 50) + 50
+          const shift3Hours = 8
+          
+          const dayHits = shift1Hits + shift2Hits + shift3Hits
+          const dayHours = shift1Hours + shift2Hours + shift3Hours
+          
           weeklyHits += dayHits
           weeklyHours += dayHours
           
           days.push({
-            date: new Date(weekStart.getTime() + d * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
-            hits: dayHits,
-            hours: dayHours,
-            efficiency: Math.round((dayHits / (dayHours * 20)) * 100) // 20 hits per hour target
+            date: currentDate.toISOString().split('T')[0],
+            dayName: dayNames[currentDate.getDay()],
+            shifts: {
+              third: {
+                hits: shift3Hits,
+                hours: shift3Hours,
+                efficiency: Math.round((shift3Hits / (shift3Hours * 20)) * 100)
+              },
+              first: {
+                hits: shift1Hits,
+                hours: shift1Hours,
+                efficiency: Math.round((shift1Hits / (shift1Hours * 20)) * 100)
+              },
+              second: {
+                hits: shift2Hits,
+                hours: shift2Hours,
+                efficiency: Math.round((shift2Hits / (shift2Hours * 20)) * 100)
+              }
+            },
+            dailyHits: dayHits,
+            dailyHours: dayHours,
+            dailyEfficiency: Math.round((dayHits / (dayHours * 20)) * 100)
           })
         }
 
         machines.push({
-          machine: machine,
+          machineId: machine.id,
+          machineName: machine.name,
+          target: machine.target,
+          days,
           weeklyHits,
           weeklyHours,
-          weeklyEfficiency: Math.round((weeklyHits / (weeklyHours * 20)) * 100),
-          days
+          weeklyPerformance: Math.round((weeklyHits / (weeklyHours * 20)) * 100),
+          shiftTotals: {
+            third: {
+              hits: days.reduce((sum, day) => sum + (day.shifts.third.hits || 0), 0),
+              hours: days.reduce((sum, day) => sum + (day.shifts.third.hours || 0), 0),
+              efficiency: Math.round(days.reduce((sum, day) => sum + (day.shifts.third.efficiency || 0), 0) / days.length)
+            },
+            first: {
+              hits: days.reduce((sum, day) => sum + (day.shifts.first.hits || 0), 0),
+              hours: days.reduce((sum, day) => sum + (day.shifts.first.hours || 0), 0),
+              efficiency: Math.round(days.reduce((sum, day) => sum + (day.shifts.first.efficiency || 0), 0) / days.length)
+            },
+            second: {
+              hits: days.reduce((sum, day) => sum + (day.shifts.second.hits || 0), 0),
+              hours: days.reduce((sum, day) => sum + (day.shifts.second.hours || 0), 0),
+              efficiency: Math.round(days.reduce((sum, day) => sum + (day.shifts.second.efficiency || 0), 0) / days.length)
+            }
+          }
         })
       })
 

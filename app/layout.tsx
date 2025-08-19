@@ -17,9 +17,9 @@ export const metadata: Metadata = {
   title: "Nexus Precision Industries - Manufacturing Intelligence Platform",
   description: "Advanced manufacturing intelligence system for real-time production tracking, efficiency analysis, and AI-powered insights",
   icons: {
-    icon: '/nexus-favicon.svg',
-    shortcut: '/nexus-favicon.svg',
-    apple: '/nexus-favicon.svg',
+    icon: '/favicon.svg',
+    shortcut: '/favicon.ico',
+    apple: '/nexus-logo.png',
   },
 };
 

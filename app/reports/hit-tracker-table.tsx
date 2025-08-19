@@ -60,14 +60,35 @@ export default function HitTrackerTable() {
               weeks: [
                 {
                   weekStart: '2024-12-09',
-                  weekEnd: '2024-12-15',
                   days: [
-                    { date: '2024-12-09', hits: 945, hours: 8.5, efficiency: 0.95 },
-                    { date: '2024-12-10', hits: 952, hours: 8.2, efficiency: 0.97 },
-                    { date: '2024-12-11', hits: 938, hours: 8.8, efficiency: 0.93 },
-                    { date: '2024-12-12', hits: 961, hours: 8.1, efficiency: 0.99 },
-                    { date: '2024-12-13', hits: 943, hours: 8.6, efficiency: 0.95 }
-                  ]
+                    { 
+                      date: '2024-12-09', 
+                      dayName: 'Monday',
+                      shifts: [
+                        { shift: 1, hits: 315, hours: 8, efficiency: 0.98 },
+                        { shift: 2, hits: 310, hours: 8, efficiency: 0.97 },
+                        { shift: 3, hits: 320, hours: 8, efficiency: 1.0 }
+                      ],
+                      dailyHits: 945,
+                      dailyHours: 24,
+                      dailyEfficiency: 0.98
+                    },
+                    { 
+                      date: '2024-12-10', 
+                      dayName: 'Tuesday',
+                      shifts: [
+                        { shift: 1, hits: 318, hours: 8, efficiency: 0.99 },
+                        { shift: 2, hits: 317, hours: 8, efficiency: 0.99 },
+                        { shift: 3, hits: 317, hours: 8, efficiency: 0.99 }
+                      ],
+                      dailyHits: 952,
+                      dailyHours: 24,
+                      dailyEfficiency: 0.99
+                    }
+                  ],
+                  weeklyHits: 1897,
+                  weeklyHours: 48,
+                  weeklyPerformance: 0.985
                 }
               ]
             }
@@ -84,14 +105,23 @@ export default function HitTrackerTable() {
             weeks: [
               {
                 weekStart: '2024-12-09',
-                weekEnd: '2024-12-15',
                 days: [
-                  { date: '2024-12-09', hits: 945, hours: 8.5, efficiency: 0.95 },
-                  { date: '2024-12-10', hits: 952, hours: 8.2, efficiency: 0.97 },
-                  { date: '2024-12-11', hits: 938, hours: 8.8, efficiency: 0.93 },
-                  { date: '2024-12-12', hits: 961, hours: 8.1, efficiency: 0.99 },
-                  { date: '2024-12-13', hits: 943, hours: 8.6, efficiency: 0.95 }
-                ]
+                  { 
+                    date: '2024-12-09', 
+                    dayName: 'Monday',
+                    shifts: [
+                      { shift: 1, hits: 315, hours: 8, efficiency: 0.98 },
+                      { shift: 2, hits: 310, hours: 8, efficiency: 0.97 },
+                      { shift: 3, hits: 320, hours: 8, efficiency: 1.0 }
+                    ],
+                    dailyHits: 945,
+                    dailyHours: 24,
+                    dailyEfficiency: 0.98
+                  }
+                ],
+                weeklyHits: 945,
+                weeklyHours: 24,
+                weeklyPerformance: 0.98
               }
             ]
           }
