@@ -18,6 +18,7 @@ import {
   ChevronRight
 } from 'lucide-react'
 import Navigation from '../components/Navigation'
+import HeroSection from '../components/HeroSection'
 
 export default function ERPComparison() {
   // Feature comparison data
@@ -118,6 +119,14 @@ export default function ERPComparison() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
+      
+      {/* Hero Section */}
+      <HeroSection 
+        page="erpComparison"
+        title="Your ERP vs. What You Actually Need"
+        subtitle="Traditional ERPs cost millions and take years. Nexus adds the intelligence layer in 30 days."
+        height="medium"
+      />
 
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-cyan-600 to-teal-700 text-white py-16">
