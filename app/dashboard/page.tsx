@@ -157,7 +157,7 @@ export default function Dashboard() {
           </span>
         }
         subtitle="Your managers are drowning in Excel instead of leading their teams"
-        height="medium"
+        height="large"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

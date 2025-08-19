@@ -123,36 +123,25 @@ export default function ERPComparison() {
       {/* Hero Section */}
       <HeroSection 
         page="erpComparison"
-        title="Your ERP vs. What You Actually Need"
-        subtitle="Traditional ERPs cost millions and take years. Nexus adds the intelligence layer in 30 days."
-        height="medium"
-      />
-
-      {/* Hero Section */}
-      <div className="bg-gradient-to-br from-cyan-600 to-teal-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
-            Enhance Your ERP with Intelligence It's Missing
-          </h1>
-          <p className="text-xl mb-8 text-cyan-100">
-            See how Nexus fills the critical gaps in SAP, Oracle, Microsoft, and NetSuite with AI-powered capabilities
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <span className="text-2xl font-bold">50%</span> faster reporting
-            </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <span className="text-2xl font-bold">30 days</span> to value
-            </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <span className="text-2xl font-bold">100%</span> ERP compatible
-            </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
-              <span className="text-2xl font-bold">24/7</span> AI support
-            </div>
+        title="Enhance Your ERP with Intelligence It's Missing"
+        subtitle="See how Nexus fills the critical gaps in SAP, Oracle, Microsoft, and NetSuite with AI-powered capabilities"
+        height="large"
+      >
+        <div className="flex flex-wrap justify-center gap-4 mt-8">
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+            <span className="text-2xl font-bold">50%</span> faster reporting
+          </div>
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+            <span className="text-2xl font-bold">30 days</span> to value
+          </div>
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+            <span className="text-2xl font-bold">100%</span> ERP compatible
+          </div>
+          <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+            <span className="text-2xl font-bold">24/7</span> AI support
           </div>
         </div>
-      </div>
+      </HeroSection>
 
       {/* Feature Comparison Table */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

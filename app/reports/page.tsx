@@ -269,7 +269,7 @@ export default function ReportsPage() {
         page="reports"
         title="Stop Managing Reports. Start Managing Production."
         subtitle="Your ERP hides 73% of actionable insights. We reveal 100% in real-time."
-        height="medium"
+        height="large"
       />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">

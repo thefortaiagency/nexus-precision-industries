@@ -78,7 +78,7 @@ export default function ManningReport() {
           </span>
         }
         subtitle="Real-time workforce analytics and optimization"
-        height="medium"
+        height="large"
       />
 
       {/* Key Metrics */}

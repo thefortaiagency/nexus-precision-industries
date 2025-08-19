@@ -175,7 +175,7 @@ export default function ScrapAnalysisPage() {
           </span>
         }
         subtitle="Every hour building reports is an hour NOT managing your team"
-        height="medium"
+        height="large"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

@@ -114,7 +114,7 @@ export default function InventoryIntelligencePage() {
         page="inventory"
         title="Inventory Intelligence vs Traditional ERPs"
         subtitle="Stop counting. Start predicting. Save 432 hours monthly."
-        height="medium"
+        height="large"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

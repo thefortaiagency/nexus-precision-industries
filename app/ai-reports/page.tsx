@@ -146,7 +146,7 @@ export default function AIReportsPage() {
           </span>
         }
         subtitle="Predictive analytics and actionable insights from your manufacturing data"
-        height="medium"
+        height="large"
       >
         <button 
           onClick={() => setLoading(true)}
