@@ -18,12 +18,12 @@ import {
 } from 'lucide-react'
 import Navigation from './components/Navigation'
 
-// Mock data for demo
+// Management and efficiency stats
 const stats = {
-  productionRecords: 2847,
-  machines: 12,
-  efficiency: '94.3%',
-  uptime: '99.2%'
+  managementTimeSaved: '220',
+  reportingSpeed: '98%',
+  roiMonths: '6',
+  costSavings: '70%'
 }
 
 export default function Home() {
@@ -50,7 +50,7 @@ export default function Home() {
               Manufacturing Intelligence Platform
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-700">
-              Transform your ERP data into AI-powered insights and actionable intelligence
+              Save 220+ management hours monthly while boosting company-wide efficiency by 70%
             </p>
             
             {/* ERP Integration Banner */}
@@ -80,22 +80,26 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-8">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">{stats.productionRecords.toLocaleString()}+</div>
-                <div className="text-sm text-gray-600">Production Records</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-8">
+              <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-cyan-200">
+                <div className="text-4xl font-bold text-cyan-600">{stats.managementTimeSaved}</div>
+                <div className="text-sm font-semibold text-gray-700">Hours/Month</div>
+                <div className="text-xs text-gray-500">Management Time Saved</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">24/7</div>
-                <div className="text-sm text-gray-600">Real-Time Tracking</div>
+              <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-green-200">
+                <div className="text-4xl font-bold text-green-600">{stats.reportingSpeed}</div>
+                <div className="text-sm font-semibold text-gray-700">Faster</div>
+                <div className="text-xs text-gray-500">Report Generation</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">{stats.machines}</div>
-                <div className="text-sm text-gray-600">Production Lines</div>
+              <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-purple-200">
+                <div className="text-4xl font-bold text-purple-600">{stats.roiMonths}</div>
+                <div className="text-sm font-semibold text-gray-700">Month ROI</div>
+                <div className="text-xs text-gray-500">Guaranteed Results</div>
               </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">{stats.efficiency}</div>
-                <div className="text-sm text-gray-600">Overall Efficiency</div>
+              <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-md border border-orange-200">
+                <div className="text-4xl font-bold text-orange-600">{stats.costSavings}</div>
+                <div className="text-sm font-semibold text-gray-700">Cost Savings</div>
+                <div className="text-xs text-gray-500">Company-Wide</div>
               </div>
             </div>
           </div>
