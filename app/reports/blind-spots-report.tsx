@@ -244,9 +244,14 @@ export default function BlindSpotsReport() {
         <p className="text-lg mb-4">
           Nexus illuminates the 73% of your operation that's currently invisible
         </p>
-        <button className="bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition-colors">
+        <a 
+          href="https://aimpactnexus.ai/contact" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-bold hover:bg-blue-50 transition-colors"
+        >
           Illuminate Your Blind Spots →
-        </button>
+        </a>
       </div>
     </div>
   )
