@@ -21,9 +21,12 @@ export default function TimeSavingsCalculator() {
   // Input states
   const [employees, setEmployees] = useState(50)
   const [hoursPerWeek, setHoursPerWeek] = useState(8)
-  const [avgHourlyRate, setAvgHourlyRate] = useState(35)
+  const [avgSalary, setAvgSalary] = useState(75000)
   const [reportsPerMonth, setReportsPerMonth] = useState(12)
   const [hoursPerReport, setHoursPerReport] = useState(6)
+  
+  // Calculate hourly rate from salary (assuming 2080 hours per year)
+  const avgHourlyRate = avgSalary / 2080
 
   // Calculated results
   const [results, setResults] = useState({
@@ -66,7 +69,7 @@ export default function TimeSavingsCalculator() {
       reportTimeSaved: Math.round(reportTimeSaved),
       reportCostSavings: Math.round(reportCostSavings)
     })
-  }, [employees, hoursPerWeek, avgHourlyRate, reportsPerMonth, hoursPerReport])
+  }, [employees, hoursPerWeek, avgSalary, reportsPerMonth, hoursPerReport, avgHourlyRate])
 
   return (
     <div className="min-h-screen bg-white">
@@ -153,24 +156,28 @@ export default function TimeSavingsCalculator() {
                 </div>
               </div>
 
-              {/* Average hourly rate */}
+              {/* Average salary */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   <DollarSign className="h-4 w-4 inline mr-1" />
-                  Average hourly rate (including benefits)
+                  Average annual salary (including benefits)
                 </label>
                 <input
                   type="range"
-                  min="20"
-                  max="80"
-                  value={avgHourlyRate}
-                  onChange={(e) => setAvgHourlyRate(parseInt(e.target.value))}
+                  min="40000"
+                  max="150000"
+                  step="5000"
+                  value={avgSalary}
+                  onChange={(e) => setAvgSalary(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
                 />
                 <div className="flex justify-between text-sm text-gray-500 mt-1">
-                  <span>$20</span>
-                  <span className="font-semibold text-cyan-600">${avgHourlyRate}</span>
-                  <span>$80+</span>
+                  <span>$40K</span>
+                  <span className="font-semibold text-cyan-600">${(avgSalary/1000).toFixed(0)}K</span>
+                  <span>$150K+</span>
+                </div>
+                <div className="text-xs text-gray-500 mt-1">
+                  Hourly equivalent: ${avgHourlyRate.toFixed(2)}/hour
                 </div>
               </div>
 

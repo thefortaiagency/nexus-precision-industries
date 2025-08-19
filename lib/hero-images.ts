@@ -56,6 +56,11 @@ export const heroImages = {
     prompt: "Futuristic automated warehouse with holographic inventory tracking systems, floating data displays showing stock levels and predictive analytics, industrial robotics moving inventory while AI monitors every item, blue and purple lighting, cinematic depth",
     unsplashUrl: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop", // Warehouse automation
     overlay: "linear-gradient(to bottom, rgba(99, 102, 241, 0.8), rgba(139, 92, 246, 0.9))"
+  },
+  calculator: {
+    prompt: "Industrial calculator interface with holographic time and cost savings displays, floating numerical data streams showing ROI calculations, factory background with productivity metrics, cyan and teal lighting, futuristic financial analysis visualization, cinematic composition",
+    unsplashUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop", // Data calculation visualization
+    overlay: "linear-gradient(to bottom, rgba(6, 182, 212, 0.8), rgba(20, 184, 166, 0.9))"
   }
 }
 
