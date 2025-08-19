@@ -51,14 +51,16 @@ export default function ProductionChatbot({ isNavbar = false }: ProductionChatbo
       role: 'assistant',
       content: `👋 Welcome to Nexus Precision Industries!
 
-I'm here to help you discover how Nexus transforms your existing ERP into an intelligent system without replacing it.
+I'm your AI assistant, here to show you how Nexus adds intelligence to your existing ERP system.
 
-Ask me about:
-• How we enhance SAP, Oracle, or Microsoft Dynamics
-• 70% time savings on reporting
-• 30-day implementation (vs 18 months for new ERP)
-• ROI calculator and pricing
-• Schedule your personalized demo`,
+I can help with:
+• Understanding how Nexus enhances your current ERP
+• Calculating your potential time and cost savings
+• Explaining our 30-day implementation process
+• Scheduling a personalized demo
+• Answering questions about pricing and ROI
+
+What would you like to know about transforming your ERP with AI?`,
       timestamp: new Date()
     }
   ])
@@ -178,11 +180,11 @@ Ask me about:
 
   // Quick questions for first-time users
   const quickQuestions = [
-    "Compare Nexus vs new ERP",
-    "Works with SAP/Oracle?",
-    "See pricing tiers",
-    "Why 30 days vs 18 months?",
-    "View demo reports"
+    "How does Nexus work with my ERP?",
+    "Show ROI calculator",
+    "What's the pricing?",
+    "Schedule a demo",
+    "Integration process"
   ]
 
   return (
