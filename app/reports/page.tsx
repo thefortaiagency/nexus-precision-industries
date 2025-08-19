@@ -333,9 +333,9 @@ export default function ReportsPage() {
             <span className="text-[9px] sm:text-[10px] opacity-75 hidden sm:block">Manual Madness</span>
           </button>
           <button
-            onClick={() => setSelectedReport('real-time')}
+            onClick={() => setSelectedReport('full-vision')}
             className={`px-2 sm:px-3 py-3 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm min-h-[80px] sm:min-h-[90px] ${
-              selectedReport === 'real-time' 
+              selectedReport === 'full-vision' 
                 ? 'bg-blue-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}

@@ -169,7 +169,7 @@ export default function DataEntryPage() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
-                    <ul className="space-y-2 text-sm">
+                    <ul className="space-y-2 text-base text-gray-900">
                       <li className="flex items-start">
                         <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
                         <span><strong>OData Services:</strong> Real-time REST API access to all SAP modules</span>
@@ -220,7 +220,7 @@ export default function DataEntryPage() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
-                    <ul className="space-y-2 text-sm">
+                    <ul className="space-y-2 text-base text-gray-900">
                       <li className="flex items-start">
                         <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
                         <span><strong>REST APIs:</strong> Modern cloud-native integration</span>
@@ -271,7 +271,7 @@ export default function DataEntryPage() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
-                    <ul className="space-y-2 text-sm">
+                    <ul className="space-y-2 text-base text-gray-900">
                       <li className="flex items-start">
                         <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
                         <span><strong>SuiteTalk REST:</strong> Modern RESTful web services</span>
@@ -322,7 +322,7 @@ export default function DataEntryPage() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
-                    <ul className="space-y-2 text-sm">
+                    <ul className="space-y-2 text-base text-gray-900">
                       <li className="flex items-start">
                         <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
                         <span><strong>Dataverse API:</strong> Common Data Service access</span>
@@ -373,7 +373,7 @@ export default function DataEntryPage() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
-                    <ul className="space-y-2 text-sm">
+                    <ul className="space-y-2 text-base text-gray-900">
                       <li className="flex items-start">
                         <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
                         <span><strong>Plex API:</strong> RESTful web services for all modules</span>
@@ -424,7 +424,7 @@ export default function DataEntryPage() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
-                    <ul className="space-y-2 text-sm">
+                    <ul className="space-y-2 text-base text-gray-900">
                       <li className="flex items-start">
                         <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
                         <span><strong>REST Services:</strong> Epicor REST API v2</span>
@@ -475,7 +475,7 @@ export default function DataEntryPage() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
-                    <ul className="space-y-2 text-sm">
+                    <ul className="space-y-2 text-base text-gray-900">
                       <li className="flex items-start">
                         <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
                         <span><strong>ION API:</strong> Infor OS platform integration</span>
@@ -526,7 +526,7 @@ export default function DataEntryPage() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
-                    <ul className="space-y-2 text-sm">
+                    <ul className="space-y-2 text-base text-gray-900">
                       <li className="flex items-start">
                         <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
                         <span><strong>OData Services:</strong> RESTful API access</span>
@@ -577,7 +577,7 @@ export default function DataEntryPage() {
                 <div className="space-y-4">
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
-                    <ul className="space-y-2 text-sm">
+                    <ul className="space-y-2 text-base text-gray-900">
                       <li className="flex items-start">
                         <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
                         <span><strong>QXtend:</strong> REST API framework</span>

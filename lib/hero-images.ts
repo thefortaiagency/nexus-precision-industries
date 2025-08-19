@@ -48,9 +48,9 @@ export const heroImages = {
     overlay: "linear-gradient(to bottom, rgba(13, 148, 136, 0.8), rgba(6, 182, 212, 0.9))"
   },
   reports: {
-    prompt: "Advanced manufacturing analytics command center with multiple holographic displays showing real-time production metrics, KPI dashboards floating in space, industrial data visualization with charts and graphs, purple and gold lighting accents, futuristic monitoring station, cinematic wide angle",
+    prompt: "Advanced manufacturing analytics command center with multiple holographic displays showing real-time production metrics, KPI dashboards floating in space, industrial data visualization with charts and graphs, silver and gray lighting accents, futuristic monitoring station, cinematic wide angle",
     unsplashUrl: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop", // Data analytics dashboard
-    overlay: "linear-gradient(to bottom, rgba(124, 58, 237, 0.8), rgba(168, 85, 247, 0.9))"
+    overlay: "linear-gradient(to bottom, rgba(107, 114, 128, 0.8), rgba(156, 163, 175, 0.9))"
   },
   inventory: {
     prompt: "Futuristic automated warehouse with holographic inventory tracking systems, floating data displays showing stock levels and predictive analytics, industrial robotics moving inventory while AI monitors every item, blue and purple lighting, cinematic depth",
