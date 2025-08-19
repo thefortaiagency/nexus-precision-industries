@@ -1,6 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server'
+import OpenAI from 'openai'
+import { knowledgeBase } from '@/lib/knowledge-base'
 
-// Demo chatbot responses for Nexus Precision Industries
+// Initialize OpenAI client
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+})
+
+// Demo chatbot responses for Nexus Precision Industries (fallback)
 const demoResponses: Record<string, string> = {
   // Greetings
   'hello': `Hello! I'm your Nexus AI assistant. I can help you understand how our manufacturing intelligence platform can enhance your existing ERP system. 
@@ -146,52 +153,72 @@ For a personalized demonstration with your actual ERP data and specific use case
 export async function POST(req: NextRequest) {
   try {
     const { message, history } = await req.json()
-    const lowerMessage = message.toLowerCase()
 
-    // Find the best matching response
-    let response = demoResponses.default
-    
-    // Check for keyword matches
-    for (const [keyword, resp] of Object.entries(demoResponses)) {
-      if (keyword !== 'default' && lowerMessage.includes(keyword)) {
-        response = resp
-        break
-      }
+    // Check if OpenAI is available
+    if (!process.env.OPENAI_API_KEY) {
+      console.log('OpenAI API key not found, using fallback responses')
+      return getFallbackResponse(message)
     }
 
-    // Check for specific question patterns
-    if (lowerMessage.includes('efficiency') || lowerMessage.includes('oee')) {
-      response = demoResponses.efficiency
-    } else if (lowerMessage.includes('production') || lowerMessage.includes('output')) {
-      response = demoResponses.production
-    } else if (lowerMessage.includes('scrap') || lowerMessage.includes('waste')) {
-      response = demoResponses.scrap
-    } else if (lowerMessage.includes('maintenance') || lowerMessage.includes('predict')) {
-      response = demoResponses.maintenance
-    } else if (lowerMessage.includes('erp') || lowerMessage.includes('sap') || lowerMessage.includes('oracle')) {
-      response = demoResponses.erp
-    } else if (lowerMessage.includes('cost') || lowerMessage.includes('price') || lowerMessage.includes('pricing')) {
-      response = demoResponses.cost
-    } else if (lowerMessage.includes('demo') || lowerMessage.includes('contact') || lowerMessage.includes('schedule')) {
-      response = demoResponses.demo
-    } else if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage === 'hey') {
-      response = demoResponses.hello
-    }
+    // Build system prompt with comprehensive knowledge base
+    const systemPrompt = `You are the AI assistant for Nexus Precision Industries, a manufacturing intelligence platform. Your role is to help visitors understand how Nexus enhances their existing ERP systems with AI-powered insights.
 
-    // Add demo reminder if not already present
-    if (!response.includes('demo') && !response.includes('contact')) {
-      response += `\n\n📧 **Want to see this with your real data?** [Contact us](/contact) for a personalized demo.`
-    }
+KEY INFORMATION ABOUT NEXUS:
+${JSON.stringify(knowledgeBase, null, 2)}
+
+IMPORTANT GUIDELINES:
+1. Always emphasize that Nexus ENHANCES existing ERP systems, doesn't replace them
+2. Mention specific ERP compatibility (SAP, Oracle, Microsoft, NetSuite, etc.)
+3. Highlight the 30-day implementation timeline vs 18+ months for ERP replacement
+4. Reference the time savings calculator at /time-savings-calculator for ROI discussions
+5. For demos/pricing, direct users to https://aimpactnexus.ai/contact
+6. Be enthusiastic about the platform's capabilities but professional
+7. If asked about specific technical details not in the knowledge base, acknowledge limitations and offer to connect with our technical team
+8. Always end responses with a relevant call-to-action
+
+TONE: Professional, knowledgeable, helpful, and enthusiastic about manufacturing intelligence solutions.
+
+Keep responses concise but informative. Use emojis sparingly for visual appeal.`
+
+    // Build conversation history for context
+    const messages = [
+      { role: 'system', content: systemPrompt },
+      // Include recent history for context (last 5 messages)
+      ...history.slice(-5).map((msg: any) => ({
+        role: msg.role === 'assistant' ? 'assistant' : 'user',
+        content: msg.content
+      })),
+      { role: 'user', content: message }
+    ]
+
+    // Call OpenAI API
+    const completion = await openai.chat.completions.create({
+      model: 'gpt-3.5-turbo',
+      messages: messages as any,
+      max_tokens: 500,
+      temperature: 0.7,
+    })
+
+    const response = completion.choices[0]?.message?.content || 'I apologize, but I encountered an issue generating a response. Please try again or [contact our team](https://aimpactnexus.ai/contact) for assistance.'
 
     return NextResponse.json({
       message: response,
       data: {
-        isDemo: true,
+        isAI: true,
+        model: 'gpt-3.5-turbo',
         timestamp: new Date().toISOString()
       }
     })
+
   } catch (error) {
     console.error('Chatbot error:', error)
+    
+    // Fall back to demo responses if OpenAI fails
+    if (error instanceof Error && error.message.includes('OpenAI')) {
+      console.log('OpenAI error, falling back to demo responses')
+      return getFallbackResponse(message || '')
+    }
+
     return NextResponse.json(
       { 
         message: 'I apologize, but I encountered an error. Please try again or [contact our team](https://aimpactnexus.ai/contact) directly for assistance.',
@@ -200,4 +227,39 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     )
   }
+}
+
+// Fallback function using demo responses
+function getFallbackResponse(message: string) {
+  const lowerMessage = message.toLowerCase()
+  
+  // Find the best matching response
+  let response = demoResponses.default
+  
+  // Check for keyword matches
+  for (const [keyword, resp] of Object.entries(demoResponses)) {
+    if (keyword !== 'default' && lowerMessage.includes(keyword)) {
+      response = resp
+      break
+    }
+  }
+
+  // Check for specific question patterns
+  if (lowerMessage.includes('efficiency') || lowerMessage.includes('oee')) {
+    response = demoResponses.efficiency
+  } else if (lowerMessage.includes('erp') || lowerMessage.includes('sap') || lowerMessage.includes('oracle')) {
+    response = demoResponses.erp
+  } else if (lowerMessage.includes('cost') || lowerMessage.includes('price') || lowerMessage.includes('pricing')) {
+    response = demoResponses.cost
+  } else if (lowerMessage.includes('demo') || lowerMessage.includes('contact') || lowerMessage.includes('schedule')) {
+    response = demoResponses.demo
+  }
+
+  return NextResponse.json({
+    message: response,
+    data: {
+      isDemo: true,
+      timestamp: new Date().toISOString()
+    }
+  })
 }

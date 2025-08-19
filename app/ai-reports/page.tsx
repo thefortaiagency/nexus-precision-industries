@@ -262,11 +262,20 @@ export default function AIReportsPage() {
               Maintenance Risk Analysis
             </h3>
             <ResponsiveContainer width="100%" height={250}>
-              <BarChart data={maintenancePredictions} layout="horizontal">
+              <BarChart data={maintenancePredictions} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis type="number" domain={[0, 100]} />
-                <YAxis dataKey="machine" type="category" width={100} />
-                <Tooltip />
+                <XAxis 
+                  dataKey="machine" 
+                  angle={-45}
+                  textAnchor="end"
+                  height={60}
+                  fontSize={12}
+                />
+                <YAxis 
+                  label={{ value: 'Risk %', angle: -90, position: 'insideLeft' }}
+                  domain={[0, 100]}
+                />
+                <Tooltip formatter={(value) => [`${value}%`, 'Risk Level']} />
                 <Bar dataKey="risk" fill="#f97316" />
               </BarChart>
             </ResponsiveContainer>
