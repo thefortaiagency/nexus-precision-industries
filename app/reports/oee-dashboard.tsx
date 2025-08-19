@@ -95,7 +95,7 @@ export default function OEEDashboard() {
           <CardContent>
             <div className="text-3xl font-bold text-blue-600">{avgAvailability}%</div>
             <Progress value={parseFloat(avgAvailability)} className="mt-2" />
-            <p className="text-sm text-gray-500 mt-2">Target: 90%</p>
+            <p className="text-sm text-gray-700 mt-2">Target: 90%</p>
           </CardContent>
         </Card>
 
@@ -110,7 +110,7 @@ export default function OEEDashboard() {
           <CardContent>
             <div className="text-3xl font-bold text-green-600">{avgPerformance}%</div>
             <Progress value={parseFloat(avgPerformance)} className="mt-2" />
-            <p className="text-sm text-gray-500 mt-2">Target: 95%</p>
+            <p className="text-sm text-gray-700 mt-2">Target: 95%</p>
           </CardContent>
         </Card>
 
@@ -125,7 +125,7 @@ export default function OEEDashboard() {
           <CardContent>
             <div className="text-3xl font-bold text-purple-600">{avgQuality}%</div>
             <Progress value={parseFloat(avgQuality)} className="mt-2" />
-            <p className="text-sm text-gray-500 mt-2">Target: 99.9%</p>
+            <p className="text-sm text-gray-700 mt-2">Target: 99.9%</p>
           </CardContent>
         </Card>
       </div>
@@ -195,15 +195,15 @@ export default function OEEDashboard() {
             
             <div className="grid grid-cols-3 gap-2 mt-4 text-center">
               <div>
-                <div className="text-xs text-gray-500">World Class</div>
+                <div className="text-xs text-gray-700">World Class</div>
                 <div className="text-sm font-bold text-green-600">≥85%</div>
               </div>
               <div>
-                <div className="text-xs text-gray-500">Typical</div>
+                <div className="text-xs text-gray-700">Typical</div>
                 <div className="text-sm font-bold text-yellow-600">65-84%</div>
               </div>
               <div>
-                <div className="text-xs text-gray-500">Low</div>
+                <div className="text-xs text-gray-700">Low</div>
                 <div className="text-sm font-bold text-red-600">&lt;65%</div>
               </div>
             </div>
@@ -251,7 +251,7 @@ export default function OEEDashboard() {
                       {((worldClassOEE / parseFloat(plantOEE) - 1) * 100).toFixed(0)}%
                     </span>
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">
+                  <p className="text-xs text-gray-700 mt-1">
                     Focus on: {parseFloat(avgAvailability) < 90 ? 'Availability' : parseFloat(avgPerformance) < 95 ? 'Performance' : 'Quality'}
                   </p>
                 </div>

@@ -125,7 +125,7 @@ export default function ExecutiveDashboard() {
                       ? `${kpi.current.toFixed(1)}%`
                       : kpi.current.toFixed(1)}
                   </p>
-                  <p className="text-xs sm:text-sm text-gray-500 mt-1">
+                  <p className="text-xs sm:text-sm text-gray-700 mt-1">
                     Target: {kpi.unit === 'currency' 
                       ? formatCurrency(kpi.target)
                       : kpi.unit === 'percentage'
@@ -143,7 +143,7 @@ export default function ExecutiveDashboard() {
                 </div>
               </div>
 
-              <p className="text-xs text-gray-500 mt-3">{kpi.description}</p>
+              <p className="text-xs text-gray-700 mt-3">{kpi.description}</p>
             </div>
           )
         })}

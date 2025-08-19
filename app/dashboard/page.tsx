@@ -168,22 +168,22 @@ export default function Dashboard() {
             <div>
               <div className="text-4xl font-bold text-red-600">240</div>
               <div className="text-sm text-gray-700">Hours/Month Wasted</div>
-              <div className="text-xs text-gray-500">Average SAP Customer</div>
+              <div className="text-xs text-gray-700">Average SAP Customer</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-orange-600">$288K</div>
               <div className="text-sm text-gray-700">Annual Cost</div>
-              <div className="text-xs text-gray-500">In Management Time</div>
+              <div className="text-xs text-gray-700">In Management Time</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-yellow-600">85%</div>
               <div className="text-sm text-gray-700">Weekend Work</div>
-              <div className="text-xs text-gray-500">For Monday Reports</div>
+              <div className="text-xs text-gray-700">For Monday Reports</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-green-600">5 min</div>
               <div className="text-sm text-gray-700">With Nexus</div>
-              <div className="text-xs text-gray-500">Natural Language</div>
+              <div className="text-xs text-gray-700">Natural Language</div>
             </div>
           </div>
         </div>
@@ -363,7 +363,7 @@ export default function Dashboard() {
                           style={{ width: `${(report.sap / 720) * 100}%` }}
                         />
                       </div>
-                      <span className="text-xs text-gray-500 w-16 text-right">{report.sap} min</span>
+                      <span className="text-xs text-gray-700 w-16 text-right">{report.sap} min</span>
                     </div>
                   </div>
                 ))}
@@ -399,7 +399,7 @@ export default function Dashboard() {
                     </span>
                   </div>
                   <p className="text-sm text-gray-700 italic mb-2">"{point.quote}"</p>
-                  <p className="text-xs text-gray-500">- {point.role}</p>
+                  <p className="text-xs text-gray-700">- {point.role}</p>
                 </div>
               ))}
             </div>

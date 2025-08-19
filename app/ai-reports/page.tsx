@@ -377,7 +377,7 @@ export default function AIReportsPage() {
               Download Sample Report
             </button>
           </div>
-          <p className="text-sm text-gray-500 mt-4">
+          <p className="text-sm text-gray-700 mt-4">
             No credit card required • 30-day implementation • ROI guaranteed
           </p>
         </div>

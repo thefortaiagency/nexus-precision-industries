@@ -90,7 +90,7 @@ export default function ManningReport() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-green-600">{keyMetrics.currentAttendance}%</div>
-              <p className="text-xs text-gray-500">Target: {keyMetrics.targetAttendance}%</p>
+              <p className="text-xs text-gray-700">Target: {keyMetrics.targetAttendance}%</p>
             </CardContent>
           </Card>
 
@@ -100,7 +100,7 @@ export default function ManningReport() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-yellow-600">{keyMetrics.tempWorkers}</div>
-              <p className="text-xs text-gray-500">+5 from last week</p>
+              <p className="text-xs text-gray-700">+5 from last week</p>
             </CardContent>
           </Card>
 
@@ -110,7 +110,7 @@ export default function ManningReport() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-orange-600">{keyMetrics.overtimeHours}</div>
-              <p className="text-xs text-gray-500">This week</p>
+              <p className="text-xs text-gray-700">This week</p>
             </CardContent>
           </Card>
 
@@ -120,7 +120,7 @@ export default function ManningReport() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-red-600">{keyMetrics.manningGap}</div>
-              <p className="text-xs text-gray-500">Positions to fill</p>
+              <p className="text-xs text-gray-700">Positions to fill</p>
             </CardContent>
           </Card>
 
@@ -130,7 +130,7 @@ export default function ManningReport() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-purple-600">{keyMetrics.turnoverRate}%</div>
-              <p className="text-xs text-gray-500">Annual</p>
+              <p className="text-xs text-gray-700">Annual</p>
             </CardContent>
           </Card>
 
@@ -140,7 +140,7 @@ export default function ManningReport() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-red-600">$307K</div>
-              <p className="text-xs text-gray-500">Monthly labor cost</p>
+              <p className="text-xs text-gray-700">Monthly labor cost</p>
             </CardContent>
           </Card>
         </div>

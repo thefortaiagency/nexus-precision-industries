@@ -157,7 +157,7 @@ export default function MachineDowntimeAnalysis() {
           <p className="text-xl font-bold text-gray-900">
             {viewMode === 'cost' ? formatCurrency(totalDowntimeYTDCost) : formatHours(totalDowntimeYTDHours)}
           </p>
-          <p className="text-xs text-gray-500 mt-1">
+          <p className="text-xs text-gray-700 mt-1">
             Target: {viewMode === 'cost' ? formatCurrency(totalDowntimeTargetCost) : formatHours(totalDowntimeTargetHours)}
           </p>
         </div>
@@ -171,7 +171,7 @@ export default function MachineDowntimeAnalysis() {
           <p className="text-xl font-bold text-gray-900">
             {viewMode === 'cost' ? formatCurrency(totalDowntime2024Cost) : formatHours(totalDowntime2024Hours)}
           </p>
-          <p className="text-xs text-gray-500 mt-1">
+          <p className="text-xs text-gray-700 mt-1">
             2025 Target: {viewMode === 'cost' ? formatCurrency(1627000) : formatHours(1627000 / 700)} {/* Avg rate */}
           </p>
         </div>
@@ -183,7 +183,7 @@ export default function MachineDowntimeAnalysis() {
           </div>
           <h3 className="text-sm font-medium text-gray-600">Over Target</h3>
           <p className="text-xl font-bold text-gray-900">50%</p>
-          <p className="text-xs text-gray-500 mt-1">3 of 6 machines</p>
+          <p className="text-xs text-gray-700 mt-1">3 of 6 machines</p>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-4">
@@ -193,7 +193,7 @@ export default function MachineDowntimeAnalysis() {
           </div>
           <h3 className="text-sm font-medium text-gray-600">Highest Downtime</h3>
           <p className="text-xl font-bold text-gray-900">3000-Ton</p>
-          <p className="text-xs text-gray-500 mt-1">
+          <p className="text-xs text-gray-700 mt-1">
             {viewMode === 'cost' ? formatCurrency(150956) : formatHours(150956 / 1106)} in Q2
           </p>
         </div>
@@ -230,13 +230,13 @@ export default function MachineDowntimeAnalysis() {
           <table className="min-w-full divide-y divide-gray-200">
             <thead>
               <tr>
-                <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase">Machine</th>
-                <th className="px-2 py-3 text-right text-xs font-medium text-gray-500 uppercase">Hourly Rate</th>
-                <th className="px-2 py-3 text-right text-xs font-medium text-gray-500 uppercase">Q1 Actual</th>
-                <th className="px-2 py-3 text-right text-xs font-medium text-gray-500 uppercase">Q1 Target</th>
-                <th className="px-2 py-3 text-right text-xs font-medium text-gray-500 uppercase">Q2 Actual</th>
-                <th className="px-2 py-3 text-right text-xs font-medium text-gray-500 uppercase">Q2 Target</th>
-                <th className="px-2 py-3 text-right text-xs font-medium text-gray-500 uppercase">Variance</th>
+                <th className="px-2 py-3 text-left text-xs font-medium text-gray-700 uppercase">Machine</th>
+                <th className="px-2 py-3 text-right text-xs font-medium text-gray-700 uppercase">Hourly Rate</th>
+                <th className="px-2 py-3 text-right text-xs font-medium text-gray-700 uppercase">Q1 Actual</th>
+                <th className="px-2 py-3 text-right text-xs font-medium text-gray-700 uppercase">Q1 Target</th>
+                <th className="px-2 py-3 text-right text-xs font-medium text-gray-700 uppercase">Q2 Actual</th>
+                <th className="px-2 py-3 text-right text-xs font-medium text-gray-700 uppercase">Q2 Target</th>
+                <th className="px-2 py-3 text-right text-xs font-medium text-gray-700 uppercase">Variance</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -261,13 +261,13 @@ export default function MachineDowntimeAnalysis() {
                     <td className="px-2 py-4 text-sm text-right text-gray-600">
                       {viewMode === 'cost' ? formatCurrency(machine.quarterlyCost.q1.actual) : formatHours(q1Hours)}
                     </td>
-                    <td className="px-2 py-4 text-sm text-right text-gray-500">
+                    <td className="px-2 py-4 text-sm text-right text-gray-700">
                       {viewMode === 'cost' ? formatCurrency(machine.quarterlyCost.q1.target) : formatHours(q1TargetHours)}
                     </td>
                     <td className="px-2 py-4 text-sm text-right font-semibold text-gray-900">
                       {viewMode === 'cost' ? formatCurrency(machine.quarterlyCost.q2.actual) : formatHours(q2Hours)}
                     </td>
-                    <td className="px-2 py-4 text-sm text-right text-gray-500">
+                    <td className="px-2 py-4 text-sm text-right text-gray-700">
                       {viewMode === 'cost' ? formatCurrency(machine.quarterlyCost.q2.target) : formatHours(q2TargetHours)}
                     </td>
                     <td className="px-2 py-4 text-sm text-right">

@@ -489,7 +489,7 @@ export default function Home() {
                 © 2025 Nexus Precision Industries. All rights reserved.
               </span>
             </div>
-            <div className="text-sm text-gray-500">
+            <div className="text-sm text-gray-700">
               Powered by Nexus Platform Technology
             </div>
           </div>

@@ -186,27 +186,27 @@ export default function ScrapAnalysisPage() {
             <div>
               <div className="text-4xl font-bold text-red-600">1,000</div>
               <div className="text-sm text-gray-700">Hours/Month</div>
-              <div className="text-xs text-gray-500">Wasted on Reports</div>
+              <div className="text-xs text-gray-700">Wasted on Reports</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-orange-600">$100K</div>
               <div className="text-sm text-gray-700">Monthly Cost</div>
-              <div className="text-xs text-gray-500">In Wasted Time</div>
+              <div className="text-xs text-gray-700">In Wasted Time</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-yellow-600">85%</div>
               <div className="text-sm text-gray-700">Working IN</div>
-              <div className="text-xs text-gray-500">Not ON Business</div>
+              <div className="text-xs text-gray-700">Not ON Business</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-purple-600">53</div>
               <div className="text-sm text-gray-700">Weekend Hours</div>
-              <div className="text-xs text-gray-500">Building Reports</div>
+              <div className="text-xs text-gray-700">Building Reports</div>
             </div>
             <div>
               <div className="text-4xl font-bold text-green-600">90%</div>
               <div className="text-sm text-gray-700">Time Saved</div>
-              <div className="text-xs text-gray-500">With Nexus</div>
+              <div className="text-xs text-gray-700">With Nexus</div>
             </div>
           </div>
         </div>
@@ -417,19 +417,19 @@ export default function ScrapAnalysisPage() {
                 <Coffee className="h-8 w-8 text-red-600 mx-auto mb-2" />
                 <p className="text-2xl font-bold text-red-600">$1.2M</p>
                 <p className="text-sm text-gray-700">Average Annual Waste</p>
-                <p className="text-xs text-gray-500">For 50-manager company</p>
+                <p className="text-xs text-gray-700">For 50-manager company</p>
               </div>
               <div className="bg-green-50 p-4 rounded-lg text-center">
                 <Zap className="h-8 w-8 text-green-600 mx-auto mb-2" />
                 <p className="text-2xl font-bold text-green-600">90%</p>
                 <p className="text-sm text-gray-700">Time Recovered</p>
-                <p className="text-xs text-gray-500">With Nexus AI</p>
+                <p className="text-xs text-gray-700">With Nexus AI</p>
               </div>
               <div className="bg-blue-50 p-4 rounded-lg text-center">
                 <Users className="h-8 w-8 text-blue-600 mx-auto mb-2" />
                 <p className="text-2xl font-bold text-blue-600">6.25</p>
                 <p className="text-sm text-gray-700">FTEs Recovered</p>
-                <p className="text-xs text-gray-500">Per 50 managers</p>
+                <p className="text-xs text-gray-700">Per 50 managers</p>
               </div>
             </div>
           </CardContent>
@@ -483,7 +483,7 @@ export default function ScrapAnalysisPage() {
                 <p className="text-sm text-gray-700 italic mb-2">
                   "I have an MBA from Wharton and I spend 80% of my time as a glorified Excel operator. This isn't what leadership looks like."
                 </p>
-                <p className="text-xs text-gray-500">- Operations Director, Fortune 500</p>
+                <p className="text-xs text-gray-700">- Operations Director, Fortune 500</p>
                 <div className="mt-2 flex items-center">
                   <Moon className="h-4 w-4 text-red-600 mr-2" />
                   <span className="text-xs text-red-700">Average 12 weekend hours on reports</span>
@@ -494,7 +494,7 @@ export default function ScrapAnalysisPage() {
                 <p className="text-sm text-gray-700 italic mb-2">
                   "My team needs coaching and development, but I'm too busy formatting pivot tables for the Monday meeting."
                 </p>
-                <p className="text-xs text-gray-500">- Plant Manager, Automotive</p>
+                <p className="text-xs text-gray-700">- Plant Manager, Automotive</p>
                 <div className="mt-2 flex items-center">
                   <Clock className="h-4 w-4 text-orange-600 mr-2" />
                   <span className="text-xs text-orange-700">240 hours/month on reports</span>
@@ -505,7 +505,7 @@ export default function ScrapAnalysisPage() {
                 <p className="text-sm text-gray-700 italic mb-2">
                   "I haven't had dinner with my family on a Sunday in 6 months. Always preparing Monday's reports."
                 </p>
-                <p className="text-xs text-gray-500">- Production Manager, Manufacturing</p>
+                <p className="text-xs text-gray-700">- Production Manager, Manufacturing</p>
                 <div className="mt-2 flex items-center">
                   <Home className="h-4 w-4 text-yellow-600 mr-2" />
                   <span className="text-xs text-yellow-700">Every Sunday lost to Excel</span>
@@ -516,7 +516,7 @@ export default function ScrapAnalysisPage() {
                 <p className="text-sm text-gray-700 italic mb-2">
                   "We have 3 continuous improvement projects ready to go, but no time to implement because we're always reporting on the past."
                 </p>
-                <p className="text-xs text-gray-500">- Quality Manager, Electronics</p>
+                <p className="text-xs text-gray-700">- Quality Manager, Electronics</p>
                 <div className="mt-2 flex items-center">
                   <XCircle className="h-4 w-4 text-purple-600 mr-2" />
                   <span className="text-xs text-purple-700">0 hours for innovation</span>

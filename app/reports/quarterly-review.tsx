@@ -145,7 +145,7 @@ export default function QuarterlyBusinessReview() {
                 <DollarSign className="h-5 w-5 text-gray-600 mr-3" />
                 <div>
                   <p className="text-sm font-medium text-gray-900">Scrap Costs</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-700">
                     Actual: {formatCurrency(currentQuarterData.scrapCost.actual)} | Target: {formatCurrency(currentQuarterData.scrapCost.target)}
                   </p>
                 </div>
@@ -163,7 +163,7 @@ export default function QuarterlyBusinessReview() {
                 <Target className="h-5 w-5 text-gray-600 mr-3" />
                 <div>
                   <p className="text-sm font-medium text-gray-900">Sort Costs</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-700">
                     Actual: {formatCurrency(currentQuarterData.sortCost.actual)} | Target: {formatCurrency(currentQuarterData.sortCost.target)}
                   </p>
                 </div>
@@ -181,7 +181,7 @@ export default function QuarterlyBusinessReview() {
                 <Award className="h-5 w-5 text-gray-600 mr-3" />
                 <div>
                   <p className="text-sm font-medium text-gray-900">Quality PPM</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-700">
                     Actual: {currentQuarterData.ppm.actual} | Target: {currentQuarterData.ppm.target}
                   </p>
                 </div>
@@ -199,7 +199,7 @@ export default function QuarterlyBusinessReview() {
                 <Calendar className="h-5 w-5 text-gray-600 mr-3" />
                 <div>
                   <p className="text-sm font-medium text-gray-900">Machine Downtime</p>
-                  <p className="text-xs text-gray-500">
+                  <p className="text-xs text-gray-700">
                     Actual: {formatCurrency(currentQuarterData.downtime.actual)} | Target: {formatCurrency(currentQuarterData.downtime.target)}
                   </p>
                 </div>
@@ -281,10 +281,10 @@ export default function QuarterlyBusinessReview() {
                   />
                 </div>
                 <div className="flex justify-between mt-1">
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-gray-700">
                     Actual: {item.metric.includes('Cost') ? formatCurrency(item.actual) : item.actual}
                   </span>
-                  <span className="text-xs text-gray-500">
+                  <span className="text-xs text-gray-700">
                     Target: {item.metric.includes('Cost') ? formatCurrency(item.target) : item.target}
                   </span>
                 </div>

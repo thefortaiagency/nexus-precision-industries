@@ -156,7 +156,7 @@ export default function QualityPerformance() {
                 : `${((metric.quarterlyData.q1.actual + metric.quarterlyData.q2.actual) / 2).toFixed(1)} ${metric.unit}`
               }
             </p>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-700 mt-1">
               YTD 2025
             </p>
             <div className="mt-2 flex items-center text-xs">
@@ -272,10 +272,10 @@ export default function QualityPerformance() {
             <table className="min-w-full divide-y divide-gray-200">
               <thead>
                 <tr>
-                  <th className="px-2 py-3 text-left text-xs font-medium text-gray-500 uppercase">Metric</th>
-                  <th className="px-2 py-3 text-right text-xs font-medium text-gray-500 uppercase">2024</th>
-                  <th className="px-2 py-3 text-right text-xs font-medium text-gray-500 uppercase">YTD 2025</th>
-                  <th className="px-2 py-3 text-right text-xs font-medium text-gray-500 uppercase">Change</th>
+                  <th className="px-2 py-3 text-left text-xs font-medium text-gray-700 uppercase">Metric</th>
+                  <th className="px-2 py-3 text-right text-xs font-medium text-gray-700 uppercase">2024</th>
+                  <th className="px-2 py-3 text-right text-xs font-medium text-gray-700 uppercase">YTD 2025</th>
+                  <th className="px-2 py-3 text-right text-xs font-medium text-gray-700 uppercase">Change</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">

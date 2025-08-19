@@ -178,7 +178,7 @@ export default function CommentsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{statistics.totalComments}</div>
-            <p className="text-xs text-gray-500 mt-1">All time</p>
+            <p className="text-xs text-gray-700 mt-1">All time</p>
           </CardContent>
         </Card>
 
@@ -188,7 +188,7 @@ export default function CommentsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold text-red-600">{statistics.priorities.high}</div>
-            <p className="text-xs text-gray-500 mt-1">Require immediate attention</p>
+            <p className="text-xs text-gray-700 mt-1">Require immediate attention</p>
           </CardContent>
         </Card>
 
@@ -200,7 +200,7 @@ export default function CommentsPage() {
             <div className="text-lg font-bold">
               {statistics.categories[0]?.category || 'N/A'}
             </div>
-            <p className="text-xs text-gray-500 mt-1">
+            <p className="text-xs text-gray-700 mt-1">
               {statistics.categories[0]?.count || 0} occurrences ({statistics.categories[0]?.percentage || 0}%)
             </p>
           </CardContent>
@@ -212,7 +212,7 @@ export default function CommentsPage() {
           </CardHeader>
           <CardContent>
             <div className="text-2xl font-bold">{Object.keys(statistics.machines).length}</div>
-            <p className="text-xs text-gray-500 mt-1">With comments</p>
+            <p className="text-xs text-gray-700 mt-1">With comments</p>
           </CardContent>
         </Card>
       </div>
@@ -235,7 +235,7 @@ export default function CommentsPage() {
         <CardContent>
           {/* Search Bar */}
           <div className="relative mb-4">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-600 h-4 w-4" />
             <Input
               type="text"
               placeholder="Search comments, operators, machines, or part numbers..."
@@ -391,7 +391,7 @@ export default function CommentsPage() {
                         style={{ width: `${cat.percentage}%` }}
                       />
                     </div>
-                    <p className="text-xs text-gray-500 mt-1">{cat.percentage}% of total</p>
+                    <p className="text-xs text-gray-700 mt-1">{cat.percentage}% of total</p>
                   </div>
                 </div>
               )
@@ -414,7 +414,7 @@ export default function CommentsPage() {
               <p className="text-gray-600 mt-4">Loading comments...</p>
             </div>
           ) : filteredComments.length === 0 ? (
-            <div className="text-center py-8 text-gray-500">
+            <div className="text-center py-8 text-gray-700">
               <MessageSquare className="h-12 w-12 mx-auto mb-4 text-gray-300" />
               <p>No comments found matching your filters</p>
             </div>
@@ -442,7 +442,7 @@ export default function CommentsPage() {
                           </Badge>
                         )}
                       </div>
-                      <div className="flex items-center gap-4 text-xs text-gray-500">
+                      <div className="flex items-center gap-4 text-xs text-gray-700">
                         <span className="flex items-center">
                           <Calendar className="h-3 w-3 mr-1" />
                           {new Date(comment.date).toLocaleDateString()}

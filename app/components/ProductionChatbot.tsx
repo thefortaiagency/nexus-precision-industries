@@ -243,7 +243,7 @@ Ask me anything about your production data.`,
                     className="whitespace-pre-wrap"
                     dangerouslySetInnerHTML={{ __html: renderContent(msg.content) }}
                   />
-                  <div className={`text-xs mt-1 ${msg.role === 'user' ? 'text-orange-100' : 'text-gray-500'}`}>
+                  <div className={`text-xs mt-1 ${msg.role === 'user' ? 'text-orange-100' : 'text-gray-700'}`}>
                     {msg.timestamp.toLocaleTimeString()}
                   </div>
                 </div>
@@ -263,7 +263,7 @@ Ask me anything about your production data.`,
           {/* Suggestion Cards - Show when conversation is just starting */}
           {messages.length <= 2 && !loading && (
             <div className="px-4 pb-3">
-              <p className="text-xs text-gray-500 mb-2 font-semibold">Popular Queries:</p>
+              <p className="text-xs text-gray-700 mb-2 font-semibold">Popular Queries:</p>
               <div className="grid grid-cols-2 gap-2 mb-3">
                 {suggestionCards.map((card, idx) => (
                   <button
@@ -283,7 +283,7 @@ Ask me anything about your production data.`,
               </div>
               
               {/* Quick Questions */}
-              <p className="text-xs text-gray-500 mb-2">Quick questions:</p>
+              <p className="text-xs text-gray-700 mb-2">Quick questions:</p>
               <div className="flex flex-wrap gap-2">
                 {quickQuestions.map((question, idx) => (
                   <button
@@ -319,10 +319,10 @@ Ask me anything about your production data.`,
               </button>
             </div>
             <div className="flex items-center justify-between mt-2">
-              <p className="text-xs text-gray-500">
+              <p className="text-xs text-gray-700">
                 Press Enter to send • Shift+Enter for new line
               </p>
-              <div className="flex items-center space-x-2 text-xs text-gray-500">
+              <div className="flex items-center space-x-2 text-xs text-gray-700">
                 <Shield className="w-3 h-3" />
                 <span>Enhanced with safety tracking</span>
               </div>

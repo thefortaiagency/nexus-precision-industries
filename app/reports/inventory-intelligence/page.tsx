@@ -234,7 +234,7 @@ export default function InventoryIntelligencePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-3xl font-bold text-red-600">{totalHours.sap} hrs/mo</div>
-                  <p className="text-xs text-gray-500 mt-1">≈ 3 full-time employees</p>
+                  <p className="text-xs text-gray-700 mt-1">≈ 3 full-time employees</p>
                 </CardContent>
               </Card>
               
@@ -244,7 +244,7 @@ export default function InventoryIntelligencePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-3xl font-bold text-orange-600">{totalHours.oracle} hrs/mo</div>
-                  <p className="text-xs text-gray-500 mt-1">≈ 2.8 full-time employees</p>
+                  <p className="text-xs text-gray-700 mt-1">≈ 2.8 full-time employees</p>
                 </CardContent>
               </Card>
               
@@ -254,7 +254,7 @@ export default function InventoryIntelligencePage() {
                 </CardHeader>
                 <CardContent>
                   <div className="text-3xl font-bold text-yellow-600">{totalHours.microsoft} hrs/mo</div>
-                  <p className="text-xs text-gray-500 mt-1">≈ 2.6 full-time employees</p>
+                  <p className="text-xs text-gray-700 mt-1">≈ 2.6 full-time employees</p>
                 </CardContent>
               </Card>
               

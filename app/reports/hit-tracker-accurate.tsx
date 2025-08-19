@@ -356,7 +356,7 @@ export default function HitTrackerAccurate() {
         </div>
         
         <div className="bg-white rounded-lg shadow p-8 text-center">
-          <p className="text-gray-500">No data available for the selected machine in this week.</p>
+          <p className="text-gray-700">No data available for the selected machine in this week.</p>
           <button 
             onClick={() => setSelectedMachine(null)}
             className="mt-4 px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700"
@@ -510,7 +510,7 @@ export default function HitTrackerAccurate() {
                   <th key={idx} className="px-1 sm:px-2 py-1 sm:py-2 text-center font-medium text-gray-700 border-r border-gray-200 min-w-[60px] sm:min-w-[100px]">
                     <div className="text-xs hidden sm:block">{day.dayName}</div>
                     <div className="text-xs sm:hidden">{day.dayName.slice(0, 3)}</div>
-                    <div className="text-xs text-gray-500">{day.date.slice(5)}</div>
+                    <div className="text-xs text-gray-700">{day.date.slice(5)}</div>
                   </th>
                 ))}
                 <th className="px-2 sm:px-3 py-1 sm:py-2 text-center font-medium text-gray-700 bg-orange-50 min-w-[80px] sm:min-w-[120px]">

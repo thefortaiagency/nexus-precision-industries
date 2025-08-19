@@ -97,7 +97,7 @@ export default function TimeScrapReport() {
 
       {/* Time Waste by Activity */}
       <div className="bg-white rounded-xl shadow-lg p-6">
-        <h3 className="text-xl font-bold mb-4 flex items-center">
+        <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center">
           <Clock className="mr-2 text-red-600" />
           Management Hours Scrapped Per Month (by Activity)
         </h3>
@@ -119,7 +119,7 @@ export default function TimeScrapReport() {
       {/* Role-based Time Waste */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white rounded-xl shadow-lg p-6">
-          <h3 className="text-xl font-bold mb-4">Hours Scrapped by Role</h3>
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Hours Scrapped by Role</h3>
           <ResponsiveContainer width="100%" height={300}>
             <BarChart data={monthlyScrapHours} layout="horizontal">
               <CartesianGrid strokeDasharray="3 3" />
@@ -134,7 +134,7 @@ export default function TimeScrapReport() {
         </div>
 
         <div className="bg-white rounded-xl shadow-lg p-6">
-          <h3 className="text-xl font-bold mb-4">Where Manager Time Actually Goes</h3>
+          <h3 className="text-xl font-bold text-gray-900 mb-4">Where Manager Time Actually Goes</h3>
           <ResponsiveContainer width="100%" height={300}>
             <PieChart>
               <Pie

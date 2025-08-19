@@ -12,17 +12,18 @@ export default function Navigation() {
     <nav className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center space-x-3">
-            <Link href="/" className="flex items-center space-x-3">
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            <Link href="/" className="flex items-center space-x-2 sm:space-x-3">
               <Image 
                 src="/nexus-logo.png" 
                 alt="Nexus Precision Industries" 
                 width={40} 
                 height={40}
+                className="w-8 h-8 sm:w-10 sm:h-10"
               />
               <div>
-                <h1 className="text-xl font-bold text-gray-900">Nexus Precision Industries</h1>
-                <p className="text-xs text-cyan-600">Beyond ERP - Manufacturing Intelligence</p>
+                <h1 className="text-sm sm:text-xl font-bold text-gray-900">Nexus Precision</h1>
+                <p className="text-[10px] sm:text-xs text-cyan-600 hidden sm:block">Beyond ERP - Manufacturing Intelligence</p>
               </div>
             </Link>
           </div>

@@ -168,7 +168,7 @@ export default function ProductionTrackerPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-blue-600">{liveMetrics.totalParts.toLocaleString()}</div>
-              <p className="text-xs text-gray-500">+15.2% vs yesterday</p>
+              <p className="text-xs text-gray-700">+15.2% vs yesterday</p>
             </CardContent>
           </Card>
 
@@ -190,7 +190,7 @@ export default function ProductionTrackerPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-cyan-600">{liveMetrics.activeLines}/12</div>
-              <p className="text-xs text-gray-500">1 maintenance, 0 idle</p>
+              <p className="text-xs text-gray-700">1 maintenance, 0 idle</p>
             </CardContent>
           </Card>
 
@@ -200,7 +200,7 @@ export default function ProductionTrackerPage() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold text-orange-600">{liveMetrics.downtimeMinutes} min</div>
-              <p className="text-xs text-gray-500">-42% vs average</p>
+              <p className="text-xs text-gray-700">-42% vs average</p>
             </CardContent>
           </Card>
         </div>
@@ -229,7 +229,7 @@ export default function ProductionTrackerPage() {
                   <div className="flex items-start justify-between mb-3">
                     <div>
                       <h4 className="font-semibold text-gray-900">{machine.name}</h4>
-                      <p className="text-xs text-gray-500">{machine.id}</p>
+                      <p className="text-xs text-gray-700">{machine.id}</p>
                     </div>
                     <div className={`px-2 py-1 rounded-full text-xs font-medium flex items-center gap-1 ${getStatusColor(machine.status)}`}>
                       {getStatusIcon(machine.status)}

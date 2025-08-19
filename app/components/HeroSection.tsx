@@ -19,9 +19,9 @@ export default function HeroSection({
   const image = heroImages[page]
   
   const heightClasses = {
-    small: 'h-48 md:h-56',
-    medium: 'h-64 md:h-72',
-    large: 'h-80 md:h-96'
+    small: 'h-40 sm:h-48 md:h-56',
+    medium: 'h-48 sm:h-56 md:h-72',
+    large: 'h-56 sm:h-64 md:h-96'
   }
 
   return (
@@ -51,11 +51,11 @@ export default function HeroSection({
       {/* Content */}
       <div className="relative z-10 h-full flex items-center justify-center">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 drop-shadow-lg">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 sm:mb-3 md:mb-4 drop-shadow-lg leading-tight">
             {title}
           </h1>
           {subtitle && (
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto drop-shadow">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-white/90 max-w-3xl mx-auto drop-shadow px-4 sm:px-0">
               {subtitle}
             </p>
           )}

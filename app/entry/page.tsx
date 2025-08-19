@@ -92,17 +92,17 @@ export default function DataEntryPage() {
 
         {/* ERP Integration Capabilities Section */}
         <div className="space-y-8">
-          <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl p-8 text-white">
+          <div className="bg-gradient-to-r from-gray-700 to-gray-800 rounded-xl p-8 text-white">
             <h2 className="text-3xl font-bold mb-4 text-center">
               How Nexus Integrates With Your Existing ERP
             </h2>
-            <p className="text-purple-100 text-center max-w-3xl mx-auto">
+            <p className="text-gray-100 text-center max-w-3xl mx-auto">
               No rip and replace. Nexus seamlessly connects to your current ERP system and enhances it with AI intelligence.
             </p>
           </div>
 
           {/* Integration Methods Overview */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <Card className="border-blue-200 bg-blue-50">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-medium flex items-center">
@@ -139,10 +139,10 @@ export default function DataEntryPage() {
               </CardContent>
             </Card>
             
-            <Card className="border-purple-200 bg-purple-50">
+            <Card className="border-gray-200 bg-gray-50">
               <CardHeader className="pb-2">
                 <CardTitle className="text-sm font-medium flex items-center">
-                  <BarChart3 className="h-5 w-5 mr-2 text-purple-600" />
+                  <BarChart3 className="h-5 w-5 mr-2 text-gray-600" />
                   PDF Reports
                 </CardTitle>
               </CardHeader>
@@ -156,7 +156,7 @@ export default function DataEntryPage() {
           <div className="mb-8">
             <h3 className="text-2xl font-bold text-gray-900 text-center mb-6">Integration Support for Top 10 Manufacturing ERPs</h3>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             {/* SAP Integration */}
             <Card className="border-2 border-gray-200">
               <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-700 text-white">
@@ -363,9 +363,9 @@ export default function DataEntryPage() {
 
             {/* Plex Manufacturing Cloud */}
             <Card className="border-2 border-gray-200">
-              <CardHeader className="bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+              <CardHeader className="bg-gradient-to-r from-gray-600 to-gray-700 text-white">
                 <CardTitle className="text-xl">Plex Manufacturing Cloud</CardTitle>
-                <CardDescription className="text-purple-100">
+                <CardDescription className="text-gray-100">
                   Cloud-native MES and ERP platform
                 </CardDescription>
               </CardHeader>
@@ -395,16 +395,16 @@ export default function DataEntryPage() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2">Data We Can Access:</h4>
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Production Tracking</span>
-                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Quality Management</span>
-                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Inventory Control</span>
-                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Tool Management</span>
-                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Scheduling</span>
-                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Maintenance</span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Production Tracking</span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Quality Management</span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Inventory Control</span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Tool Management</span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Scheduling</span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Maintenance</span>
                     </div>
                   </div>
-                  <div className="bg-purple-50 p-3 rounded">
-                    <p className="text-xs text-purple-900">
+                  <div className="bg-gray-50 p-3 rounded">
+                    <p className="text-xs text-gray-900">
                       <strong>Setup Time:</strong> 2-3 days with Plex admin access
                     </p>
                   </div>
@@ -621,7 +621,7 @@ export default function DataEntryPage() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center">
-                <Package className="h-6 w-6 text-purple-600 mr-2" />
+                <Package className="h-6 w-6 text-gray-600 mr-2" />
                 Alternative Integration Methods
               </CardTitle>
               <CardDescription>

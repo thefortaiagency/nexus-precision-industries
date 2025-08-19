@@ -283,66 +283,66 @@ export default function ReportsPage() {
 
       {/* Report Selector - Clever ERP-bashing categories */}
       <div className="mb-4 sm:mb-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-2 sm:gap-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 sm:gap-3">
           <button
             onClick={() => setSelectedReport('time-scrap')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm ${
+            className={`px-2 sm:px-3 py-3 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm min-h-[80px] sm:min-h-[90px] ${
               selectedReport === 'time-scrap' 
                 ? 'bg-red-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >
-            <Trash2 className="w-5 h-5 mb-1 animate-pulse" />
-            <span className="text-center font-bold">Time Scrap</span>
-            <span className="text-[10px] opacity-75">Hours Wasted</span>
+            <Trash2 className="w-5 h-5 sm:w-6 sm:h-6 mb-1 animate-pulse" />
+            <span className="text-center font-bold text-xs sm:text-sm">Time Scrap</span>
+            <span className="text-[9px] sm:text-[10px] opacity-75 hidden sm:block">Hours Wasted</span>
           </button>
           <button
             onClick={() => setSelectedReport('blind-spots')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm ${
+            className={`px-2 sm:px-3 py-3 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm min-h-[80px] sm:min-h-[90px] ${
               selectedReport === 'blind-spots' 
                 ? 'bg-yellow-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >
-            <EyeOff className="w-5 h-5 mb-1" />
-            <span className="text-center font-bold">Blind Spots</span>
-            <span className="text-[10px] opacity-75">What ERP Hides</span>
+            <EyeOff className="w-5 h-5 sm:w-6 sm:h-6 mb-1" />
+            <span className="text-center font-bold text-xs sm:text-sm">Blind Spots</span>
+            <span className="text-[9px] sm:text-[10px] opacity-75 hidden sm:block">What ERP Hides</span>
           </button>
           <button
             onClick={() => setSelectedReport('hitting-targets')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm ${
+            className={`px-2 sm:px-3 py-3 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm min-h-[80px] sm:min-h-[90px] ${
               selectedReport === 'hitting-targets' 
                 ? 'bg-green-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >
-            <Target className="w-5 h-5 mb-1" />
-            <span className="text-center font-bold">Hit Rate</span>
-            <span className="text-[10px] opacity-75">vs Missing Targets</span>
+            <Target className="w-5 h-5 sm:w-6 sm:h-6 mb-1" />
+            <span className="text-center font-bold text-xs sm:text-sm">Hit Rate</span>
+            <span className="text-[9px] sm:text-[10px] opacity-75 hidden sm:block">vs Missing Targets</span>
           </button>
           <button
             onClick={() => setSelectedReport('excel-hell')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm ${
+            className={`px-2 sm:px-3 py-3 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm min-h-[80px] sm:min-h-[90px] ${
               selectedReport === 'excel-hell' 
                 ? 'bg-orange-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >
-            <XCircle className="w-5 h-5 mb-1" />
-            <span className="text-center font-bold">Excel Hell</span>
-            <span className="text-[10px] opacity-75">Manual Madness</span>
+            <XCircle className="w-5 h-5 sm:w-6 sm:h-6 mb-1" />
+            <span className="text-center font-bold text-xs sm:text-sm">Excel Hell</span>
+            <span className="text-[9px] sm:text-[10px] opacity-75 hidden sm:block">Manual Madness</span>
           </button>
           <button
             onClick={() => setSelectedReport('real-time')}
-            className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm ${
+            className={`px-2 sm:px-3 py-3 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm min-h-[80px] sm:min-h-[90px] ${
               selectedReport === 'real-time' 
                 ? 'bg-blue-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >
-            <Eye className="w-5 h-5 mb-1" />
-            <span className="text-center font-bold">Full Vision</span>
-            <span className="text-[10px] opacity-75">Nexus Clarity</span>
+            <Eye className="w-5 h-5 sm:w-6 sm:h-6 mb-1" />
+            <span className="text-center font-bold text-xs sm:text-sm">Full Vision</span>
+            <span className="text-[9px] sm:text-[10px] opacity-75 hidden sm:block">Nexus Clarity</span>
           </button>
         </div>
       </div>
@@ -581,17 +581,17 @@ export default function ReportsPage() {
                             Line {comment.line} - Part #{comment.partNumber}
                           </span>
                         </div>
-                        <span className="text-xs text-gray-500 mt-1 sm:mt-0">
+                        <span className="text-xs text-gray-700 mt-1 sm:mt-0">
                           {new Date(comment.date).toLocaleDateString()}
                         </span>
                       </div>
                       <p className="text-gray-700 mt-1 text-xs sm:text-sm">"{comment.comment}"</p>
-                      <p className="text-xs text-gray-500 mt-1">Efficiency: {comment.efficiency}%</p>
+                      <p className="text-xs text-gray-700 mt-1">Efficiency: {comment.efficiency}%</p>
                     </div>
                   )
                 })
               ) : (
-                <div className="text-center py-4 text-gray-500">
+                <div className="text-center py-4 text-gray-700">
                   No recent comments to display
                 </div>
               )}
@@ -601,7 +601,7 @@ export default function ReportsPage() {
                     <span className="font-medium text-gray-900 text-sm sm:text-base">System AI</span>
                     <span className="text-gray-600 text-xs sm:text-sm ml-1 sm:ml-2">Pattern Detection</span>
                   </div>
-                  <span className="text-xs text-gray-500 mt-1 sm:mt-0">Just now</span>
+                  <span className="text-xs text-gray-700 mt-1 sm:mt-0">Just now</span>
                 </div>
                 <p className="text-gray-700 mt-1 text-xs sm:text-sm">
                   "AI detected: {blindSpots[0]?.category || 'Die configuration'} issues represent {blindSpots[0]?.percentage || 38}% of comments. Recommend immediate maintenance schedule review."

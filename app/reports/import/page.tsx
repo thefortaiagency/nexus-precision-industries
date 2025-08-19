@@ -205,7 +205,7 @@ export default function ImportPage() {
                   id="file-upload"
                 />
                 <label htmlFor="file-upload" className="cursor-pointer">
-                  <FileSpreadsheet className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                  <FileSpreadsheet className="h-12 w-12 text-gray-600 mx-auto mb-4" />
                   <p className="text-sm text-gray-600">
                     {file ? (
                       <span className="text-green-600 font-medium">{file.name}</span>
@@ -213,7 +213,7 @@ export default function ImportPage() {
                       <>Click to upload or drag and drop</>
                     )}
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">Excel files only (.xlsx, .xls)</p>
+                  <p className="text-xs text-gray-700 mt-1">Excel files only (.xlsx, .xls)</p>
                 </label>
               </div>
 
@@ -326,7 +326,7 @@ export default function ImportPage() {
                     </div>
                   ))}
                   {importResult.validationErrors.length > 10 && (
-                    <p className="text-sm text-gray-500 italic">
+                    <p className="text-sm text-gray-700 italic">
                       ...and {importResult.validationErrors.length - 10} more errors
                     </p>
                   )}
@@ -428,7 +428,7 @@ export default function ImportPage() {
                     <li>• performance (0-100%)</li>
                     <li>• quality (0-100%)</li>
                   </ul>
-                  <div className="text-xs text-gray-500 mt-3">
+                  <div className="text-xs text-gray-700 mt-3">
                     OEE will be calculated automatically
                   </div>
                 </div>

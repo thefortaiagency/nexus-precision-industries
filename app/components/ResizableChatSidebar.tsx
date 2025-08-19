@@ -350,7 +350,7 @@ export default function ResizableChatSidebar({
                   </div>
                 )}
                 <div className="whitespace-pre-wrap">{stripMarkdown(msg.content)}</div>
-                <div className={`text-xs mt-1 ${msg.role === 'user' ? 'text-cyan-100' : 'text-gray-500'}`}>
+                <div className={`text-xs mt-1 ${msg.role === 'user' ? 'text-cyan-100' : 'text-gray-700'}`}>
                   {msg.timestamp.toLocaleTimeString()}
                 </div>
               </div>
@@ -359,7 +359,7 @@ export default function ResizableChatSidebar({
             {/* Show suggestions after assistant messages */}
             {msg.role === 'assistant' && idx === messages.length - 1 && !loading && (
               <div className="mt-3 pl-4">
-                <p className="text-xs text-gray-500 mb-2">Related questions:</p>
+                <p className="text-xs text-gray-700 mb-2">Related questions:</p>
                 <div className="flex flex-wrap gap-1.5">
                   {getSuggestions(msg.content).slice(0, 4).map((suggestion, sIdx) => (
                     <button
@@ -389,7 +389,7 @@ export default function ResizableChatSidebar({
       {/* Quick Questions - Show at bottom when it's the first message */}
       {messages.length === 1 && !loading && (
         <div className="px-4 pb-2 border-t pt-3">
-          <p className="text-xs text-gray-500 mb-2">Quick questions to get started:</p>
+          <p className="text-xs text-gray-700 mb-2">Quick questions to get started:</p>
           <div className="flex flex-wrap gap-1.5">
             {getSuggestions().map((question, idx) => (
               <button
@@ -424,7 +424,7 @@ export default function ResizableChatSidebar({
             <Send className="w-5 h-5" />
           </button>
         </div>
-        <p className="text-xs text-gray-500 mt-2">
+        <p className="text-xs text-gray-700 mt-2">
           Press Enter to send • Shift+Enter for new line • ⌘/ to toggle
         </p>
       </div>
