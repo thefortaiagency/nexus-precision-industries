@@ -252,12 +252,19 @@ export default function Dashboard() {
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis type="number" domain={[0, 40]} />
                     <YAxis dataKey="activity" type="category" width={120} />
-                    <Tooltip />
+                    <Tooltip 
+                      formatter={(value, name) => [`${value}%`, name]}
+                      labelFormatter={(activity) => `Activity: ${activity}`}
+                    />
                     <Legend />
                     <Bar dataKey="traditional" fill="#ef4444" name="Traditional ERP" />
                     <Bar dataKey="nexus" fill="#10b981" name="With Nexus" />
                   </BarChart>
                 </ResponsiveContainer>
+                <div className="mt-4 text-xs text-gray-500 border p-2 rounded">
+                  <strong>Debug Info:</strong> Data length: {managementActivities.length}, 
+                  Sample: {JSON.stringify(managementActivities[0] || {}, null, 2)}
+                </div>
               )}
             </CardContent>
           </Card>
