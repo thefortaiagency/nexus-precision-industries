@@ -66,19 +66,12 @@ export default function DataEntryPage() {
       <Navigation />
       
       {/* Hero Section */}
-      <div className="bg-gradient-to-r from-teal-600 to-cyan-700 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-3xl font-bold flex items-center justify-center">
-              <Database className="h-8 w-8 mr-3" />
-              Manufacturing Data Entry
-            </h1>
-            <p className="text-teal-100 mt-2">
-              Real-time production data capture and validation
-            </p>
-          </div>
-        </div>
-      </div>
+      <HeroSection 
+        page="dataEntry"
+        title="Seamless ERP Integration Hub"
+        subtitle="Connect your existing ERP to Nexus AI intelligence. No rip and replace."
+        height="large"
+      />
 
       {/* Demo Notice */}
       <div className="bg-blue-50 border-b border-blue-200">
@@ -96,346 +89,9 @@ export default function DataEntryPage() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">Today&apos;s Entries</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-teal-600">127</div>
-              <p className="text-xs text-gray-500">+15 from yesterday</p>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">Data Accuracy</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-green-600">99.2%</div>
-              <p className="text-xs text-gray-500">Above target</p>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">Avg Entry Time</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-blue-600">45 sec</div>
-              <p className="text-xs text-gray-500">-15 sec vs manual</p>
-            </CardContent>
-          </Card>
-          
-          <Card>
-            <CardHeader className="pb-2">
-              <CardTitle className="text-sm font-medium">Validation Errors</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold text-orange-600">3</div>
-              <p className="text-xs text-gray-500">Auto-corrected</p>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Main Form */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <div className="lg:col-span-2">
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center">
-                  <Factory className="h-5 w-5 text-teal-600 mr-2" />
-                  Production Data Entry
-                </CardTitle>
-                <CardDescription>
-                  Enter real-time production metrics for instant analysis
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                {submitted ? (
-                  <div className="bg-green-50 border border-green-200 rounded-lg p-6 text-center">
-                    <CheckCircle className="h-12 w-12 text-green-600 mx-auto mb-4" />
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Data Submitted Successfully!</h3>
-                    <p className="text-gray-600">
-                      Production data has been captured and is now being analyzed by AI.
-                    </p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    {/* Machine & Shift Section */}
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h3 className="font-semibold text-gray-900 mb-4">Machine & Shift Information</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Machine ID *
-                          </label>
-                          <select 
-                            name="machineId"
-                            value={formData.machineId}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent"
-                            required
-                          >
-                            <option value="">Select Machine</option>
-                            <option value="PRESS-001">600 Ton Press</option>
-                            <option value="PRESS-002">400 Ton Press</option>
-                            <option value="CNC-001">CNC Mill #1</option>
-                            <option value="CNC-002">CNC Mill #2</option>
-                            <option value="LATHE-001">Lathe #1</option>
-                          </select>
-                        </div>
-                        
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Shift *
-                          </label>
-                          <select 
-                            name="shiftId"
-                            value={formData.shiftId}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent"
-                            required
-                          >
-                            <option value="">Select Shift</option>
-                            <option value="1">First Shift (6AM - 2PM)</option>
-                            <option value="2">Second Shift (2PM - 10PM)</option>
-                            <option value="3">Third Shift (10PM - 6AM)</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Production Metrics Section */}
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h3 className="font-semibold text-gray-900 mb-4">Production Metrics</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Parts Produced *
-                          </label>
-                          <input 
-                            type="number"
-                            name="partsProduced"
-                            value={formData.partsProduced}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent"
-                            placeholder="0"
-                            required
-                          />
-                        </div>
-                        
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Good Parts
-                          </label>
-                          <input 
-                            type="number"
-                            name="goodParts"
-                            value={formData.goodParts}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent"
-                            placeholder="0"
-                          />
-                        </div>
-                        
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Scrap Parts
-                          </label>
-                          <input 
-                            type="number"
-                            name="scrapParts"
-                            value={formData.scrapParts}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent"
-                            placeholder="0"
-                          />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Downtime & Quality Section */}
-                    <div className="bg-gray-50 p-4 rounded-lg">
-                      <h3 className="font-semibold text-gray-900 mb-4">Downtime & Quality</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Downtime (minutes)
-                          </label>
-                          <input 
-                            type="number"
-                            name="downtimeMinutes"
-                            value={formData.downtimeMinutes}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent"
-                            placeholder="0"
-                          />
-                        </div>
-                        
-                        <div>
-                          <label className="block text-sm font-medium text-gray-700 mb-1">
-                            Quality Rating
-                          </label>
-                          <select 
-                            name="qualityRating"
-                            value={formData.qualityRating}
-                            onChange={handleInputChange}
-                            className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent"
-                          >
-                            <option value="">Select Rating</option>
-                            <option value="excellent">Excellent</option>
-                            <option value="good">Good</option>
-                            <option value="fair">Fair</option>
-                            <option value="poor">Poor</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Notes Section */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">
-                        Additional Notes
-                      </label>
-                      <textarea 
-                        name="notes"
-                        value={formData.notes}
-                        onChange={handleInputChange}
-                        rows={3}
-                        className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-600 focus:border-transparent"
-                        placeholder="Enter any additional observations or issues..."
-                      />
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex gap-4">
-                      <button
-                        type="submit"
-                        className="flex-1 bg-gradient-to-r from-teal-600 to-cyan-600 text-white py-3 px-6 rounded-lg font-semibold hover:from-teal-700 hover:to-cyan-700 transition-all flex items-center justify-center"
-                      >
-                        <Save className="h-5 w-5 mr-2" />
-                        Submit Data
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setFormData({
-                          machineId: '',
-                          shiftId: '',
-                          partsProduced: '',
-                          goodParts: '',
-                          scrapParts: '',
-                          downtimeMinutes: '',
-                          operatorId: '',
-                          qualityRating: '',
-                          notes: ''
-                        })}
-                        className="px-6 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-all flex items-center"
-                      >
-                        <RefreshCw className="h-5 w-5 mr-2" />
-                        Clear
-                      </button>
-                    </div>
-                  </form>
-                )}
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Side Panel */}
-          <div className="space-y-6">
-            {/* AI Validation */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  <CheckCircle className="h-5 w-5 text-green-600 mr-2" />
-                  AI Validation Active
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center text-sm">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
-                    <span className="text-gray-700">Anomaly detection enabled</span>
-                  </div>
-                  <div className="flex items-center text-sm">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
-                    <span className="text-gray-700">Auto-correction active</span>
-                  </div>
-                  <div className="flex items-center text-sm">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse" />
-                    <span className="text-gray-700">Quality checks running</span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Recent Entries */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  <Clock className="h-5 w-5 text-blue-600 mr-2" />
-                  Recent Entries
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="pb-3 border-b">
-                    <div className="flex justify-between text-sm">
-                      <span className="font-medium">PRESS-001</span>
-                      <span className="text-gray-500">2 min ago</span>
-                    </div>
-                    <p className="text-xs text-gray-600 mt-1">1,247 parts • 98.2% quality</p>
-                  </div>
-                  <div className="pb-3 border-b">
-                    <div className="flex justify-between text-sm">
-                      <span className="font-medium">CNC-002</span>
-                      <span className="text-gray-500">15 min ago</span>
-                    </div>
-                    <p className="text-xs text-gray-600 mt-1">892 parts • 99.1% quality</p>
-                  </div>
-                  <div className="pb-3">
-                    <div className="flex justify-between text-sm">
-                      <span className="font-medium">LATHE-001</span>
-                      <span className="text-gray-500">28 min ago</span>
-                    </div>
-                    <p className="text-xs text-gray-600 mt-1">445 parts • 97.8% quality</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Quick Actions */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="flex items-center text-lg">
-                  <BarChart3 className="h-5 w-5 text-purple-600 mr-2" />
-                  Quick Actions
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-2">
-                  <button className="w-full text-left px-3 py-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors flex items-center text-sm">
-                    <FileText className="h-4 w-4 mr-2 text-gray-600" />
-                    View Today&apos;s Report
-                  </button>
-                  <button className="w-full text-left px-3 py-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors flex items-center text-sm">
-                    <TrendingUp className="h-4 w-4 mr-2 text-gray-600" />
-                    Check Efficiency Trends
-                  </button>
-                  <button className="w-full text-left px-3 py-2 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors flex items-center text-sm">
-                    <Package className="h-4 w-4 mr-2 text-gray-600" />
-                    Inventory Status
-                  </button>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
 
         {/* ERP Integration Capabilities Section */}
-        <div className="mt-12 space-y-8">
+        <div className="space-y-8">
           <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl p-8 text-white">
             <h2 className="text-3xl font-bold mb-4 text-center">
               How Nexus Integrates With Your Existing ERP
@@ -496,7 +152,10 @@ export default function DataEntryPage() {
             </Card>
           </div>
 
-          {/* ERP-Specific Integration Details */}
+          {/* Top 10 ERP Systems Integration Details */}
+          <div className="mb-8">
+            <h3 className="text-2xl font-bold text-gray-900 text-center mb-6">Integration Support for Top 10 Manufacturing ERPs</h3>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* SAP Integration */}
             <Card className="border-2 border-gray-200">
@@ -696,6 +355,261 @@ export default function DataEntryPage() {
                   <div className="bg-green-50 p-3 rounded">
                     <p className="text-xs text-green-900">
                       <strong>Setup Time:</strong> 1-2 days with Azure AD permissions
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Plex Manufacturing Cloud */}
+            <Card className="border-2 border-gray-200">
+              <CardHeader className="bg-gradient-to-r from-purple-600 to-pink-600 text-white">
+                <CardTitle className="text-xl">Plex Manufacturing Cloud</CardTitle>
+                <CardDescription className="text-purple-100">
+                  Cloud-native MES and ERP platform
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>Plex API:</strong> RESTful web services for all modules</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>EDI Gateway:</strong> Electronic data interchange</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>Web Services:</strong> SOAP-based integration</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>Database Views:</strong> Read-only SQL access</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Data We Can Access:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Production Tracking</span>
+                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Quality Management</span>
+                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Inventory Control</span>
+                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Tool Management</span>
+                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Scheduling</span>
+                      <span className="px-2 py-1 bg-purple-100 text-purple-700 rounded text-xs">Maintenance</span>
+                    </div>
+                  </div>
+                  <div className="bg-purple-50 p-3 rounded">
+                    <p className="text-xs text-purple-900">
+                      <strong>Setup Time:</strong> 2-3 days with Plex admin access
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Epicor */}
+            <Card className="border-2 border-gray-200">
+              <CardHeader className="bg-gradient-to-r from-indigo-600 to-blue-600 text-white">
+                <CardTitle className="text-xl">Epicor Integration</CardTitle>
+                <CardDescription className="text-indigo-100">
+                  Kinetic (ERP 10/11) and Prophet 21
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>REST Services:</strong> Epicor REST API v2</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>Business Objects:</strong> .NET integration</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>Service Connect:</strong> Workflow automation</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>DMT:</strong> Data migration tool</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Data We Can Access:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs">Jobs</span>
+                      <span className="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs">Operations</span>
+                      <span className="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs">Materials</span>
+                      <span className="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs">Labor</span>
+                      <span className="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs">Scheduling</span>
+                      <span className="px-2 py-1 bg-indigo-100 text-indigo-700 rounded text-xs">Quality</span>
+                    </div>
+                  </div>
+                  <div className="bg-indigo-50 p-3 rounded">
+                    <p className="text-xs text-indigo-900">
+                      <strong>Setup Time:</strong> 2-3 days with system admin rights
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Infor */}
+            <Card className="border-2 border-gray-200">
+              <CardHeader className="bg-gradient-to-r from-orange-600 to-red-600 text-white">
+                <CardTitle className="text-xl">Infor Integration</CardTitle>
+                <CardDescription className="text-orange-100">
+                  CloudSuite Industrial (SyteLine) & M3
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>ION API:</strong> Infor OS platform integration</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>Mongoose:</strong> Application framework APIs</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>BODs:</strong> Business Object Documents</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>Data Lake:</strong> Analytics integration</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Data We Can Access:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-2 py-1 bg-orange-100 text-orange-700 rounded text-xs">Work Centers</span>
+                      <span className="px-2 py-1 bg-orange-100 text-orange-700 rounded text-xs">Shop Orders</span>
+                      <span className="px-2 py-1 bg-orange-100 text-orange-700 rounded text-xs">Items</span>
+                      <span className="px-2 py-1 bg-orange-100 text-orange-700 rounded text-xs">Resources</span>
+                      <span className="px-2 py-1 bg-orange-100 text-orange-700 rounded text-xs">Schedules</span>
+                      <span className="px-2 py-1 bg-orange-100 text-orange-700 rounded text-xs">Metrics</span>
+                    </div>
+                  </div>
+                  <div className="bg-orange-50 p-3 rounded">
+                    <p className="text-xs text-orange-900">
+                      <strong>Setup Time:</strong> 3-4 days with ION desk access
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* IFS */}
+            <Card className="border-2 border-gray-200">
+              <CardHeader className="bg-gradient-to-r from-teal-600 to-green-600 text-white">
+                <CardTitle className="text-xl">IFS Integration</CardTitle>
+                <CardDescription className="text-teal-100">
+                  IFS Cloud and Applications 10
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>OData Services:</strong> RESTful API access</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>IFS Connect:</strong> Message routing</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>PL/SQL Access:</strong> Database APIs</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>Web Services:</strong> SOAP integration</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Data We Can Access:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs">Shop Orders</span>
+                      <span className="px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs">Operations</span>
+                      <span className="px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs">Inventory Parts</span>
+                      <span className="px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs">Work Centers</span>
+                      <span className="px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs">Quality Control</span>
+                      <span className="px-2 py-1 bg-teal-100 text-teal-700 rounded text-xs">Maintenance</span>
+                    </div>
+                  </div>
+                  <div className="bg-teal-50 p-3 rounded">
+                    <p className="text-xs text-teal-900">
+                      <strong>Setup Time:</strong> 2-4 days depending on modules
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* QAD */}
+            <Card className="border-2 border-gray-200">
+              <CardHeader className="bg-gradient-to-r from-gray-600 to-gray-800 text-white">
+                <CardTitle className="text-xl">QAD Integration</CardTitle>
+                <CardDescription className="text-gray-300">
+                  Adaptive ERP and DynaSys
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-6">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Connection Methods:</h4>
+                    <ul className="space-y-2 text-sm">
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>QXtend:</strong> REST API framework</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>QAD EDI:</strong> Electronic data interchange</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>Progress 4GL:</strong> Database procedures</span>
+                      </li>
+                      <li className="flex items-start">
+                        <CheckCircle className="h-4 w-4 text-green-600 mr-2 mt-0.5" />
+                        <span><strong>Enterprise Platform:</strong> Service-oriented architecture</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 mb-2">Data We Can Access:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Work Orders</span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Bills of Material</span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Item Master</span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Production</span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Quality</span>
+                      <span className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs">Inventory</span>
+                    </div>
+                  </div>
+                  <div className="bg-gray-50 p-3 rounded">
+                    <p className="text-xs text-gray-700">
+                      <strong>Setup Time:</strong> 3-5 days with QAD administrator
                     </p>
                   </div>
                 </div>
