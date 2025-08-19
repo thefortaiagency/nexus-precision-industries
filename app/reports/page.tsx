@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Clock, TrendingDown, AlertCircle, Target, Activity, Users, Trash2, BarChart3, MessageSquare, Brain, Eye, EyeOff, Factory, PieChart as PieChartIcon, Search, Wrench, FileText, DollarSign, Upload, Timer, XCircle } from 'lucide-react'
+import { Clock, TrendingDown, TrendingUp, Calendar, AlertCircle, Target, Activity, Users, Package, Trash2, BarChart3, MessageSquare, Brain, Eye, EyeOff, Factory, PieChart as PieChartIcon, Search, Wrench, FileText, DollarSign, Upload, Timer, XCircle } from 'lucide-react'
 import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts'
 import HitTrackerTable from './hit-tracker-table'
 import HitTrackerAccurate from './hit-tracker-accurate'
@@ -56,11 +56,11 @@ export default function ReportsPage() {
           targetAchievement: 88
         }
         
-        setHitTrackerData(demoData)
-        setHitTrackerStats(demoStats)
+        setVisibilityData(demoData)
+        setEfficiencyStats(demoStats)
       } else {
-        setHitTrackerData(data.chartData)
-        setHitTrackerStats(data.stats || null)
+        setVisibilityData(data.chartData)
+        setEfficiencyStats(data.stats || null)
       }
     } catch (error) {
       console.error('Error fetching hit tracker data:', error)
@@ -82,8 +82,8 @@ export default function ReportsPage() {
         targetAchievement: 88
       }
       
-      setHitTrackerData(demoData)
-      setHitTrackerStats(demoStats)
+      setVisibilityData(demoData)
+      setEfficiencyStats(demoStats)
     }
   }
 
@@ -112,9 +112,9 @@ export default function ReportsPage() {
         }
         
         setAiInsights(mappedInsights)
-        setCommentPatterns(data.commentPatterns || [])
-        setRecentComments(data.recentComments || [])
-        setTotalComments(data.totalComments || 0)
+        setBlindSpots(data.commentPatterns || [])
+        setWastedHours(data.recentComments || [])
+        setTotalWaste(data.totalComments || 0)
       } else {
         // Use demo data
         const demoInsights = {
@@ -191,9 +191,9 @@ export default function ReportsPage() {
         ]
         
         setAiInsights(demoInsights)
-        setCommentPatterns(demoPatterns)
-        setRecentComments(demoComments)
-        setTotalComments(614)
+        setBlindSpots(demoPatterns)
+        setWastedHours(demoComments)
+        setTotalWaste(614)
       }
     } catch (error) {
       console.error('Error fetching AI insights:', error)
@@ -245,8 +245,8 @@ export default function ReportsPage() {
       ]
       
       setAiInsights(demoInsights)
-      setCommentPatterns(demoPatterns)
-      setTotalComments(614)
+      setBlindSpots(demoPatterns)
+      setTotalWaste(614)
     }
     setLoading(false)
   }
@@ -381,7 +381,7 @@ export default function ReportsPage() {
               Daily Hit Tracker - Shift Efficiency Comparison
             </h2>
             <ResponsiveContainer width="100%" height={400}>
-              <LineChart data={hitTrackerData}>
+              <LineChart data={visibilityData}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="date" />
                 <YAxis domain={[80, 100]} />
@@ -396,26 +396,26 @@ export default function ReportsPage() {
           </div>
 
           {/* Quick Stats */}
-          {hitTrackerStats && (
+          {efficiencyStats && (
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
               <div className="bg-white rounded-lg shadow p-3 sm:p-4">
                 <div className="text-xs sm:text-sm text-gray-600">Weekly Average</div>
-                <div className="text-xl sm:text-2xl font-bold text-gray-900">{hitTrackerStats.weeklyAverage}%</div>
+                <div className="text-xl sm:text-2xl font-bold text-gray-900">{efficiencyStats.weeklyAverage}%</div>
                 <div className="text-xs text-green-600">↑ 2.3% from last week</div>
               </div>
               <div className="bg-white rounded-lg shadow p-3 sm:p-4">
                 <div className="text-xs sm:text-sm text-gray-600">Best Performer</div>
-                <div className="text-xl sm:text-2xl font-bold text-gray-900">{hitTrackerStats.bestShift.name}</div>
-                <div className="text-xs text-blue-600">{hitTrackerStats.bestShift.avg}% average efficiency</div>
+                <div className="text-xl sm:text-2xl font-bold text-gray-900">{efficiencyStats.bestShift.name}</div>
+                <div className="text-xs text-blue-600">{efficiencyStats.bestShift.avg}% average efficiency</div>
               </div>
               <div className="bg-white rounded-lg shadow p-3 sm:p-4">
                 <div className="text-xs sm:text-sm text-gray-600">Total Hits</div>
-                <div className="text-xl sm:text-2xl font-bold text-gray-900">{hitTrackerStats.totalHits.toLocaleString()}</div>
+                <div className="text-xl sm:text-2xl font-bold text-gray-900">{efficiencyStats.totalHits.toLocaleString()}</div>
                 <div className="text-xs text-gray-600">This week</div>
               </div>
               <div className="bg-white rounded-lg shadow p-3 sm:p-4">
                 <div className="text-xs sm:text-sm text-gray-600">Target Achievement</div>
-                <div className="text-xl sm:text-2xl font-bold text-gray-900">{hitTrackerStats.targetAchievement}%</div>
+                <div className="text-xl sm:text-2xl font-bold text-gray-900">{efficiencyStats.targetAchievement}%</div>
                 <div className="text-xs text-orange-600">Room for improvement</div>
               </div>
             </div>
@@ -512,7 +512,7 @@ export default function ReportsPage() {
               <ResponsiveContainer width="100%" height={300}>
                 <PieChart>
                   <Pie
-                    data={commentPatterns}
+                    data={blindSpots}
                     cx="50%"
                     cy="50%"
                     labelLine={false}
@@ -521,7 +521,7 @@ export default function ReportsPage() {
                     fill="#8884d8"
                     dataKey="count"
                   >
-                    {commentPatterns.map((entry, index) => (
+                    {blindSpots.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                     ))}
                   </Pie>
@@ -534,7 +534,7 @@ export default function ReportsPage() {
             <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
               <h2 className="text-base sm:text-xl font-bold mb-3 sm:mb-4">Issue Trends</h2>
               <div className="space-y-3 sm:space-y-4">
-                {commentPatterns.map((pattern, index) => (
+                {blindSpots.map((pattern, index) => (
                   <div key={index} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                     <div className="flex items-center">
                       <div 
@@ -563,8 +563,8 @@ export default function ReportsPage() {
           <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6">
             <h2 className="text-base sm:text-xl font-bold mb-3 sm:mb-4">Recent Operator Comments Requiring Action</h2>
             <div className="space-y-2 sm:space-y-3">
-              {recentComments.length > 0 ? (
-                recentComments.map((comment, index) => {
+              {wastedHours.length > 0 ? (
+                wastedHours.map((comment, index) => {
                   const urgency = comment.efficiency < 85 ? 'border-red-500' : 
                                   comment.efficiency < 90 ? 'border-yellow-500' : 'border-green-500'
                   return (
@@ -599,7 +599,7 @@ export default function ReportsPage() {
                   <span className="text-xs text-gray-500 mt-1 sm:mt-0">Just now</span>
                 </div>
                 <p className="text-gray-700 mt-1 text-xs sm:text-sm">
-                  "AI detected: {commentPatterns[0]?.category || 'Die configuration'} issues represent {commentPatterns[0]?.percentage || 38}% of comments. Recommend immediate maintenance schedule review."
+                  "AI detected: {blindSpots[0]?.category || 'Die configuration'} issues represent {blindSpots[0]?.percentage || 38}% of comments. Recommend immediate maintenance schedule review."
                 </p>
               </div>
             </div>

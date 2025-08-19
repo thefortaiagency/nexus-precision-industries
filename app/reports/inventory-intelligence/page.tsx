@@ -111,10 +111,10 @@ export default function InventoryIntelligencePage() {
       
       {/* Hero Section */}
       <HeroSection 
+        page="inventory"
         title="Inventory Intelligence vs Traditional ERPs"
         subtitle="Stop counting. Start predicting. Save 432 hours monthly."
-        imagePath="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
-        overlay="linear-gradient(to bottom, rgba(99, 102, 241, 0.8), rgba(139, 92, 246, 0.9))"
+        height="medium"
       />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
