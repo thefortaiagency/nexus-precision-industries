@@ -5,11 +5,11 @@ const demoResponses: Record<string, string> = {
   // Greetings
   'hello': `Hello! I'm your Nexus AI assistant. I can help you understand how our manufacturing intelligence platform can enhance your existing ERP system. 
 
-This is a demo version showing example capabilities. For a personalized demo with your actual data, please visit our [Contact Page](/contact) to schedule a consultation.`,
+This is a demo version showing example capabilities. For a personalized demo with your actual data, please visit our [Contact Page](https://aimpactnexus.ai/contact) to schedule a consultation.`,
 
   'hi': `Hi there! Welcome to Nexus Precision Industries. I'm here to show you how we can add AI-powered intelligence to your existing ERP system.
 
-This is a demo environment with sample data. For a real demonstration tailored to your manufacturing needs, please [contact us](/contact).`,
+This is a demo environment with sample data. For a real demonstration tailored to your manufacturing needs, please [contact us](https://aimpactnexus.ai/contact).`,
 
   // Production questions
   'efficiency': `Based on our demo data, here's a sample efficiency analysis:
@@ -25,7 +25,7 @@ This is a demo environment with sample data. For a real demonstration tailored t
 - Maintenance window optimization could save 4.2 hours/week
 - Pattern detected: Tuesday shifts consistently outperform by 7%
 
-This is demo data showing our analytics capabilities. To see insights from YOUR actual ERP data, please [schedule a demo](/contact) with our team.`,
+This is demo data showing our analytics capabilities. To see insights from YOUR actual ERP data, please [schedule a demo](https://aimpactnexus.ai/contact) with our team.`,
 
   'production': `Here's a sample production report from our demo system:
 
@@ -103,7 +103,7 @@ Compare this to:
 📈 **ROI Guarantee:**
 We guarantee 3x ROI within 6 months or your money back.
 
-For detailed pricing based on your needs, please [schedule a demo](/contact).`,
+For detailed pricing based on your needs, please [schedule a demo](https://aimpactnexus.ai/contact).`,
 
   'demo': `I'd be happy to arrange a personalized demo for you!
 
@@ -114,7 +114,7 @@ For detailed pricing based on your needs, please [schedule a demo](/contact).`,
 - ROI calculation for your business
 
 📅 **Schedule Your Demo:**
-Please visit our [Contact Page](/contact) or call us at 1-800-NEXUS-AI
+Please visit our [Contact Page](https://aimpactnexus.ai/contact) or call us at 1-800-NEXUS-AI
 
 Our team will:
 1. Understand your current ERP setup
@@ -140,7 +140,7 @@ Looking forward to showing you the full power of Nexus!`,
 
 📊 **This is a demo system with sample data.**
 
-For a personalized demonstration with your actual ERP data and specific use cases, please [contact our team](/contact) or call 1-800-NEXUS-AI.`
+For a personalized demonstration with your actual ERP data and specific use cases, please [contact our team](https://aimpactnexus.ai/contact) or call 1-800-NEXUS-AI.`
 }
 
 export async function POST(req: NextRequest) {
@@ -194,7 +194,7 @@ export async function POST(req: NextRequest) {
     console.error('Chatbot error:', error)
     return NextResponse.json(
       { 
-        message: 'I apologize, but I encountered an error. Please try again or [contact our team](/contact) directly for assistance.',
+        message: 'I apologize, but I encountered an error. Please try again or [contact our team](https://aimpactnexus.ai/contact) directly for assistance.',
         error: true 
       },
       { status: 500 }

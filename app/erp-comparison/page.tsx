@@ -116,7 +116,7 @@ export default function ERPComparison() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
       {/* Hero Section */}

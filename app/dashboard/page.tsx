@@ -403,7 +403,7 @@ export default function Dashboard() {
   const COLORS = ['#f97316', '#64748b', '#0ea5e9', '#fb923c', '#f59e0b', '#8b5cf6']
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
       <div className="p-8">
         <div className="mb-8">

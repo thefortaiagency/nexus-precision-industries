@@ -28,7 +28,7 @@ const stats = {
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
       {/* Hero Section with Platform Factory Background */}
@@ -308,7 +308,7 @@ export default function Home() {
       </div>
 
       {/* ERP Compatibility Section */}
-      <div className="bg-gray-50 py-12">
+      <div className="bg-gray-50/30 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-4">Works With Your Existing ERP</h2>
@@ -428,7 +428,7 @@ export default function Home() {
       </div>
 
       {/* Stats Section */}
-      <div className="bg-gray-50 py-16">
+      <div className="bg-gray-50/30 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-lg p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center">Platform Performance</h2>
@@ -480,7 +480,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center space-x-2 mb-4 md:mb-0">
               <Image 
-                src="/nexus-industrial-logo.svg" 
+                src="/nexus-logo.png" 
                 alt="Nexus Precision Industries" 
                 width={30} 
                 height={30}

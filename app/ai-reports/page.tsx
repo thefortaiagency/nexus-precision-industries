@@ -121,7 +121,7 @@ export default function AIReportsPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="min-h-screen bg-white flex items-center justify-center">
         <div className="text-center">
           <Brain className="h-16 w-16 text-cyan-600 animate-pulse mx-auto mb-4" />
           <h2 className="text-xl font-semibold text-gray-900">Generating AI Insights...</h2>
@@ -132,7 +132,7 @@ export default function AIReportsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <Navigation />
 
       {/* Header */}
@@ -166,7 +166,7 @@ export default function AIReportsPage() {
             <Lightbulb className="h-5 w-5 text-yellow-600 mr-3" />
             <p className="text-sm text-yellow-800">
               <strong>Demo Mode:</strong> This is sample data showing AI capabilities. 
-              For insights from your actual ERP data, <Link href="/contact" className="underline font-semibold">schedule a personalized demo</Link>.
+              For insights from your actual ERP data, <Link href="https://aimpactnexus.ai/contact" className="underline font-semibold">schedule a personalized demo</Link>.
             </p>
           </div>
         </div>
@@ -368,7 +368,7 @@ export default function AIReportsPage() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link 
-              href="/contact" 
+              href="https://aimpactnexus.ai/contact" 
               className="px-8 py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg font-semibold hover:from-purple-700 hover:to-indigo-700 transition-all flex items-center"
             >
               <ChevronRight className="h-5 w-5 mr-2" />

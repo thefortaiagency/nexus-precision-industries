@@ -10,7 +10,7 @@ export default function Navigation() {
           <div className="flex items-center space-x-3">
             <Link href="/" className="flex items-center space-x-3">
               <Image 
-                src="/nexus-industrial-logo.svg" 
+                src="/nexus-logo.png" 
                 alt="Nexus Precision Industries" 
                 width={40} 
                 height={40}
@@ -33,9 +33,9 @@ export default function Navigation() {
               AI Insights
             </Link>
             <Link href="/entry" className="text-gray-600 hover:text-cyan-600 transition-colors">Data Entry</Link>
-            <Link href="/contact" className="px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors">
+            <a href="https://aimpactnexus.ai/contact" target="_blank" rel="noopener noreferrer" className="px-4 py-2 bg-orange-500 text-white rounded-lg font-medium hover:bg-orange-600 transition-colors">
               Get Demo
-            </Link>
+            </a>
           </div>
         </div>
       </div>
