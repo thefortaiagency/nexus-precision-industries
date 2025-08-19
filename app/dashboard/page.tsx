@@ -468,9 +468,7 @@ export default function Dashboard() {
 
           <div className="text-center">
             <a 
-              href="https://aimpactnexus.ai/contact" 
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/time-savings-calculator" 
               className="inline-flex items-center px-8 py-4 bg-white text-green-700 rounded-lg font-bold text-lg hover:bg-green-50 transition-all transform hover:scale-105"
             >
               Calculate Your Time Savings
