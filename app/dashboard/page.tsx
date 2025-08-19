@@ -26,6 +26,7 @@ import HeroSection from '../components/HeroSection'
 
 export default function Dashboard() {
   const [selectedComparison, setSelectedComparison] = useState('time')
+  const [dataLoaded, setDataLoaded] = useState(false)
   
   // Time wasted on reports - Management hours per month
   const timeComparison = [
@@ -143,6 +144,12 @@ export default function Dashboard() {
 
   const COLORS = ['#ef4444', '#f97316', '#eab308', '#84cc16', '#10b981', '#0ea5e9']
 
+  useEffect(() => {
+    // Ensure charts load properly on client side
+    console.log('Dashboard: managementActivities data:', managementActivities)
+    setDataLoaded(true)
+  }, [])
+
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
@@ -235,17 +242,23 @@ export default function Dashboard() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <ResponsiveContainer width="100%" height={300}>
-                <BarChart data={managementActivities} layout="horizontal">
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis type="number" domain={[0, 40]} />
-                  <YAxis dataKey="activity" type="category" width={120} />
-                  <Tooltip />
-                  <Legend />
-                  <Bar dataKey="traditional" fill="#ef4444" name="Traditional ERP" />
-                  <Bar dataKey="nexus" fill="#10b981" name="With Nexus" />
-                </BarChart>
-              </ResponsiveContainer>
+              {!dataLoaded ? (
+                <div className="h-[300px] flex items-center justify-center">
+                  <div className="text-gray-500">Loading chart data...</div>
+                </div>
+              ) : (
+                <ResponsiveContainer width="100%" height={300}>
+                  <BarChart data={managementActivities} layout="horizontal">
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis type="number" domain={[0, 40]} />
+                    <YAxis dataKey="activity" type="category" width={120} />
+                    <Tooltip />
+                    <Legend />
+                    <Bar dataKey="traditional" fill="#ef4444" name="Traditional ERP" />
+                    <Bar dataKey="nexus" fill="#10b981" name="With Nexus" />
+                  </BarChart>
+                </ResponsiveContainer>
+              )}
             </CardContent>
           </Card>
         </div>
