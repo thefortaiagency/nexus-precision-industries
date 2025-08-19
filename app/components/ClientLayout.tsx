@@ -73,13 +73,22 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
   return (
     <div className="min-h-screen flex relative">
-      {/* Main Content Area */}
-      <main className="flex-1 bg-white">
+      {/* Main Content Area - adjusts margin based on chat state */}
+      <main 
+        className="flex-1 bg-white transition-all duration-300"
+        style={{ 
+          marginRight: isChatCollapsed ? 0 : chatWidth,
+          width: isChatCollapsed ? '100%' : `calc(100% - ${chatWidth}px)`
+        }}
+      >
         {children}
       </main>
 
       {/* AI Assistant Sidebar */}
-      <div className={`fixed right-0 top-0 h-screen z-50 ${isChatCollapsed ? 'pointer-events-none' : ''}`}>
+      <div 
+        className={`fixed right-0 top-0 h-screen z-50 transition-all duration-300`}
+        style={{ width: isChatCollapsed ? 0 : chatWidth }}
+      >
         <ResizableChatSidebar 
           isCollapsed={isChatCollapsed}
           onCollapsedChange={setIsChatCollapsed}
