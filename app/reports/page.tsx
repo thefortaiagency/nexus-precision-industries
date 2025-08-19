@@ -300,7 +300,7 @@ export default function ReportsPage() {
             onClick={() => setSelectedReport('blind-spots')}
             className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col items-center justify-center text-xs sm:text-sm ${
               selectedReport === 'blind-spots' 
-                ? 'bg-purple-600 text-white' 
+                ? 'bg-yellow-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >

@@ -67,7 +67,7 @@ export default function BlindSpotsReport() {
   return (
     <div className="space-y-6">
       {/* Header Warning */}
-      <div className="bg-gradient-to-r from-purple-600 to-indigo-600 rounded-xl shadow-lg p-6 text-white">
+      <div className="bg-gradient-to-r from-yellow-600 to-amber-600 rounded-xl shadow-lg p-6 text-white">
         <div className="flex items-center mb-3">
           <EyeOff className="h-8 w-8 mr-3 animate-pulse" />
           <h2 className="text-2xl font-bold">WARNING: ERP Blind Spots Detected</h2>
@@ -84,7 +84,7 @@ export default function BlindSpotsReport() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white rounded-xl shadow-lg p-6">
           <h3 className="text-xl font-bold mb-4 flex items-center">
-            <Eye className="mr-2 text-purple-600" />
+            <Eye className="mr-2 text-yellow-600" />
             Visibility Comparison: Traditional ERP vs Nexus
           </h3>
           <ResponsiveContainer width="100%" height={350}>
@@ -192,13 +192,13 @@ export default function BlindSpotsReport() {
           </p>
         </div>
 
-        <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-4">
+        <div className="bg-yellow-50 border-2 border-yellow-200 rounded-lg p-4">
           <div className="flex items-center mb-2">
-            <Search className="h-6 w-6 text-purple-600 mr-2" />
+            <Search className="h-6 w-6 text-yellow-600 mr-2" />
             <h4 className="font-bold text-gray-900">Lost in Translation</h4>
           </div>
           <p className="text-sm text-gray-700">
-            Shift handoff problems? <span className="font-bold text-purple-600">100% invisible</span> to your ERP. 
+            Shift handoff problems? <span className="font-bold text-yellow-600">100% invisible</span> to your ERP. 
             Nexus captures every transition issue.
           </p>
         </div>
@@ -216,7 +216,7 @@ export default function BlindSpotsReport() {
       </div>
 
       {/* Financial Impact */}
-      <div className="bg-gradient-to-r from-red-600 to-purple-600 rounded-xl shadow-lg p-6 text-white">
+      <div className="bg-gradient-to-r from-yellow-600 to-orange-600 rounded-xl shadow-lg p-6 text-white">
         <h3 className="text-2xl font-bold mb-4">The True Cost of Blindness</h3>
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
           <div className="bg-white/20 rounded-lg p-4 text-center">
