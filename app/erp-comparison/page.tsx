@@ -455,37 +455,6 @@ export default function ERPComparison() {
             </div>
           </div>
 
-          <div className="mt-12 bg-cyan-600 text-white rounded-xl p-8 text-center">
-            <h3 className="text-2xl font-bold mb-4">
-              Nexus: Enhancing Your ERP Investment
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-6">
-              <div>
-                <Zap className="h-8 w-8 mx-auto mb-2" />
-                <p className="font-semibold">Quick Setup</p>
-                <p className="text-sm text-cyan-100">Add intelligence without disruption</p>
-              </div>
-              <div>
-                <DollarSign className="h-8 w-8 mx-auto mb-2" />
-                <p className="font-semibold">Transparent Pricing</p>
-                <p className="text-sm text-cyan-100">Clear, predictable costs</p>
-              </div>
-              <div>
-                <Clock className="h-8 w-8 mx-auto mb-2" />
-                <p className="font-semibold">Fast ROI</p>
-                <p className="text-sm text-cyan-100">See value in 30 days</p>
-              </div>
-              <div>
-                <Users className="h-8 w-8 mx-auto mb-2" />
-                <p className="font-semibold">Works With Your ERP</p>
-                <p className="text-sm text-cyan-100">SAP, Oracle, Microsoft, any system</p>
-              </div>
-            </div>
-            <Link href="/" className="inline-flex items-center px-6 py-3 bg-white text-cyan-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-              See How Nexus Works
-              <ChevronRight className="h-5 w-5 ml-2" />
-            </Link>
-          </div>
         </div>
       </div>
 
@@ -499,14 +468,12 @@ export default function ERPComparison() {
             Add AI-powered intelligence that transforms your ERP data into actionable insights
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
-              href="https://aimpactnexus.ai/contact" 
-              target="_blank" 
-              rel="noopener noreferrer"
+            <Link 
+              href="/time-savings-calculator"
               className="px-8 py-3 bg-white text-cyan-700 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block text-center"
             >
-              Get ERP Enhancement Assessment
-            </a>
+              Calculate Your Time Savings
+            </Link>
             <Link 
               href="/entry"
               className="px-8 py-3 bg-cyan-700 text-white rounded-lg font-semibold hover:bg-cyan-800 transition-colors border border-cyan-500 inline-block text-center"

@@ -65,6 +65,9 @@ export default function TimeScrapReport() {
     { name: 'Operations Director', traditional: 120, nexus: 15 }
   ]
 
+  // Debug: Ensure data exists
+  console.log('monthlyScrapHours data:', monthlyScrapHours)
+
   const pieData = [
     { name: 'Reports & Analysis', value: 35, color: '#ef4444' },
     { name: 'Data Gathering', value: 25, color: '#f97316' },
@@ -120,20 +123,26 @@ export default function TimeScrapReport() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white rounded-xl shadow-lg p-6">
           <h3 className="text-xl font-bold text-gray-900 mb-4">Hours Scrapped by Role</h3>
-          <ResponsiveContainer width="100%" height={300}>
-            <BarChart data={monthlyScrapHours} layout="horizontal" margin={{ top: 5, right: 30, left: 5, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis type="number" domain={[0, 'dataMax + 10']} />
-              <YAxis dataKey="name" type="category" width={130} />
-              <Tooltip 
-                formatter={(value, name) => [`${value} hours/month`, name]}
-                labelFormatter={(name) => `Role: ${name}`}
-              />
-              <Legend />
-              <Bar dataKey="traditional" fill="#ef4444" name="Traditional ERP" />
-              <Bar dataKey="nexus" fill="#10b981" name="Nexus" />
-            </BarChart>
-          </ResponsiveContainer>
+          {monthlyScrapHours && monthlyScrapHours.length > 0 ? (
+            <ResponsiveContainer width="100%" height={300}>
+              <BarChart data={monthlyScrapHours} layout="horizontal" margin={{ top: 5, right: 30, left: 5, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis type="number" domain={[0, 140]} />
+                <YAxis dataKey="name" type="category" width={130} />
+                <Tooltip 
+                  formatter={(value, name) => [`${value} hours/month`, name]}
+                  labelFormatter={(name) => `Role: ${name}`}
+                />
+                <Legend />
+                <Bar dataKey="traditional" fill="#ef4444" name="Traditional ERP" />
+                <Bar dataKey="nexus" fill="#10b981" name="Nexus" />
+              </BarChart>
+            </ResponsiveContainer>
+          ) : (
+            <div className="h-[300px] flex items-center justify-center text-gray-500">
+              No data available
+            </div>
+          )}
         </div>
 
         <div className="bg-white rounded-xl shadow-lg p-6">
