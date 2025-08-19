@@ -80,8 +80,8 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
 
       {/* AI Assistant Sidebar */}
       <ResizableChatSidebar 
-        collapsed={isChatCollapsed}
-        onToggleCollapse={() => setIsChatCollapsed(!isChatCollapsed)}
+        isCollapsed={isChatCollapsed}
+        onCollapsedChange={() => setIsChatCollapsed(!isChatCollapsed)}
         width={chatWidth}
         onWidthChange={setChatWidth}
         isMobile={isMobile}

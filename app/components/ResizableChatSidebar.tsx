@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
 import { 
   MessageCircle, Send, X, Loader2, Factory, ChevronLeft, ChevronRight, 
-  GripVertical, Trash2, TrendingUp, AlertCircle, BarChart3
+  GripVertical, Trash2, TrendingUp, AlertCircle, BarChart3, Brain
 } from 'lucide-react'
 
 interface Message {
@@ -42,7 +42,7 @@ export default function ResizableChatSidebar({
   const [messages, setMessages] = useState<Message[]>(() => {
     // Load messages from localStorage
     if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('toledo-chat-messages')
+      const saved = localStorage.getItem('nexus-chat-messages')
       if (saved) {
         try {
           const parsed = JSON.parse(saved)
@@ -58,7 +58,7 @@ export default function ResizableChatSidebar({
     return [
       {
         role: 'assistant',
-        content: "👋 Hi! I'm your Toledo Tool & Die production assistant. I can help you with:\n\n• Current machine efficiency and performance\n• Hit tracker analysis and trends\n• Shift comparisons and recommendations\n• Die issues and maintenance alerts\n• Production targets and forecasts\n\nWhat would you like to know about your production floor?",
+        content: "👋 Hi! I'm your Nexus Manufacturing Intelligence assistant. I can help you with:\n\n• Real-time production analytics beyond traditional ERP\n• Predictive maintenance and failure prevention\n• AI-powered efficiency optimization\n• Pattern recognition for quality issues\n• Workforce and shift optimization\n• Cost savings identification\n\nHow can I help optimize your manufacturing operations?",
         timestamp: new Date()
       }
     ]
@@ -72,7 +72,7 @@ export default function ResizableChatSidebar({
   // Save messages to localStorage
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem('toledo-chat-messages', JSON.stringify(messages))
+      localStorage.setItem('nexus-chat-messages', JSON.stringify(messages))
     }
   }, [messages])
 
@@ -287,7 +287,7 @@ export default function ResizableChatSidebar({
         <div
           ref={resizeRef}
           onMouseDown={handleMouseDown}
-          className="absolute left-0 top-0 bottom-0 w-1 hover:w-2 bg-transparent hover:bg-orange-500/50 cursor-col-resize transition-all z-10 flex items-center justify-center"
+          className="absolute left-0 top-0 bottom-0 w-1 hover:w-2 bg-transparent hover:bg-cyan-500/50 cursor-col-resize transition-all z-10 flex items-center justify-center"
         >
           <div className="w-4 h-8 rounded bg-gray-400/50 opacity-0 hover:opacity-100 flex items-center justify-center">
             <GripVertical className="h-4 w-4 text-gray-600" />
@@ -296,12 +296,12 @@ export default function ResizableChatSidebar({
       )}
 
       {/* Header */}
-      <div className="bg-gradient-to-r from-orange-600 to-orange-700 text-white p-4 flex items-center justify-between">
+      <div className="bg-gradient-to-r from-cyan-600 to-teal-600 text-white p-4 flex items-center justify-between">
         <div className="flex items-center space-x-3">
-          <Factory className="w-6 h-6" />
+          <Brain className="w-6 h-6" />
           <div>
-            <h3 className="font-bold">Production Assistant</h3>
-            <p className="text-xs text-orange-100">Toledo Tool & Die AI</p>
+            <h3 className="font-bold">AI Manufacturing Intelligence</h3>
+            <p className="text-xs text-cyan-100">Nexus Precision Industries</p>
           </div>
         </div>
         <div className="flex items-center gap-1">
@@ -309,19 +309,19 @@ export default function ResizableChatSidebar({
             onClick={() => {
               setMessages([{
                 role: 'assistant',
-                content: "👋 Hi! I'm your Toledo Tool & Die production assistant. How can I help you today?",
+                content: "👋 Hi! I'm your Nexus Manufacturing Intelligence assistant. How can I help optimize your operations today?",
                 timestamp: new Date()
               }])
-              localStorage.removeItem('toledo-chat-messages')
+              localStorage.removeItem('nexus-chat-messages')
             }}
-            className="p-1.5 hover:bg-orange-800/50 rounded-lg transition-colors"
+            className="p-1.5 hover:bg-cyan-700/50 rounded-lg transition-colors"
             title="Clear conversation"
           >
             <Trash2 className="w-4 h-4" />
           </button>
           <button
             onClick={() => onCollapsedChange(true)}
-            className="p-1.5 hover:bg-orange-800/50 rounded-lg transition-colors"
+            className="p-1.5 hover:bg-cyan-700/50 rounded-lg transition-colors"
             title="Collapse (⌘/)"
           >
             <ChevronRight className="w-5 h-5" />
@@ -339,18 +339,18 @@ export default function ResizableChatSidebar({
               <div
                 className={`max-w-[80%] rounded-lg p-3 ${
                   msg.role === 'user'
-                    ? 'bg-orange-600 text-white'
+                    ? 'bg-cyan-600 text-white'
                     : 'bg-gray-100 text-gray-800'
                 }`}
               >
                 {msg.role === 'assistant' && (
                   <div className="flex items-center space-x-2 mb-1">
-                    <Factory className="w-4 h-4 text-orange-600" />
-                    <span className="text-xs font-semibold text-orange-600">AI Assistant</span>
+                    <Brain className="w-4 h-4 text-cyan-600" />
+                    <span className="text-xs font-semibold text-cyan-600">AI Assistant</span>
                   </div>
                 )}
                 <div className="whitespace-pre-wrap">{stripMarkdown(msg.content)}</div>
-                <div className={`text-xs mt-1 ${msg.role === 'user' ? 'text-orange-100' : 'text-gray-500'}`}>
+                <div className={`text-xs mt-1 ${msg.role === 'user' ? 'text-cyan-100' : 'text-gray-500'}`}>
                   {msg.timestamp.toLocaleTimeString()}
                 </div>
               </div>
@@ -365,7 +365,7 @@ export default function ResizableChatSidebar({
                     <button
                       key={sIdx}
                       onClick={() => handleSuggestionClick(suggestion)}
-                      className="text-xs bg-white hover:bg-orange-50 text-gray-600 hover:text-orange-700 px-2.5 py-1.5 rounded-md transition-all border border-gray-200 hover:border-orange-300 hover:shadow-sm"
+                      className="text-xs bg-white hover:bg-cyan-50 text-gray-600 hover:text-cyan-700 px-2.5 py-1.5 rounded-md transition-all border border-gray-200 hover:border-cyan-300 hover:shadow-sm"
                     >
                       {suggestion}
                     </button>
@@ -379,8 +379,8 @@ export default function ResizableChatSidebar({
         {loading && (
           <div className="flex justify-start">
             <div className="bg-gray-100 rounded-lg p-3 flex items-center space-x-2">
-              <Loader2 className="w-4 h-4 animate-spin text-orange-600" />
-              <span className="text-gray-600">Analyzing production data...</span>
+              <Loader2 className="w-4 h-4 animate-spin text-cyan-600" />
+              <span className="text-gray-600">Analyzing manufacturing intelligence...</span>
             </div>
           </div>
         )}
@@ -395,7 +395,7 @@ export default function ResizableChatSidebar({
               <button
                 key={idx}
                 onClick={() => handleSuggestionClick(question)}
-                className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-2.5 py-1.5 rounded-lg transition-colors border border-gray-200 hover:border-orange-300"
+                className="text-xs bg-gray-100 hover:bg-gray-200 text-gray-700 px-2.5 py-1.5 rounded-lg transition-colors border border-gray-200 hover:border-cyan-300"
               >
                 {question}
               </button>
@@ -412,14 +412,14 @@ export default function ResizableChatSidebar({
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={handleKeyPress}
-            placeholder="Ask about production metrics..."
-            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-600"
+            placeholder="Ask about manufacturing intelligence..."
+            className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-600"
             disabled={loading}
           />
           <button
             onClick={() => handleSend()}
             disabled={loading || !input.trim()}
-            className="bg-orange-600 text-white p-2 rounded-lg hover:bg-orange-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+            className="bg-cyan-600 text-white p-2 rounded-lg hover:bg-cyan-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             <Send className="w-5 h-5" />
           </button>
