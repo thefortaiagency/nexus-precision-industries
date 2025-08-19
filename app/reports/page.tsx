@@ -13,6 +13,8 @@ import HeroSection from '../components/HeroSection'
 const TimeScrapReport = dynamic(() => import('./time-scrap-report'), { ssr: false })
 const BlindSpotsReport = dynamic(() => import('./blind-spots-report'), { ssr: false })
 const ExcelHellReport = dynamic(() => import('./excel-hell-report'), { ssr: false })
+const HitRateReport = dynamic(() => import('./hit-rate-report'), { ssr: false })
+const FullVisionReport = dynamic(() => import('./full-vision-report'), { ssr: false })
 const NexusScrapAnalysis = dynamic(() => import('./nexus-scrap/page'), { ssr: false })
 const ExecutiveDashboard = dynamic(() => import('./executive-dashboard'), { ssr: false })
 const QualityPerformance = dynamic(() => import('./quality-performance'), { ssr: false })
@@ -272,18 +274,11 @@ export default function ReportsPage() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
       {/* Header */}
-      <div className="mb-4 sm:mb-6 md:mb-8 flex justify-between items-start">
+      <div className="mb-4 sm:mb-6 md:mb-8">
         <div>
           <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-1 sm:mb-2">The Hidden Cost of ERP Blindness</h1>
           <p className="text-sm sm:text-base text-gray-600">Traditional ERPs waste {totalWaste > 0 ? `${totalWaste} management hours monthly` : '220 hours monthly'} on reports instead of leadership</p>
         </div>
-        <a
-          href="/reports/import"
-          className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors font-medium text-sm"
-        >
-          <Upload className="h-4 w-4 mr-2" />
-          Import Data
-        </a>
       </div>
 
       {/* Report Selector - Clever ERP-bashing categories */}
@@ -365,6 +360,16 @@ export default function ReportsPage() {
       {/* Excel Hell Report - Spreadsheet Nightmare */}
       {selectedReport === 'excel-hell' && (
         <ExcelHellReport />
+      )}
+
+      {/* Hit Rate Report - Target Achievement */}
+      {selectedReport === 'hitting-targets' && (
+        <HitRateReport />
+      )}
+
+      {/* Full Vision Report - Complete Visibility */}
+      {selectedReport === 'full-vision' && (
+        <FullVisionReport />
       )}
 
       {/* Hit Tracker Table Report */}

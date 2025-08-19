@@ -76,7 +76,7 @@ export default function ExcelHellReport() {
   return (
     <div className="space-y-6">
       {/* Header Alert */}
-      <div className="bg-gradient-to-r from-orange-600 to-red-600 rounded-xl shadow-lg p-6 text-white">
+      <div className="bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl shadow-lg p-6 text-white">
         <div className="flex items-center mb-3">
           <XCircle className="h-8 w-8 mr-3 animate-spin" />
           <h2 className="text-2xl font-bold">CRITICAL: Excel Hell Detected</h2>
@@ -234,7 +234,7 @@ export default function ExcelHellReport() {
       </div>
 
       {/* The Solution */}
-      <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-xl shadow-lg p-6 text-white">
+      <div className="bg-gradient-to-r from-orange-600 to-amber-600 rounded-xl shadow-lg p-6 text-white">
         <h3 className="text-2xl font-bold mb-4">Escape Excel Hell Forever</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>

@@ -82,7 +82,7 @@ export default function TimeScrapReport() {
   return (
     <div className="space-y-6">
       {/* Header Alert */}
-      <div className="bg-gradient-to-r from-red-600 to-orange-600 rounded-xl shadow-lg p-6 text-white">
+      <div className="bg-gradient-to-r from-red-600 to-rose-600 rounded-xl shadow-lg p-6 text-white">
         <div className="flex items-center mb-3">
           <AlertCircle className="h-8 w-8 mr-3 animate-pulse" />
           <h2 className="text-2xl font-bold">CRITICAL: Time Scrap Alert</h2>
@@ -194,7 +194,7 @@ export default function TimeScrapReport() {
       </div>
 
       {/* Call to Action */}
-      <div className="bg-gradient-to-r from-green-600 to-blue-600 rounded-xl shadow-lg p-6 text-white text-center">
+      <div className="bg-gradient-to-r from-red-600 to-orange-600 rounded-xl shadow-lg p-6 text-white text-center">
         <h3 className="text-2xl font-bold mb-3">Stop Scrapping Time. Start Leading.</h3>
         <p className="text-lg mb-4">
           Nexus saves {totalMonthlySavings} management hours per month across your organization
