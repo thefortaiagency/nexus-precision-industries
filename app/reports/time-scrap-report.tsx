@@ -123,26 +123,31 @@ export default function TimeScrapReport() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div className="bg-white rounded-xl shadow-lg p-6">
           <h3 className="text-xl font-bold text-gray-900 mb-4">Hours Scrapped by Role</h3>
-          {monthlyScrapHours && monthlyScrapHours.length > 0 ? (
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={monthlyScrapHours} layout="horizontal" margin={{ top: 5, right: 30, left: 5, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" />
-                <XAxis type="number" domain={[0, 140]} />
-                <YAxis dataKey="name" type="category" width={130} />
-                <Tooltip 
-                  formatter={(value, name) => [`${value} hours/month`, name]}
-                  labelFormatter={(name) => `Role: ${name}`}
-                />
-                <Legend />
-                <Bar dataKey="traditional" fill="#ef4444" name="Traditional ERP" />
-                <Bar dataKey="nexus" fill="#10b981" name="Nexus" />
-              </BarChart>
-            </ResponsiveContainer>
-          ) : (
-            <div className="h-[300px] flex items-center justify-center text-gray-500">
-              No data available
-            </div>
-          )}
+          <div className="mb-4">
+            <p className="text-sm text-gray-600">Monthly hours wasted on manual tasks per role</p>
+          </div>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={monthlyScrapHours} margin={{ top: 20, right: 30, left: 20, bottom: 60 }}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis 
+                dataKey="name" 
+                angle={-45}
+                textAnchor="end"
+                height={60}
+                fontSize={12}
+              />
+              <YAxis 
+                label={{ value: 'Hours/Month', angle: -90, position: 'insideLeft' }}
+              />
+              <Tooltip 
+                formatter={(value, name) => [`${value} hours/month`, name]}
+                labelFormatter={(name) => `Role: ${name}`}
+              />
+              <Legend />
+              <Bar dataKey="traditional" fill="#ef4444" name="Traditional ERP" />
+              <Bar dataKey="nexus" fill="#10b981" name="Nexus" />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
 
         <div className="bg-white rounded-xl shadow-lg p-6">
