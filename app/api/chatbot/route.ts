@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
 import { knowledgeBase } from '@/lib/knowledge-base'
 
-// Initialize OpenAI client
-const openai = new OpenAI({
+// Initialize OpenAI client conditionally
+const openai = process.env.OPENAI_API_KEY ? new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
-})
+}) : null
 
 // Demo chatbot responses for Nexus Precision Industries (fallback)
 const demoResponses: Record<string, string> = {
@@ -151,13 +151,16 @@ For a personalized demonstration with your actual ERP data and specific use case
 }
 
 export async function POST(req: NextRequest) {
+  let userMessage = ''
+  
   try {
-    const { message, history } = await req.json()
+    const { message, history }: { message: string; history: any[] } = await req.json()
+    userMessage = message
 
     // Check if OpenAI is available
-    if (!process.env.OPENAI_API_KEY) {
-      console.log('OpenAI API key not found, using fallback responses')
-      return getFallbackResponse(message)
+    if (!openai) {
+      console.log('OpenAI not available, using fallback responses')
+      return getFallbackResponse(userMessage)
     }
 
     // Build system prompt with comprehensive knowledge base
@@ -188,7 +191,7 @@ Keep responses concise but informative. Use emojis sparingly for visual appeal.`
         role: msg.role === 'assistant' ? 'assistant' : 'user',
         content: msg.content
       })),
-      { role: 'user', content: message }
+      { role: 'user', content: userMessage }
     ]
 
     // Call OpenAI API
@@ -216,7 +219,7 @@ Keep responses concise but informative. Use emojis sparingly for visual appeal.`
     // Fall back to demo responses if OpenAI fails
     if (error instanceof Error && error.message.includes('OpenAI')) {
       console.log('OpenAI error, falling back to demo responses')
-      return getFallbackResponse(message || '')
+      return getFallbackResponse(userMessage || '')
     }
 
     return NextResponse.json(

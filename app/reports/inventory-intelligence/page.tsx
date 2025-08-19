@@ -547,10 +547,14 @@ export default function InventoryIntelligencePage() {
                 See Your Time Savings
                 <ChevronRight className="h-5 w-5 ml-2" />
               </a>
-              <button className="inline-flex items-center px-8 py-3 bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-400 transition-all">
+              <a 
+                href="/nexus-sample-report.pdf" 
+                download="Nexus-Inventory-Intelligence-Report.pdf"
+                className="inline-flex items-center px-8 py-3 bg-purple-500 text-white rounded-lg font-semibold hover:bg-purple-400 transition-all"
+              >
                 <FileSpreadsheet className="h-5 w-5 mr-2" />
                 Download Comparison Report
-              </button>
+              </a>
             </div>
           </div>
         </div>

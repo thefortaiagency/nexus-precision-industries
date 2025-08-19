@@ -381,10 +381,14 @@ export default function AIReportsPage() {
               <ChevronRight className="h-5 w-5 mr-2" />
               Schedule Your AI Demo
             </Link>
-            <button className="px-8 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-colors flex items-center">
+            <a 
+              href="/nexus-sample-report.pdf" 
+              download="Nexus-Manufacturing-Intelligence-Sample-Report.pdf"
+              className="px-8 py-3 bg-gray-100 text-gray-700 rounded-lg font-semibold hover:bg-gray-200 transition-colors flex items-center"
+            >
               <Download className="h-5 w-5 mr-2" />
               Download Sample Report
-            </button>
+            </a>
           </div>
           <p className="text-sm text-gray-700 mt-4">
             No credit card required • 30-day implementation • ROI guaranteed
