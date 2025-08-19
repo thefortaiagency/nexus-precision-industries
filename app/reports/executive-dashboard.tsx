@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { TrendingUp, TrendingDown, AlertTriangle, CheckCircle, DollarSign, Clock, Activity, Target } from 'lucide-react'
-import { getExecutiveSummary, getStatusColor } from '../data/pioneer-metrics'
+import { getExecutiveSummary, getStatusColor } from '../data/nexus-metrics'
 
 export default function ExecutiveDashboard() {
   const summary = getExecutiveSummary()

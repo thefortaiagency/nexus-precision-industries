@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts'
 import { TrendingDown, TrendingUp, DollarSign, AlertCircle, Target, CheckCircle } from 'lucide-react'
-import { qualityMetrics } from '../data/pioneer-metrics'
+import { qualityMetrics } from '../data/nexus-metrics'
 
 export default function QualityPerformance() {
   const [selectedMetric, setSelectedMetric] = useState('all')

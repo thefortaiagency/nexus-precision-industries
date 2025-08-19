@@ -279,7 +279,7 @@ export default function ResizableChatSidebar({
 
   return (
     <div 
-      className="h-full bg-white flex flex-col relative border-l border-gray-200"
+      className="h-screen bg-white flex flex-col relative border-l border-gray-200 pointer-events-auto"
       style={{ width: `${width}px`, flexShrink: 0 }}
     >
       {/* Resize Handle - Hide on mobile */}

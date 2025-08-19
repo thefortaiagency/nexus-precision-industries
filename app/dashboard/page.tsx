@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts'
 import { Activity, TrendingUp, AlertCircle, CheckCircle, Factory, Users, Package, Clock, X } from 'lucide-react'
 import { formatNumber, formatPercent, formatDate, getEfficiencyColor, getEfficiencyBgColor } from '@/lib/utils'
+import Navigation from '../components/Navigation'
 
 export default function Dashboard() {
   const [loading, setLoading] = useState(true)
@@ -402,11 +403,13 @@ export default function Dashboard() {
   const COLORS = ['#f97316', '#64748b', '#0ea5e9', '#fb923c', '#f59e0b', '#8b5cf6']
 
   return (
-    <div className="p-8">
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Production Dashboard</h1>
-        <p className="text-gray-600 mt-2">Manufacturing metrics from the last 7 days</p>
-      </div>
+    <div className="min-h-screen bg-gray-50">
+      <Navigation />
+      <div className="p-8">
+        <div className="mb-8">
+          <h1 className="text-3xl font-bold text-gray-900">Production Dashboard</h1>
+          <p className="text-gray-600 mt-2">Manufacturing metrics from the last 7 days</p>
+        </div>
       
       {/* Key Metrics Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 mb-8">
@@ -861,6 +864,7 @@ export default function Dashboard() {
           </div>
         </div>
       )}
+      </div>
     </div>
   )
 }

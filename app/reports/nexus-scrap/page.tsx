@@ -12,7 +12,7 @@ import {
 } from 'recharts'
 import { Download, TrendingUp, TrendingDown, DollarSign, Package, AlertTriangle, Activity } from 'lucide-react'
 
-interface PioneerScrapData {
+interface NexusScrapData {
   id: string
   part_number: string
   operation: string
@@ -41,8 +41,8 @@ interface OperationAnalysis {
 
 const COLORS = ['#3b82f6', '#ef4444', '#f59e0b', '#10b981', '#8b5cf6', '#f97316']
 
-export default function PioneerScrapReport() {
-  const [data, setData] = useState<PioneerScrapData[]>([])
+export default function NexusScrapReport() {
+  const [data, setData] = useState<NexusScrapData[]>([])
   const [monthlyTrends, setMonthlyTrends] = useState<MonthlyTrend[]>([])
   const [operationAnalysis, setOperationAnalysis] = useState<OperationAnalysis[]>([])
   const [loading, setLoading] = useState(true)
@@ -57,14 +57,14 @@ export default function PioneerScrapReport() {
   })
 
   useEffect(() => {
-    fetchPioneerData()
+    fetchNexusData()
   }, [selectedMonth, selectedWorkcenter])
 
-  const fetchPioneerData = async () => {
+  const fetchNexusData = async () => {
     try {
       setLoading(true)
       const params = new URLSearchParams({
-        source: 'Pioneer',
+        source: 'Nexus',
         ...(selectedMonth !== 'all' && { month: selectedMonth }),
         ...(selectedWorkcenter !== 'all' && { workcenter: selectedWorkcenter })
       })
@@ -78,9 +78,9 @@ export default function PioneerScrapReport() {
         setOperationAnalysis(result.operationAnalysis || [])
         
         // Calculate metrics
-        const totalQuantity = result.data.reduce((sum: number, item: PioneerScrapData) => sum + item.quantity, 0)
-        const totalCost = result.data.reduce((sum: number, item: PioneerScrapData) => sum + item.extended_cost, 0)
-        const uniqueParts = new Set(result.data.map((item: PioneerScrapData) => item.part_number)).size
+        const totalQuantity = result.data.reduce((sum: number, item: NexusScrapData) => sum + item.quantity, 0)
+        const totalCost = result.data.reduce((sum: number, item: NexusScrapData) => sum + item.extended_cost, 0)
+        const uniqueParts = new Set(result.data.map((item: NexusScrapData) => item.part_number)).size
         
         setTotalMetrics({
           totalQuantity,
@@ -90,7 +90,7 @@ export default function PioneerScrapReport() {
         })
       }
     } catch (error) {
-      console.error('Error fetching Pioneer scrap data:', error)
+      console.error('Error fetching Nexus scrap data:', error)
     } finally {
       setLoading(false)
     }
@@ -164,8 +164,8 @@ export default function PioneerScrapReport() {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Pioneer Scrap Analysis</h1>
-          <p className="text-gray-600 mt-2">Detailed scrap analysis for Pioneer operations</p>
+          <h1 className="text-3xl font-bold text-gray-900">Nexus Scrap Analysis</h1>
+          <p className="text-gray-600 mt-2">Detailed scrap analysis for Nexus operations</p>
         </div>
         <Button onClick={exportToCSV} className="flex items-center gap-2">
           <Download className="h-4 w-4" />
@@ -270,7 +270,7 @@ export default function PioneerScrapReport() {
           <Card>
             <CardHeader>
               <CardTitle>Monthly Scrap Trends</CardTitle>
-              <CardDescription>Pioneer scrap quantity and cost over time</CardDescription>
+              <CardDescription>Nexus scrap quantity and cost over time</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={400}>
@@ -298,7 +298,7 @@ export default function PioneerScrapReport() {
           <Card>
             <CardHeader>
               <CardTitle>Scrap by Operation</CardTitle>
-              <CardDescription>Pioneer scrap analysis grouped by operation</CardDescription>
+              <CardDescription>Nexus scrap analysis grouped by operation</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={400}>
@@ -323,7 +323,7 @@ export default function PioneerScrapReport() {
           <Card>
             <CardHeader>
               <CardTitle>Top Scrapped Parts</CardTitle>
-              <CardDescription>Parts with highest scrap cost in Pioneer operations</CardDescription>
+              <CardDescription>Parts with highest scrap cost in Nexus operations</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -351,7 +351,7 @@ export default function PioneerScrapReport() {
           <Card>
             <CardHeader>
               <CardTitle>Scrap by Workcenter</CardTitle>
-              <CardDescription>Pioneer scrap distribution across workcenters</CardDescription>
+              <CardDescription>Nexus scrap distribution across workcenters</CardDescription>
             </CardHeader>
             <CardContent>
               <ResponsiveContainer width="100%" height={400}>

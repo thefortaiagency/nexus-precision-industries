@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, PieChart, Pie, Cell } from 'recharts'
 import { Clock, AlertTriangle, DollarSign, TrendingUp, TrendingDown, Wrench } from 'lucide-react'
-import { machineDowntimeData, maintenanceBreakdown } from '../data/pioneer-metrics'
+import { machineDowntimeData, maintenanceBreakdown } from '../data/nexus-metrics'
 
 export default function MachineDowntimeAnalysis() {
   const [selectedMachine, setSelectedMachine] = useState('all')

@@ -1,4 +1,4 @@
-// Pioneer Excel Data - Extracted and Structured for Reports
+// Nexus Manufacturing Data - Extracted and Structured for Reports
 // Data from 2024 baseline and 2025 Q1/Q2
 
 export interface MetricData {

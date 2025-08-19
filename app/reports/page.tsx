@@ -6,9 +6,10 @@ import { LineChart, Line, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, L
 import HitTrackerTable from './hit-tracker-table'
 import HitTrackerAccurate from './hit-tracker-accurate'
 import dynamic from 'next/dynamic'
+import Navigation from '../components/Navigation'
 
 // Scrap Analysis now has its own dedicated page at /scrap-analysis
-const PioneerScrapAnalysis = dynamic(() => import('./pioneer-scrap/page'), { ssr: false })
+const NexusScrapAnalysis = dynamic(() => import('./nexus-scrap/page'), { ssr: false })
 const ExecutiveDashboard = dynamic(() => import('./executive-dashboard'), { ssr: false })
 const QualityPerformance = dynamic(() => import('./quality-performance'), { ssr: false })
 const MachineDowntime = dynamic(() => import('./machine-downtime'), { ssr: false })
@@ -85,7 +86,9 @@ export default function ReportsPage() {
   const COLORS = ['#f97316', '#10b981', '#3b82f6', '#8b5cf6']
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
+    <div className="min-h-screen bg-gray-50">
+      <Navigation />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 md:py-8">
       {/* Header */}
       <div className="mb-4 sm:mb-6 md:mb-8 flex justify-between items-start">
         <div>
@@ -156,15 +159,15 @@ export default function ReportsPage() {
             <span className="text-center">Scrap</span>
           </a>
           <button
-            onClick={() => setSelectedReport('pioneer-scrap')}
+            onClick={() => setSelectedReport('nexus-scrap')}
             className={`px-2 sm:px-3 py-2 sm:py-2.5 rounded-lg font-medium transition-colors flex flex-col sm:flex-row items-center justify-center text-xs sm:text-sm ${
-              selectedReport === 'pioneer-scrap' 
+              selectedReport === 'nexus-scrap' 
                 ? 'bg-orange-600 text-white' 
                 : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
             }`}
           >
             <Factory className="w-4 h-4 sm:mr-1.5 mb-1 sm:mb-0" />
-            <span className="text-center">Pioneer</span>
+            <span className="text-center">Nexus</span>
           </button>
           <button
             onClick={() => setSelectedReport('executive')}
@@ -477,9 +480,9 @@ export default function ReportsPage() {
 
       {/* Scrap Analysis - Redirects to dedicated page */}
 
-      {/* Pioneer Scrap Analysis Report */}
-      {selectedReport === 'pioneer-scrap' && (
-        <PioneerScrapAnalysis />
+      {/* Nexus Scrap Analysis Report */}
+      {selectedReport === 'nexus-scrap' && (
+        <NexusScrapAnalysis />
       )}
 
       {/* Executive Dashboard */}
@@ -511,6 +514,7 @@ export default function ReportsPage() {
       {selectedReport === 'manning' && (
         <ManningReport />
       )}
+      </div>
     </div>
   )
 }

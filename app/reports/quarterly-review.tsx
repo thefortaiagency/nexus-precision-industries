@@ -3,7 +3,7 @@
 import React, { useState } from 'react'
 import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, RadialBarChart, RadialBar, PolarAngleAxis } from 'recharts'
 import { TrendingUp, TrendingDown, CheckCircle, AlertTriangle, Target, Calendar, DollarSign, Award } from 'lucide-react'
-import { qualityMetrics, machineDowntimeData, getExecutiveSummary } from '../data/pioneer-metrics'
+import { qualityMetrics, machineDowntimeData, getExecutiveSummary } from '../data/nexus-metrics'
 
 export default function QuarterlyBusinessReview() {
   const [selectedQuarter, setSelectedQuarter] = useState('Q2')
