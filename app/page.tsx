@@ -46,6 +46,9 @@ export default function Home() {
             </div>
             <div className="hidden md:flex items-center space-x-6">
               <Link href="/" className="text-gray-600 hover:text-cyan-600 transition-colors">Home</Link>
+              <Link href="/erp-comparison" className="px-3 py-1 bg-gradient-to-r from-red-500 to-orange-500 text-white rounded-lg font-medium hover:from-red-600 hover:to-orange-600 transition-all">
+                ERP Comparison
+              </Link>
               <Link href="/dashboard" className="text-gray-600 hover:text-cyan-600 transition-colors">Dashboard</Link>
               <Link href="/reports" className="text-gray-600 hover:text-cyan-600 transition-colors">Reports</Link>
               <Link href="/ai-reports" className="px-3 py-1 bg-gradient-to-r from-cyan-500 to-teal-500 text-white rounded-lg font-medium hover:from-cyan-600 hover:to-teal-600 transition-all flex items-center">
@@ -63,71 +66,70 @@ export default function Home() {
       </nav>
 
       {/* Hero Section with Platform Factory Background */}
-      <div className="relative bg-gradient-to-br from-cyan-600 to-teal-700 text-white overflow-hidden">
-        {/* Background Image - Brightened */}
-        <div className="absolute inset-0 opacity-40">
+      <div className="relative bg-white text-gray-900 overflow-hidden">
+        {/* Background Image - Faded without overlay */}
+        <div className="absolute inset-0 opacity-30">
           <Image 
             src="/images/hero-transformation.png" 
             alt="Platform Factory" 
             fill
-            className="object-cover brightness-110"
+            className="object-cover brightness-125"
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-cyan-900/60 via-cyan-800/50 to-teal-900/60"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-gray-900">
               Manufacturing Intelligence Platform
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-cyan-100">
+            <p className="text-xl md:text-2xl mb-8 text-gray-700">
               Transform your ERP data into AI-powered insights and actionable intelligence
             </p>
             
             {/* ERP Integration Banner */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-4xl mx-auto">
-              <h2 className="text-2xl font-bold mb-4">Enhancing Your Existing ERP System</h2>
+            <div className="bg-white/90 backdrop-blur-sm rounded-xl p-6 mb-8 max-w-4xl mx-auto shadow-lg border border-gray-200">
+              <h2 className="text-2xl font-bold mb-4 text-gray-900">Enhancing Your Existing ERP System</h2>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4 text-center">
-                <div className="bg-white/10 rounded-lg p-3">
-                  <div className="font-semibold">HubSpot</div>
-                  <div className="text-sm text-cyan-200">Advanced analytics</div>
+                <div className="bg-cyan-50 rounded-lg p-3 border border-cyan-200">
+                  <div className="font-semibold text-gray-800">HubSpot</div>
+                  <div className="text-sm text-cyan-700">Advanced analytics</div>
                 </div>
-                <div className="bg-white/10 rounded-lg p-3">
-                  <div className="font-semibold">Plex</div>
-                  <div className="text-sm text-cyan-200">AI predictions</div>
+                <div className="bg-cyan-50 rounded-lg p-3 border border-cyan-200">
+                  <div className="font-semibold text-gray-800">Plex</div>
+                  <div className="text-sm text-cyan-700">AI predictions</div>
                 </div>
-                <div className="bg-white/10 rounded-lg p-3">
-                  <div className="font-semibold">SAP</div>
-                  <div className="text-sm text-cyan-200">Custom reports</div>
+                <div className="bg-cyan-50 rounded-lg p-3 border border-cyan-200">
+                  <div className="font-semibold text-gray-800">SAP</div>
+                  <div className="text-sm text-cyan-700">Custom reports</div>
                 </div>
-                <div className="bg-white/10 rounded-lg p-3">
-                  <div className="font-semibold">Oracle</div>
-                  <div className="text-sm text-cyan-200">Real-time insights</div>
+                <div className="bg-cyan-50 rounded-lg p-3 border border-cyan-200">
+                  <div className="font-semibold text-gray-800">Oracle</div>
+                  <div className="text-sm text-cyan-700">Real-time insights</div>
                 </div>
-                <div className="bg-white/10 rounded-lg p-3">
-                  <div className="font-semibold">NetSuite</div>
-                  <div className="text-sm text-cyan-200">Pattern detection</div>
+                <div className="bg-cyan-50 rounded-lg p-3 border border-cyan-200">
+                  <div className="font-semibold text-gray-800">NetSuite</div>
+                  <div className="text-sm text-cyan-700">Pattern detection</div>
                 </div>
               </div>
             </div>
 
-            <div className="flex flex-wrap justify-center gap-8 text-white">
+            <div className="flex flex-wrap justify-center gap-8">
               <div className="text-center">
-                <div className="text-3xl font-bold">{stats.productionRecords.toLocaleString()}+</div>
-                <div className="text-sm text-cyan-100">Production Records</div>
+                <div className="text-3xl font-bold text-gray-900">{stats.productionRecords.toLocaleString()}+</div>
+                <div className="text-sm text-gray-600">Production Records</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">24/7</div>
-                <div className="text-sm text-cyan-100">Real-Time Tracking</div>
+                <div className="text-3xl font-bold text-gray-900">24/7</div>
+                <div className="text-sm text-gray-600">Real-Time Tracking</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">{stats.machines}</div>
-                <div className="text-sm text-cyan-100">Production Lines</div>
+                <div className="text-3xl font-bold text-gray-900">{stats.machines}</div>
+                <div className="text-sm text-gray-600">Production Lines</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold">{stats.efficiency}</div>
-                <div className="text-sm text-cyan-100">Overall Efficiency</div>
+                <div className="text-3xl font-bold text-gray-900">{stats.efficiency}</div>
+                <div className="text-sm text-gray-600">Overall Efficiency</div>
               </div>
             </div>
           </div>
