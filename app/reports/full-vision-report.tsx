@@ -117,11 +117,11 @@ export default function FullVisionReport() {
           <ResponsiveContainer width="100%" height={350}>
             <RadarChart data={visionComparison}>
               <PolarGrid strokeDasharray="3 3" />
-              <PolarAngleAxis dataKey="dimension" className="text-xs" />
-              <PolarRadiusAxis angle={90} domain={[0, 100]} className="text-xs" />
+              <PolarAngleAxis dataKey="dimension" tick={{ fill: '#374151', fontSize: 12 }} />
+              <PolarRadiusAxis angle={90} domain={[0, 100]} tick={{ fill: '#374151', fontSize: 10 }} />
               <RechartsRadar name="ERP Vision" dataKey="erp" stroke="#ef4444" fill="#ef4444" fillOpacity={0.3} strokeWidth={2} />
               <RechartsRadar name="Nexus Vision" dataKey="nexus" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.3} strokeWidth={2} />
-              <Legend />
+              <Legend wrapperStyle={{ color: '#1f2937' }} />
               <Tooltip />
             </RadarChart>
           </ResponsiveContainer>
@@ -135,10 +135,10 @@ export default function FullVisionReport() {
           <ResponsiveContainer width="100%" height={350}>
             <AreaChart data={visionEvolution}>
               <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="week" />
-              <YAxis domain={[0, 100]} />
+              <XAxis dataKey="week" tick={{ fill: '#374151' }} />
+              <YAxis domain={[0, 100]} tick={{ fill: '#374151' }} />
               <Tooltip />
-              <Legend />
+              <Legend wrapperStyle={{ color: '#1f2937' }} />
               <Area type="monotone" dataKey="erpClarity" stroke="#ef4444" fill="#ef4444" fillOpacity={0.3} name="ERP Clarity %" />
               <Area type="monotone" dataKey="nexusClarity" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.6} name="Nexus Clarity %" />
             </AreaChart>
@@ -155,10 +155,10 @@ export default function FullVisionReport() {
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={visionCategories}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
+            <XAxis dataKey="name" tick={{ fill: '#374151' }} />
+            <YAxis tick={{ fill: '#374151' }} />
             <Tooltip />
-            <Legend />
+            <Legend wrapperStyle={{ color: '#1f2937' }} />
             <Bar dataKey="erp" fill="#ef4444" name="ERP Capability %" />
             <Bar dataKey="nexus" fill="#3b82f6" name="Nexus Capability %" />
           </BarChart>
@@ -175,19 +175,19 @@ export default function FullVisionReport() {
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
                   Visibility Category
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
                   ERP Vision %
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
                   Nexus Vision %
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
                   Monthly Cost of Blindness
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
                   Impact Level
                 </th>
               </tr>
@@ -198,7 +198,7 @@ export default function FullVisionReport() {
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div>
                       <div className="text-sm font-medium text-gray-900">{item.category}</div>
-                      <div className="text-sm text-gray-700">{item.description}</div>
+                      <div className="text-sm text-gray-800">{item.description}</div>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-center">
