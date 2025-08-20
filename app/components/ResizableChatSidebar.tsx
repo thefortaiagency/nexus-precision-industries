@@ -58,7 +58,7 @@ export default function ResizableChatSidebar({
     return [
       {
         role: 'assistant',
-        content: "👋 Hi! I'm your Nexus Manufacturing Intelligence assistant. I can help you with:\n\n• Real-time production analytics beyond traditional ERP\n• Predictive maintenance and failure prevention\n• AI-powered efficiency optimization\n• Pattern recognition for quality issues\n• Workforce and shift optimization\n• Cost savings identification\n\nHow can I help optimize your manufacturing operations?",
+        content: "👋 Hi! I'm your Nexus AI assistant. I help organizations save 220+ hours of management time monthly by adding intelligence to existing ERP systems.\n\nI can help you with:\n• How Nexus enhances your current ERP (SAP, Oracle, Microsoft)\n• Calculate your potential ROI and time savings\n• Our 30-day implementation process\n• Pricing and deployment options\n• See how we're 98% faster than traditional reporting\n\nWhat would you like to know about transforming your ERP with AI?",
         timestamp: new Date()
       }
     ]
@@ -136,69 +136,69 @@ export default function ResizableChatSidebar({
     const lastMessage = lastMessageContent || messages[messages.length - 1]?.content?.toLowerCase() || ''
     
     // Context-aware suggestions
-    if (lastMessage.includes('efficiency') || lastMessage.includes('performance')) {
+    if (lastMessage.includes('erp') || lastMessage.includes('sap') || lastMessage.includes('oracle')) {
       return [
-        "Compare efficiency across all machines",
-        "Show me today's performance trends",
-        "What's causing efficiency drops?",
-        "How can we improve efficiency?",
-        "Which machine has best efficiency?",
-        "Show efficiency by shift"
+        "Which ERPs are compatible?",
+        "How does integration work?",
+        "Will it disrupt my current ERP?",
+        "What data does Nexus extract?",
+        "Can I keep my existing workflows?",
+        "Show integration timeline"
       ]
     }
     
-    if (lastMessage.includes('shift') || lastMessage.includes('operator')) {
+    if (lastMessage.includes('time') || lastMessage.includes('save') || lastMessage.includes('hour')) {
       return [
-        "Which operators are performing best?",
-        "Compare all shifts this week",
-        "Show shift change impact on production",
-        "Who needs additional training?",
-        "Best shift for each machine",
-        "Operator efficiency rankings"
+        "Calculate my time savings",
+        "How do you achieve 220 hours saved?",
+        "Show ROI calculator",
+        "What tasks are automated?",
+        "Compare manual vs Nexus reporting",
+        "Management time breakdown"
       ]
     }
     
-    if (lastMessage.includes('die') || lastMessage.includes('maintenance')) {
+    if (lastMessage.includes('cost') || lastMessage.includes('price') || lastMessage.includes('roi')) {
       return [
-        "What dies need replacement?",
-        "Show maintenance schedule",
-        "Which machines have most downtime?",
-        "Predict next maintenance needs",
-        "Die change frequency analysis",
-        "Maintenance cost breakdown"
+        "What's the pricing structure?",
+        "Calculate my ROI",
+        "Compare costs vs new ERP",
+        "What's included in pricing?",
+        "Show payment options",
+        "Get a custom quote"
       ]
     }
     
-    if (lastMessage.includes('scrap') || lastMessage.includes('quality')) {
+    if (lastMessage.includes('report') || lastMessage.includes('analytic')) {
       return [
-        "What's our scrap rate trend?",
-        "Which parts have highest scrap?",
-        "Root cause of quality issues",
-        "Compare scrap rates by shift",
-        "Quality improvement suggestions",
-        "Scrap cost analysis"
+        "What reports can Nexus generate?",
+        "How fast is report generation?",
+        "Can I customize reports?",
+        "Show sample reports",
+        "Natural language queries explained",
+        "Export options available"
       ]
     }
 
-    if (lastMessage.includes('production') || lastMessage.includes('target')) {
+    if (lastMessage.includes('implement') || lastMessage.includes('deploy')) {
       return [
-        "Are we meeting production targets?",
-        "Show target vs actual by machine",
-        "Weekly production summary",
-        "Which machines are behind target?",
-        "Production forecast for this week",
-        "Target achievement by shift"
+        "How long is implementation?",
+        "What's the deployment process?",
+        "Do you provide training?",
+        "Will there be downtime?",
+        "What support is included?",
+        "Implementation requirements"
       ]
     }
     
     // Default suggestions
     return [
-      "What's the current efficiency for 600 Ton?",
-      "Which shift is performing best today?",
-      "Show me die issues from this week",
-      "What machines need maintenance?",
-      "Compare this week to last week",
-      "Show production targets vs actual"
+      "How does Nexus integrate with my ERP?",
+      "What's the ROI timeline?",
+      "Show me pricing options",
+      "How much time will managers save?",
+      "Compare Nexus vs new ERP",
+      "Schedule a personalized demo"
     ]
   }
 
@@ -309,7 +309,7 @@ export default function ResizableChatSidebar({
             onClick={() => {
               setMessages([{
                 role: 'assistant',
-                content: "👋 Hi! I'm your Nexus Manufacturing Intelligence assistant. How can I help optimize your operations today?",
+                content: "👋 Hi! I'm your Nexus AI assistant. How can I help you save time and money with intelligent ERP enhancement?",
                 timestamp: new Date()
               }])
               localStorage.removeItem('nexus-chat-messages')
